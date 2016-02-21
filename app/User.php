@@ -11,7 +11,7 @@ class User extends EloquentUser
      *
      * @var array
      */
-    protected $fillable = [
+    protected $fillable=[
         'name', 'email', 'password',
     ];
 
@@ -20,7 +20,25 @@ class User extends EloquentUser
      *
      * @var array
      */
-    protected $hidden = [
+    protected $hidden=[
         'password', 'remember_token',
     ];
+
+    public function theroles()
+    {
+        return $this->belongsToMany('App\Role', 'role_users', 'user_id', 'role_id');
+    }
+
+    public function setTherolesAttribute($roles)
+    {
+        $this->theroles()->detach();
+        if(!$roles) return;
+        if(!$this->exists) $this->save();
+        $this->theroles()->attach($roles);
+    }
+
+    public function getTherolesAttribute($roles)
+    {
+        return array_pluck($this->theroles()->get([ 'id' ])->toArray(), 'id');
+    }
 }
