@@ -1,0 +1,35 @@
+.rubric {
+    text-align: center;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.top-space {
+    margin-top: 0;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+.jumbotron-archive{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.white{
+    color: white;
+}
+.background-abstract{
+    padding-top: 5px;
+}
+.lead{
+    font-size: 21px;
+}
+.map{
+    padding: 5%;
+}
+.jumbotron{
+    background-color: rgba(166, 166, 166, 0.26);
+}
