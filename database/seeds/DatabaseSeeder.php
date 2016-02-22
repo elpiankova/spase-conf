@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(ConfinfoSeeder::class);
         $this->call(ConfabstractSeeder::class);
+        $this->call(ConfdescriptionSeeder::class);
     }
 }

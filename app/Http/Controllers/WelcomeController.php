@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Archive;
 use App\Confabstract;
+use App\Confdescription;
 use App\Confinfo;
 use App\Index;
 use App\Сategory;
@@ -54,7 +55,8 @@ class WelcomeController extends Controller
 
     public function confPlace()
     {
-        return view('public.conference.place', [ 'page'=>'conference_place' ]);
+        $places = Confdescription::get();
+        return view('public.conference.place', [ 'page'=>'conference_place', 'places'=>$places ]);
     }
 
     public function confCommittee()
