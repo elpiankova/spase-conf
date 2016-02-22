@@ -9,12 +9,17 @@
 namespace App\Http\Controllers;
 
 
+use App\Index;
+use Illuminate\Support\Facades\App;
+
 class WelcomeController extends Controller
 {
 
-    public function index()
+    public function index(Index $index)
     {
-        return view('public.index', [ 'page'=>'index' ]);
+        $text=Index::find('1');
+
+        return view('public.index', [ 'page'=>'index', 'text'=>$text ]);
     }
 
     public function archive()

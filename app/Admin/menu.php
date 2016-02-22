@@ -4,8 +4,7 @@ Admin::menu()->label('Сайт')->icon('fa-desktop')->items(function ()
 {
     Admin::menu()->label('Головна')->icon('fa-desktop')->items(function ()
     {
-        Admin::menu(App\User::class)->label('Слайд')->icon('fa-key');
-        Admin::menu(App\User::class)->label('Сторінка')->icon('fa-graduation-cap');
+        Admin::menu(App\Index::class)->label('Сторінка')->icon('fa-graduation-cap');
         Admin::menu(App\User::class)->label('Рубрики')->icon('fa-user');
     });
 
