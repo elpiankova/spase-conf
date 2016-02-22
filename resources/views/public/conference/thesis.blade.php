@@ -6,7 +6,7 @@
 
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="index.html">Головна</a></li>
+            <li><a href="/">Головна</a></li>
             <li class="active">Тези</li>
         </ol>
 
@@ -22,17 +22,13 @@
                     <div class="row">
                         <div class="col-sm-6">
 
-                            <h2>Вимоги до оформлення тез</h2>
-                            <h4>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere
-                                magni
-                                ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia
-                                perspiciatis at
-                                voluptatibus. Libero, aliquid illum possimus numquam fuga.</h4>
+                            <h2>{{$thesis->TextTrans('title')}}</h2>
+                            <h4>{{$thesis->TextTrans('text')}}</h4>
 
                         </div>
                         <div class="col-sm-6">
-                            <img src="/assets/images/Kosmicheskiy_proekt_Ionosat-Mikro-COVER.jpg" alt="..." class="img-thumbnail">
-                            <a class="btn btn-success btn-lg btn-block text-center" >Завантажити тези</a>
+                            <img src="{{$thesis->photo}}" alt="..." class="img-thumbnail">
+                            <a class="btn btn-success btn-lg btn-block text-center" href="{{$thesis->file}}">Завантажити тези</a>
                         </div>
                     </div>
 

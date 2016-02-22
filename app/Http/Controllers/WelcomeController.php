@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Archive;
+use App\Confabstract;
 use App\Confinfo;
 use App\Index;
 use App\Сategory;
@@ -47,7 +48,8 @@ class WelcomeController extends Controller
 
     public function confThesis()
     {
-        return view('public.conference.thesis', [ 'page'=>'conference_thesis' ]);
+        $thesis = Confabstract::find('1');
+        return view('public.conference.thesis', [ 'page'=>'conference_thesis','thesis'=>$thesis ]);
     }
 
     public function confPlace()
