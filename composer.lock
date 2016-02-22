@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8a01685a4f4d5f0d232e50d887a0e7d8",
-    "content-hash": "5b8b77ae9758aca67734c4d2c12d6206",
+    "hash": "4b9af70d6d87e696dbcebc397fc2b18d",
+    "content-hash": "1978125363ff16929085be70ca7881e1",
     "packages": [
         {
             "name": "cartalyst/sentinel",
@@ -1554,6 +1554,50 @@
                 "laravel"
             ],
             "time": "2016-01-26 00:10:00"
+        },
+        {
+            "name": "sleeping-owl/admin-lte-template",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sleeping-owl/admin-lte-template.git",
+                "reference": "0298c53eb120dab7185dbcdddb8ba60ed62044d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sleeping-owl/admin-lte-template/zipball/0298c53eb120dab7185dbcdddb8ba60ed62044d7",
+                "reference": "0298c53eb120dab7185dbcdddb8ba60ed62044d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SleepingOwl\\AdminLteTemplate": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sleeping Owl",
+                    "email": "owl.sleeping@yahoo.com"
+                }
+            ],
+            "description": "AdminLTE template for sleeping-owl/admin.",
+            "homepage": "http://sleeping-owl.github.io",
+            "keywords": [
+                "admin",
+                "administrator",
+                "crud",
+                "laravel",
+                "template"
+            ],
+            "time": "2015-09-03 19:03:06"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3668,7 +3712,8 @@
     "stability-flags": {
         "cartalyst/sentinel": 20,
         "sleeping-owl/admin": 20,
-        "laravelcollective/html": 20
+        "laravelcollective/html": 20,
+        "sleeping-owl/admin-lte-template": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

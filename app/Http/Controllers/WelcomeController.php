@@ -10,16 +10,18 @@ namespace App\Http\Controllers;
 
 
 use App\Index;
+use App\Сategory;
 use Illuminate\Support\Facades\App;
 
 class WelcomeController extends Controller
 {
 
-    public function index(Index $index)
+    public function index()
     {
         $text=Index::find('1');
+        $categoryes = Сategory::get();
 
-        return view('public.index', [ 'page'=>'index', 'text'=>$text ]);
+        return view('public.index', [ 'page'=>'index', 'text'=>$text, 'categoryes'=>$categoryes ]);
     }
 
     public function archive()
