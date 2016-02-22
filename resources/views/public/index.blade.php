@@ -8,8 +8,8 @@
     <header id="head">
         <div class="container">
             <div class="row">
-                <h1 class="lead">Вітаємо на сайті конференції!</h1>
-                <p class="tagline">Щорічна Українська конференція з космічних досліджень
+                <h1 class="lead">{{$text->TextTrans('background_title')}}</h1>
+                <p class="tagline">{{$text->TextTrans('background_text')}}
                 </p>
                 <br>
                 <p><a class="btn btn-default btn-lg" role="button" href="/signup">Зареєструватись</a>
@@ -20,10 +20,9 @@
     <!-- Intro -->
     <div class="container text-center">
         <br> <br>
-        <h1 class="thin">Щорічна Українська конференція з космічних досліджень</h1>
+        <h1 class="thin">{{$text->TextTrans('title')}}</h1>
         <p class="text-muted">
-            Тематика конференції присвячена широкому колу космічних досліджень, що поєднуються за наступною ознакою – ці
-            дослідження ведуться (або тісно пов’язані з дослідженнями, які ведуться) з використанням космічних апаратів.
+            {{$text->TextTrans('text')}}
         </p>
     </div>
     <!-- /Intro-->
@@ -34,7 +33,7 @@
                 <ol class="breadcrumb">
                     <li class="active">Головна</li>
                 </ol>
-                <h2 class="text-center thin">Традиційні рубрики на конференції</h2>
+                <h2 class="text-center thin">{{$text->TextTrans('heading')}}</h2>
                 <div class="row">
                     <div class="col-lg-3 text-center">
                         <img class="img-rounded img-circle" src="assets/images/Shmutz1.jpg"

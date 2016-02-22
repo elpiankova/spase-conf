@@ -50,7 +50,7 @@
             </ul>
 
             <div class="navbar-right">
-
+{{App::getLocale()}}
             </div>
         </div>
     </div>
