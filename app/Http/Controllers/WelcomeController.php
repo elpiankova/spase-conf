@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Archive;
+use App\Confinfo;
 use App\Index;
 use App\Сategory;
 use Illuminate\Support\Facades\App;
@@ -19,14 +21,16 @@ class WelcomeController extends Controller
     public function index()
     {
         $text=Index::find('1');
-        $categoryes = Сategory::get();
+        $categoryes=Сategory::get();
 
         return view('public.index', [ 'page'=>'index', 'text'=>$text, 'categoryes'=>$categoryes ]);
     }
 
     public function archive()
     {
-        return view('public.archive', [ 'page'=>'archive' ]);
+        $archives=Archive::get();
+
+        return view('public.archive', [ 'page'=>'archive', 'archives'=>$archives ]);
     }
 
     public function contact()
@@ -36,7 +40,9 @@ class WelcomeController extends Controller
 
     public function confInfo()
     {
-        return view('public.conference.info', [ 'page'=>'conference_info' ]);
+        $infos=Confinfo::orderBy('place')->get();
+
+        return view('public.conference.info', [ 'page'=>'conference_info', 'infos'=>$infos ]);
     }
 
     public function confThesis()

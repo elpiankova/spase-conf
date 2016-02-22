@@ -12,8 +12,7 @@ Admin::menu()->label('Сайт')->icon('fa-desktop')->items(function ()
 
     Admin::menu()->label('Конференція')->icon('fa-desktop')->items(function ()
     {
-        Admin::menu(App\User::class)->label('Налаштування')->icon('fa-key');
-        Admin::menu(App\User::class)->label('Інформація')->icon('fa-graduation-cap');
+        Admin::menu(App\Confinfo::class)->label('Інформація')->icon('fa-graduation-cap');
         Admin::menu(App\User::class)->label('Тези')->icon('fa-user');
         Admin::menu(App\User::class)->label('Місце проведення')->icon('fa-user');
         Admin::menu(App\User::class)->label('Комітет')->icon('fa-user');
