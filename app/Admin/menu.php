@@ -8,7 +8,7 @@ Admin::menu()->label('Сайт')->icon('fa-desktop')->items(function ()
         Admin::menu(App\Сategory::class)->label('Категорії')->icon('fa-user');
     });
 
-    Admin::menu(App\User::class)->label('Архів')->icon('fa-key');
+    Admin::menu(App\Archive::class)->label('Архів')->icon('fa-key');
 
     Admin::menu()->label('Конференція')->icon('fa-desktop')->items(function ()
     {
