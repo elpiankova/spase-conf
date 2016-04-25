@@ -113,6 +113,7 @@ class AuthController extends Controller
      */
     public function registerProcess(Request $request)
     {
+        dd($request);
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',

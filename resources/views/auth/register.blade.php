@@ -34,10 +34,78 @@
                                     <hr>
                                     @include('errors.errmsg')
                                     {!! Form::open() !!}
-                                    @include('widgets.form._formitem_text', ['name' => 'email', 'title' => 'Email', 'placeholder' => 'Email' ])
-                                    @include('widgets.form._formitem_password', ['name' => 'password', 'title' => 'Пароль', 'placeholder' => 'Пароль' ])
-                                    @include('widgets.form._formitem_password', ['name' => 'password_confirm', 'title' => 'Подтверждение пароля', 'placeholder' => 'Пароль' ])
-                                    @include('widgets.form._formitem_btn_submit', ['title' => 'Регистрация'])
+                                    <div class="top-margin">
+                                        <label>Імя</label>
+                                        <input type="text" class="form-control text_form" name="name">
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Прізвище</label>
+                                        <input type="text" class="form-control text_form" name="surname">
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>По батькові</label>
+                                        <input type="text" class="form-control text_form" name="middle">
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Дата народження</label>
+                                        <input type="date" class="form-control" name="birth">
+                                    </div>
+                                    <div class="top-margin">
+                                        <label for="favorite_team">Ваша організація:</label>
+                                        <select type="text" list="team_list" class="form-control" name="organization">
+                                            <option value="1" selected>ІКД</option>
+                                            <option value="2">ПТУ</option>
+                                            <option value="3">СССР</option>
+                                            <option value="4">ДК</option>
+                                            <!-- и т.д. -->
+                                        </select>
+                                    </div>
+                                    <div class="top-margin">
+                                        <label for="favorite_team">Ваша країна:</label>
+                                        <select type="text" list="team_list1" class="form-control" name="country">
+                                            <option value="1" selected>Україна</option>
+                                            <option value="2">Росія</option>
+                                            <option value="3">Польща</option>
+                                            <option value="4">СССР</option>
+                                            <!-- и т.д. -->
+                                        </select>
+                                    </div>
+                                    <div class="top-margin">
+                                        <label for="favorite_team">Ваше місто:</label>
+                                        <select type="text" list="team_list2" class="form-control" name="city">
+                                            <option value="1" selected>Київ</option>
+                                            <option value="2">Харків</option>
+                                            <option value="3">Львів</option>
+                                            <option value="4">Скадовськ</option>
+                                            <!-- и т.д. -->
+                                        </select>
+                                    </div>
+
+                                    <div class="top-margin">
+                                        <label>Номер телефону в форматі 38098-111-1111</label>
+                                        <input type="tel" class="form-control"
+                                               name="phone"/>
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Email </label>
+                                        <input type="email" class="form-control" name="email">
+                                    </div>
+
+                                    <div class="row top-margin">
+                                        <div class="col-sm-6">
+                                            <label>Пароль</label>
+                                            <input type="password" class="form-control" name="password">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Повторіть пароль</label>
+                                            <input type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="col-lg-12 ">
+                                        <button class="btn btn-action  center-block" type="submit">Зареєструватись
+                                        </button>
+                                    </div>
                                     {!! Form::close() !!}
                                 </div>
                             </div>
