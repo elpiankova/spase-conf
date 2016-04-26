@@ -28,7 +28,7 @@
                                 <div class="panel-body">
                                     <h3 class="thin text-center">Створення нового акаунта</h3>
                                     <p class="text-center text-muted">Якщо ви уже реєструвались на цьому сайті перейдіть
-                                        на <a href="signin.html">Авторизацію</a> і зайдіть там не потрібно кожен раз
+                                        на <a href="/login">Авторизацію</a> і зайдіть там не потрібно кожен раз
                                         реєструватись. Навіщо вам тратити свій і наш дорогоцінний час для заповнення
                                         акаунтів а якщо навіть забули пароль так відновіть а не реєструйтесь знову </p>
                                     <hr>
@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Повторіть пароль</label>
-                                            <input type="password" class="form-control">
+                                            <input type="password" class="form-control" name="password_confirm">
                                         </div>
                                     </div>
                                     <hr>
