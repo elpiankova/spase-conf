@@ -107,8 +107,8 @@ class AuthController extends Controller
     public function registerProcess(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'surname' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'organization' => 'integer',
             'country' => 'integer',
             'city' => 'integer',
@@ -128,7 +128,7 @@ class AuthController extends Controller
             $activation = Activation::create($sentuser);
             $code = $activation->code;
             $sent = Mail::send('mail.account_activate', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-                $m->from('noreplqy@mysite.ru', 'LaravelSite');
+                $m->from('saniaboy@yandex.ru', 'LaravelSite');
                 $m->to($sentuser->email)->subject('Активация аккаунта');
             });
             if ($sent === 0) {
@@ -141,8 +141,6 @@ class AuthController extends Controller
 
             $info = new UserInfo();
             $info->user_id = $sentuser->id;
-            $info->name = $request->name;
-            $info->surname = $request->surname;
             $info->middle_name = $request->middle;
             $info->birth = $request->birth;
             $info->organization_id = $request->organization;

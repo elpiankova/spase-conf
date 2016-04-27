@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'mail@speleo-krystal.com.ua', 'name' => 'test'],
+    'from' => ['address' => null, 'name' => null],
 
     /*
     |--------------------------------------------------------------------------

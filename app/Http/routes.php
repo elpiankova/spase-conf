@@ -19,6 +19,14 @@ Route::get('/conference/info', 'WelcomeController@confInfo');
 Route::get('/conference/thesis', 'WelcomeController@confThesis');
 Route::get('/conference/place', 'WelcomeController@confPlace');
 Route::get('/conference/committee', 'WelcomeController@confCommittee');
+//Route::get('/mail', function () {
+//    Mail::send('mail.account_activate', array('key' => 'value'), function($message)
+//    {
+//        $message->from('saniaboy@yandex.ru', 'Laravel');
+//
+//        $message->to('mammutcris@gmail.com', 'Джон Смит')->subject('Привет!');
+//    });
+//});
 
 /*
 |--------------------------------------------------------------------------

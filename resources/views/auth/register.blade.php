@@ -36,11 +36,11 @@
                                     {!! Form::open() !!}
                                     <div class="top-margin">
                                         <label>Імя</label>
-                                        <input type="text" class="form-control text_form" name="name">
+                                        <input type="text" class="form-control text_form" name="first_name">
                                     </div>
                                     <div class="top-margin">
                                         <label>Прізвище</label>
-                                        <input type="text" class="form-control text_form" name="surname">
+                                        <input type="text" class="form-control text_form" name="last_name">
                                     </div>
                                     <div class="top-margin">
                                         <label>По батькові</label>
