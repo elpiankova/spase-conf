@@ -78,7 +78,7 @@ class AuthController extends Controller
             $activation = Activation::create($sentuser);
             $code = $activation->code;
             $sent = Mail::send('mail.account_activate', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-                $m->from('noreplay@mysite.ru', 'LaravelSite');
+                $m->from('saniaboy@yandex.ru', 'LaravelSite');
                 $m->to($sentuser->email)->subject('Активация аккаунта');
             });
 
@@ -213,7 +213,7 @@ class AuthController extends Controller
         $code = $reminder->code;
 
         $sent = Mail::send('mail.account_reminder', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-            $m->from('noreplay@mysite.com', 'SiteLaravel');
+            $m->from('saniaboy@yandex.ru', 'LaravelSite');
             $m->to($sentuser->email)->subject('Сброс пароля');
         });
         if ($sent === 0) {
