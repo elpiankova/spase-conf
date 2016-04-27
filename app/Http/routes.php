@@ -58,3 +58,11 @@ Route::group(['middleware' => ['web']], function () {
 // о том, что письмо отправлено и надо заглянуть в почтовый ящик.
     Route::get('wait', 'AuthController@wait');
 });
+
+Route::group(['middleware' => ['web', 'authuser']], function () {
+//    Головна сторінка користувача
+    Route::get('home', 'UserController@home');
+//    Редагування особистих даних
+    Route::get('home/edit', 'UserController@edit');
+    Route::post('home/edit', 'UserController@editProcess');
+});

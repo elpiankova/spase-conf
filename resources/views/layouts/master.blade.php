@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top headroom">
+<div class="navbar navbar-inverse headroom">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/"><img src="/assets/images/logo.png" alt=""></a>
@@ -46,11 +46,15 @@
                     </ul>
                 </li>
                 <li><a href="/contact">Зворотний зв'язок</a></li>
-                <li><a class="btn" href="/login">Вхід</a></li>
+                @if(Sentinel::inRole('user'))
+                    <li><a class="btn" href="/home">Моя сторінка</a></li>
+                @else
+                    <li><a class="btn" href="/login">Вхід</a></li>
+                @endif
             </ul>
 
             <div class="navbar-right">
-{{App::getLocale()}}
+                {{App::getLocale()}}
             </div>
         </div>
     </div>

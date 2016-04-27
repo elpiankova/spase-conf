@@ -67,7 +67,7 @@ class AuthController extends Controller
             ]);
             $remember = (bool)$request->remember;
             if (Sentinel::authenticate($request->all(), $remember)) {
-                return Redirect::intended('/');
+                return Redirect::intended('/home');
             }
             $errors = 'Неправильный логин или пароль.';
             return Redirect::back()

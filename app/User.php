@@ -41,4 +41,9 @@ class User extends EloquentUser
     {
         return array_pluck($this->theroles()->get([ 'id' ])->toArray(), 'id');
     }
+
+    public function info()
+    {
+        return $this->hasOne('App\UserInfo');
+    }
 }
