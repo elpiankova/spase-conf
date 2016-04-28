@@ -38,8 +38,11 @@ class UserController extends Controller
         return view('user.edit', ['user' => $user]);
 
     }
-    public function conf(){
-        return view('user.conf');
+
+    public function conf()
+    {
+        $categoryes = Сategory::get();
+        return view('user.conf', ['categoryes' => $categoryes]);
     }
 
     public function editProcess(Request $request)
@@ -80,7 +83,6 @@ class UserController extends Controller
         $edit->save();
 
 
-
         $edit = UserInfo::where('user_id', '=', $user->id)->first();
         $edit->middle_name = $request->middle;
         $edit->birth = $request->birth;
@@ -88,9 +90,8 @@ class UserController extends Controller
         $edit->country_id = $request->country;
         $edit->city_id = $request->city;
         $edit->phone = $request->phone;
-        $edit->photo= $photoNameDB;
+        $edit->photo = $photoNameDB;
         $edit->save();
-
 
 
         return Redirect::to('home/edit')
