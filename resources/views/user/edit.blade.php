@@ -11,7 +11,7 @@
                     <div class="col-lg-6 col-lg-offset-3">
                         @include('errors.errmsg')
                         <div class="well">
-                            {!! Form::open() !!}
+                            {!! Form::open(array('enctype' => 'multipart/form-data')) !!}
                             <div class="top-margin">
                                 <label>Імя</label>
                                 <input type="text" class="form-control text_form" name="first_name"
@@ -34,9 +34,12 @@
                             <div class="top-margin">
                                 <label for="favorite_team">Ваша організація:</label>
                                 <select type="text" list="team_list" class="form-control" name="organization">
-                                    <option value="1" @if($user->info->organization_id == 1) selected @endif>ІКД</option>
-                                    <option value="2" @if($user->info->organization_id == 2) selected @endif>ПТУ</option>
-                                    <option value="3" @if($user->info->organization_id == 3) selected @endif>СССР</option>
+                                    <option value="1" @if($user->info->organization_id == 1) selected @endif>ІКД
+                                    </option>
+                                    <option value="2" @if($user->info->organization_id == 2) selected @endif>ПТУ
+                                    </option>
+                                    <option value="3" @if($user->info->organization_id == 3) selected @endif>СССР
+                                    </option>
                                     <option value="4" @if($user->info->organization_id == 4) selected @endif>ДК</option>
                                     <!-- и т.д. -->
                                 </select>
@@ -66,6 +69,12 @@
                                 <label>Номер телефону в форматі 38098-111-1111</label>
                                 <input type="tel" class="form-control"
                                        name="phone" value="{{$user->info->phone}}"/>
+                            </div>
+                            <div class="top-margin">
+                                <label>Добавити фото</label>
+                                <input type="file" accept="image/jpeg,image/png"
+                                       id="photo"
+                                       name="photo"/>
                             </div>
                             <hr>
                             <div class="col-lg-12 ">

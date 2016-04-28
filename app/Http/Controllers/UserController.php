@@ -26,7 +26,9 @@ class UserController extends Controller
 {
     public function home()
     {
-        return view('user.home');
+        $user = Sentinel::check();
+        $user = User::where('id', '=', $user->id)->first();
+        return view('user.home', ['user' => $user]);
     }
 
     public function edit()
@@ -35,6 +37,9 @@ class UserController extends Controller
         $user = User::where('id', '=', $user->id)->first();
         return view('user.edit', ['user' => $user]);
 
+    }
+    public function conf(){
+        return view('user.conf');
     }
 
     public function editProcess(Request $request)
@@ -47,13 +52,34 @@ class UserController extends Controller
             'city' => 'integer',
             'phone' => 'required',
         ]);
+
 //        $input = $request->all();
         $user = Sentinel::check();
+//dd($request);
+        if ($request->file('photo')
+                ->isValid() && in_array($request->file('photo')
+                ->getMimeType(), ['image/jpeg',
+                'image/jpg',
+                'image/png',
+                'image/bmp',
+                'image/gif'])
+        ) {
+
+            $name = "photo$user->id." . explode("/", $request->file('photo')
+                    ->getMimeType())[1];
+            $photoNameDB = "/photo/$name";
+
+            $request->file('photo')
+                ->move("photo/", $name);
+
+        }
 
         $edit = User::where('id', '=', $user->id)->first();
         $edit->first_name = $request->first_name;
         $edit->last_name = $request->last_name;
         $edit->save();
+
+
 
         $edit = UserInfo::where('user_id', '=', $user->id)->first();
         $edit->middle_name = $request->middle;
@@ -62,7 +88,10 @@ class UserController extends Controller
         $edit->country_id = $request->country;
         $edit->city_id = $request->city;
         $edit->phone = $request->phone;
+        $edit->photo= $photoNameDB;
         $edit->save();
+
+
 
         return Redirect::to('home/edit')
             ->withSuccess('Зміни збережено');

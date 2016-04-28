@@ -21,6 +21,7 @@ class CreateUserInfosTable extends Migration
             $table->integer('country_id');
             $table->integer('city_id');
             $table->text('phone');
+            $table->text('photo');
             $table->timestamps();
         });
     }

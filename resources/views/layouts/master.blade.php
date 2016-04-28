@@ -46,11 +46,14 @@
                     </ul>
                 </li>
                 <li><a href="/contact">Зворотний зв'язок</a></li>
-                @if(Sentinel::inRole('user'))
-                    <li><a class="btn" href="/home">Моя сторінка</a></li>
-                @else
+
+
+                @if(Sentinel::guest())
                     <li><a class="btn" href="/login">Вхід</a></li>
+                @else
+                    <li><a class="btn" href="/home">Моя сторінка</a></li>
                 @endif
+
             </ul>
 
             <div class="navbar-right">

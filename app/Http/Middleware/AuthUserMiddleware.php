@@ -20,11 +20,11 @@ class AuthUserMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Sentinel::inRole('user')){
-            return $next($request);
-        }else{
+        if(Sentinel::guest()){
             return redirect()->guest('login');
+
         }
+        return $next($request);
 
 
     }
