@@ -32,35 +32,35 @@ class WelcomeController extends Controller
     {
         $archives=Archive::get();
 
-        return view('public.archive', [ 'page'=>'archive', 'archives'=>$archives ]);
+        return view('public.archive', ['archives'=>$archives]);
     }
 
     public function contact()
     {
-        return view('public.contact', [ 'page'=>'contact' ]);
+        return view('public.contact');
     }
 
     public function confInfo()
     {
         $infos=Confinfo::orderBy('place')->get();
 
-        return view('public.conference.info', [ 'page'=>'conference_info', 'infos'=>$infos ]);
+        return view('public.conference.info', ['infos'=>$infos ]);
     }
 
     public function confThesis()
     {
         $thesis = Confabstract::find('1');
-        return view('public.conference.thesis', [ 'page'=>'conference_thesis','thesis'=>$thesis ]);
+        return view('public.conference.thesis', ['thesis'=>$thesis ]);
     }
 
     public function confPlace()
     {
         $places = Confdescription::get();
-        return view('public.conference.place', [ 'page'=>'conference_place', 'places'=>$places ]);
+        return view('public.conference.place', ['places'=>$places ]);
     }
 
     public function confCommittee()
     {
-        return view('public.conference.committee', [ 'page'=>'conference_committee' ]);
+        return view('public.conference.committee');
     }
 }

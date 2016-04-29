@@ -11,15 +11,6 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-Route::get('/archive', 'WelcomeController@archive');
-Route::get('/contact', 'WelcomeController@contact');
-
-Route::get('/conference/info', 'WelcomeController@confInfo');
-Route::get('/conference/thesis', 'WelcomeController@confThesis');
-Route::get('/conference/place', 'WelcomeController@confPlace');
-Route::get('/conference/committee', 'WelcomeController@confCommittee');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +24,19 @@ Route::get('/conference/committee', 'WelcomeController@confCommittee');
 */
 
 Route::group(['middleware' => ['web']], function () {
+
+
+    Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
+    
+    Route::get('/', 'WelcomeController@index');
+    Route::get('/archive', 'WelcomeController@archive');
+    Route::get('/contact', 'WelcomeController@contact');
+
+    Route::get('/conference/info', 'WelcomeController@confInfo');
+    Route::get('/conference/thesis', 'WelcomeController@confThesis');
+    Route::get('/conference/place', 'WelcomeController@confPlace');
+    Route::get('/conference/committee', 'WelcomeController@confCommittee');
+
     // Вызов страницы регистрации пользователя
     Route::get('register', 'AuthController@register');
 // Пользователь заполнил форму регистрации и отправил

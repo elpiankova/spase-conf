@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="utf-8">
-    <title>Українська конференція з космічних досліджень - @yield('title')</title>
+    <title> {{trans('index.title')}}- @yield('title')</title>
     <link rel="shortcut icon" href="/assets/images/gt_favicon.png">
 
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<div class="navbar navbar-inverse headroom">
+<div class="navbar navbar-inverse headroom  @if(isset($page)) navbar-fixed-top @endif">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="/"><img src="/assets/images/logo.png" alt=""></a>
@@ -23,13 +23,14 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/">Головна</a>
+                    <a href="/">{{trans('index.main')}}</a>
                 </li>
                 <li>
-                    <a href="/archive">Архів</a>
+                    <a href="/archive">{{trans('index.archive')}}</a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">15 конференція <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
+                                class="caret"></b> {{trans('index.16')}}</a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="/conference/info">Інформація</a>
@@ -53,12 +54,23 @@
                 @else
                     <li><a class="btn" href="/home">Моя сторінка</a></li>
                 @endif
-
             </ul>
-
-            <div class="navbar-right">
-                {{App::getLocale()}}
-            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <b class="caret"></b> {{ Config::get('languages')[App::getLocale()] }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                <li>
+                                    <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@
                 <p class="tagline">{{$text->TextTrans('background_text')}}
                 </p>
                 <br>
-                <p><a class="btn btn-default btn-lg" role="button" href="/signup">Зареєструватись</a>
+                <p><a class="btn btn-default btn-lg" role="button" href="/signup">{{trans('index.register')}}</a>
                 </p>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="jumbotron2">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="active">Головна</li>
+                    <li class="active">{{trans('index.main')}}</li>
                 </ol>
                 <h2 class="text-center thin">{{$text->TextTrans('heading')}}</h2>
                 <div class="row">
