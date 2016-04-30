@@ -24,17 +24,16 @@
     <script language="javascript">
         function add_input(obj) {
             var new_input = document.createElement('div');
-            new_input.innerHTML = '<input type="text" class="form-control text_form" name="name">'+
-                    '<input type="text" class="form-control text_form" name="email">'+
-                    '<input type="text" class="form-control text_form" name="org_ig">';
-            new_input.innerHTML = new_input.innerHTML + '<input type="button" value="+" onclick="add_input(this.parentNode)">';
-            new_input.innerHTML = new_input.innerHTML + '<input type="button" value="-" onclick="del_input(this.parentNode)">';
-            if (obj.nextSibling)
-                document.getElementById('inputi').insertBefore(new_input, obj.nextSibling);
-            else document.getElementById('inputi').appendChild(new_input);
+            new_input.className = "form-inline";
+            new_input.innerHTML =
+                    '<input type="text" class="form-control text_form" name="name[]">' +
+                    '<input type="text" class="form-control text_form" name="email[]">' +
+                    '<input type="text" class="form-control text_form" name="org_ig[]">';
+            new_input.innerHTML = new_input.innerHTML + '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode)"></i>';
+            document.getElementById('items').appendChild(new_input);
         }
         function del_input(obj) {
-            document.getElementById('inputi').removeChild(obj)
+            document.getElementById('items').removeChild(obj)
         }
     </script>
     <div class="jumbotron top-space">
@@ -51,10 +50,8 @@
                                 <label for="favorite_team">Секція</label>
                                 <select type="text" list="team_list1" class="form-control" name="country">
                                     @foreach($categoryes as $key=>$category)
-
                                         <option value="{{$key}}">{{$category->TextTrans('title')}}</option>
-                                        @endforeach
-                                                <!-- и т.д. -->
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="top-margin">
@@ -65,15 +62,18 @@
                             <div class="top-margin" id="items">
                                 <label>Додаткові автори</label>
                                 <div class="form-inline">
-                                    <input type="text" class="form-control text_form" name="name">
-                                    <input type="text" class="form-control text_form" name="email">
-                                    <input type="text" class="form-control text_form" name="org_ig">
+                                    <input type="text" class="form-control text_form" name="name[]">
+                                    <input type="text" class="form-control text_form" name="email[]">
+                                    <input type="text" class="form-control text_form" name="org_ig[]">
+                                    <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
+                                       onclick="del_input(this.parentNode)"></i>
+
                                 </div>
                             </div>
                             <hr>
                             <div class="text-center" id="inputi">
                                 <div role="button" class="btn btn-sm btn-success text-center"
-                                     onclick="add_input(this.parentNode)">
+                                     onclick="add_input()">
                                     <i class="fa fa-plus" aria-hidden="true"></i> Добавити автора
                                 </div>
                             </div>

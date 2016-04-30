@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\Console\Input\Input;
 
 class UserController extends Controller
 {
@@ -97,5 +98,8 @@ class UserController extends Controller
         return Redirect::to('home/edit')
             ->withSuccess('Зміни збережено');
 
+    }
+    public function confProcess(Request $request){
+        dd($request->all());
     }
 }

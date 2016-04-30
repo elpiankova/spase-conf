@@ -17,5 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ConfinfoSeeder::class);
         $this->call(ConfabstractSeeder::class);
         $this->call(ConfdescriptionSeeder::class);
+        $this->call(CountriesTableSeeder::class);
+        $this->call(SpaceorganizationTableSeeder::class);
+        $this->call(SpaceorganizationTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
     }
 }
