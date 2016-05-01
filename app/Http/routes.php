@@ -29,7 +29,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
     
     Route::get('/', 'WelcomeController@index');
-    Route::get('/archive', 'WelcomeController@archive');
+//    Зробити функціонал в адмінці для включення і виключення архіву
+//    Route::get('/archive', 'WelcomeController@archive');
     Route::get('/contact', 'WelcomeController@contact');
 
     Route::get('/conference/info', 'WelcomeController@confInfo');
@@ -38,10 +39,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/conference/committee', 'WelcomeController@confCommittee');
     Route::get('/mail', function () {
         Mail::send('mail.1', ['key' => 'value'], function ($message) {
-            $message->from('mail@te-rent.com', 'Laravel');
+            $message->from('mail@space-conf.ikd.kiev.ua', 'Laravel');
 
-            $message->to('mammutcris@gmail.com', 'Джон Смит')->subject('Привет!');
+            $message->to('saniaboy@yandex.ru', 'Джон Смит')->subject('Привет!');
         });
+        print ('saniaboy@yandex.ru');
     });
     // Вызов страницы регистрации пользователя
     Route::get('register', 'AuthController@register');
