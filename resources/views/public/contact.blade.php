@@ -8,18 +8,17 @@
 <div class="container">
 
     <ol class="breadcrumb">
-        <li><a href="index.html">Головна</a></li>
-        <li class="active">Зворотний зв'язок</li>
+        <li><a href="/">{{trans('index.main')}}</a></li>
+        <li class="active">{{trans('master.contact')}}</li>
     </ol>
 
     <div class="row">
         <article class="col-sm-9 maincontent">
             <header class="page-header">
-                <h1 class="page-title">Напишіть нам</h1>
+                <h1 class="page-title">{{trans('contact.title')}}</h1>
             </header>
             <p>
-                У вас є певні питання, пропозиції чи просто нудно? Пишіть і ми завжди з радістю або ненавистю вам
-                відповімо
+                {{trans('contact.text')}}
             </p>
             <br>
             <form>

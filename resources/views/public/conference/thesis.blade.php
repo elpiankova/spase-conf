@@ -6,8 +6,8 @@
 
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="/">Головна</a></li>
-            <li class="active">Тези</li>
+            <li><a href="/">{{trans('index.main')}}</a></li>
+            <li class="active">{{trans('master.thesis')}}</li>
         </ol>
 
         <div class="row">
@@ -15,7 +15,7 @@
             <!-- Article main content -->
             <article class="col-sm-10 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Тези</h1>
+                    <h1 class="page-title">{{trans('master.thesis')}}</h1>
                 </header>
 
                 <div class="jumbotron jumbotron-archive background-abstract">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-sm-6">
                             <img src="{{$thesis->photo}}" alt="..." class="img-thumbnail">
-                            <a class="btn btn-success btn-lg btn-block text-center" href="{{$thesis->file}}">Завантажити тези</a>
+                            <a class="btn btn-success btn-lg btn-block text-center" href="{{$thesis->file}}">{{trans('conference.downloads')}}</a>
                         </div>
                     </div>
 

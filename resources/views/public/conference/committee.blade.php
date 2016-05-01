@@ -7,8 +7,8 @@
     <div class="container">
 
         <ol class="breadcrumb">
-            <li><a href="index.html">Головна</a></li>
-            <li class="active">Комітет</li>
+            <li><a href="/">{{trans('index.main')}}</a></li>
+            <li class="active">{{trans('master.committee')}}</li>
         </ol>
 
 
@@ -17,7 +17,7 @@
             <!-- Article main content -->
             <article class="col-sm-10 maincontent">
                 <header class="page-header">
-                    <h1 class="page-title">Комітет</h1>
+                    <h1 class="page-title">{{trans('master.committee')}}</h1>
                 </header>
 
                 <div class="jumbotron jumbotron-archive background-abstract">

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap-theme.css" media="screen">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link href="/assets/css/select2.min.css" rel="stylesheet" />
+    <link href="/assets/css/select2.min.css" rel="stylesheet"/>
     <script src="/assets/js/select2.min.js"></script>
 
 </head>
@@ -27,34 +27,34 @@
                 <li>
                     <a href="/">{{trans('index.main')}}</a>
                 </li>
-                <li>
-                    <a href="/archive">{{trans('index.archive')}}</a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="/archive">{{trans('index.archive')}}</a>--}}
+                {{--</li>--}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
                                 class="caret"></b> {{trans('index.16')}}</a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="/conference/info">Інформація</a>
+                            <a href="/conference/info">{{trans('master.info')}}</a>
                         </li>
                         <li>
-                            <a href="/conference/thesis">Тези</a>
+                            <a href="/conference/thesis">{{trans('master.thesis')}}</a>
                         </li>
                         <li>
-                            <a href="/conference/place">Місце проведення</a>
+                            <a href="/conference/place">{{trans('master.place')}}</a>
                         </li>
                         <li>
-                            <a href="/conference/committee">Комітет</a>
+                            <a href="/conference/committee">{{trans('master.committee')}}</a>
                         </li>
                     </ul>
                 </li>
-                <li><a href="/contact">Зворотний зв'язок</a></li>
+                <li><a href="/contact">{{trans('master.contact')}}</a></li>
 
 
                 @if(Sentinel::guest())
-                    <li><a class="btn" href="/login">Вхід</a></li>
+                    <li><a class="btn" href="/login">{{trans('master.login')}}</a></li>
                 @else
-                    <li><a class="btn" href="/home">Моя сторінка</a></li>
+                    <li><a class="btn" href="/home">{{trans('master.home')}}</a></li>
                 @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -85,9 +85,9 @@
             <div class="row">
 
                 <div class="col-md-3 widget">
-                    <h3 class="widget-title">Контакти</h3>
+                    <h3 class="widget-title">{{trans('master.contacts')}}</h3>
                     <div class="widget-body">
-                        Скороход Тетяна
+                        {{trans('master.admin')}}
                         <p> +38 (044) 5261583<br>
                             +38 (063) 4518270<br>
                             <a href="mailto:ukrainianspaceconf@gmail.com">ukrainianspaceconf@gmail.com</a>
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="col-md-3 widget">
-                    <h3 class="widget-title">Наші сторінки</h3>
+                    <h3 class="widget-title">{{trans('master.pages')}}</h3>
                     <div class="widget-body">
                         <p class="follow-me-icons">
                             <a href="https://twitter.com/"><i class="fa fa-twitter fa-2"></i></a>
@@ -115,11 +115,10 @@
                 <div class="col-md-12 widget">
                     <div class="widget-body">
                         <p class="text-center">
-                            Copyright &copy; 2012 Developed in Space Research Institute NASU-NSAU
+                            Copyright &copy; 2016 Developed in Space Research Institute NASU-SSAU
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
