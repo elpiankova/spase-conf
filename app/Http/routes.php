@@ -36,7 +36,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/conference/thesis', 'WelcomeController@confThesis');
     Route::get('/conference/place', 'WelcomeController@confPlace');
     Route::get('/conference/committee', 'WelcomeController@confCommittee');
+    Route::get('/mail', function () {
+        Mail::send('mail.1', ['key' => 'value'], function ($message) {
+            $message->from('ukrainianspaceconf@gmail.com', 'Laravel');
 
+            $message->to('mammutcris@gmail.com', 'Джон Смит')->subject('Привет!');
+        });
+    });
     // Вызов страницы регистрации пользователя
     Route::get('register', 'AuthController@register');
 // Пользователь заполнил форму регистрации и отправил
