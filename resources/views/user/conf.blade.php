@@ -48,7 +48,7 @@
                             <hr>
                             <div class="top-margin">
                                 <label for="favorite_team">Секція</label>
-                                <select type="text" list="team_list1" class="form-control" name="country">
+                                <select type="text" list="team_list1" class="form-control" name="section_id">
                                     @foreach($categoryes as $key=>$category)
                                         <option value="{{$key}}">{{$category->TextTrans('title')}}</option>
                                     @endforeach
@@ -56,7 +56,7 @@
                             </div>
                             <div class="top-margin">
                                 <label>Назва тез</label>
-                                <input type="text" class="form-control text_form" name="last_name">
+                                <input type="text" class="form-control text_form" name="title">
                             </div>
 
                             <div class="top-margin" id="items">

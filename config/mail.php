@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'mail@te-rent.com', 'name' => 'mail space-conf'],
 
     /*
     |--------------------------------------------------------------------------

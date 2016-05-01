@@ -38,7 +38,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/conference/committee', 'WelcomeController@confCommittee');
     Route::get('/mail', function () {
         Mail::send('mail.1', ['key' => 'value'], function ($message) {
-            $message->from('ukrainianspaceconf@gmail.com', 'Laravel');
+            $message->from('mail@te-rent.com', 'Laravel');
 
             $message->to('mammutcris@gmail.com', 'Джон Смит')->subject('Привет!');
         });

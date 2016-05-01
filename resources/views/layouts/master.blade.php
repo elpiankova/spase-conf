@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/assets/css/bootstrap-theme.css" media="screen">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="/assets/css/select2.min.css" rel="stylesheet" />
+    <script src="/assets/js/select2.min.js"></script>
 
 </head>
 <body>
