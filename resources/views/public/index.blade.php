@@ -22,7 +22,7 @@
         <br> <br>
         <h1 class="thin">{{$text->TextTrans('title')}}</h1>
         <p class="text-muted">
-            {{$text->TextTrans('text')}}
+            {!! $text->TextTrans('text') !!}
         </p>
     </div>
     <!-- /Intro-->
