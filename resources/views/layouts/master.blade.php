@@ -28,7 +28,7 @@
                     <a href="/">{{trans('index.main')}}</a>
                 </li>
                 {{--<li>--}}
-                    {{--<a href="/archive">{{trans('index.archive')}}</a>--}}
+                {{--<a href="/archive">{{trans('index.archive')}}</a>--}}
                 {{--</li>--}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
@@ -73,6 +73,11 @@
                     </ul>
                 </li>
             </ul>
+            @if(!Sentinel::guest())
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="logout">{{trans('master.logout')}}</a></li>
+                </ul>
+            @endif
         </div>
     </div>
 </div>

@@ -16,4 +16,5 @@ return [
   'contacts'=>'Contact us',
   'admin'=>'Skorokhod Tetiana',
   'pages'=>'Our pages',
+  'logout'=>'Logout',
 ];
