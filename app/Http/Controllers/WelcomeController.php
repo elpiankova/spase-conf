@@ -23,7 +23,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $text=Index::find('1');
-        $categoryes=Сategory::orderBy('place')->get();
+        $categoryes=Сategory::where('place', '!=', '0')->orderBy('place')->get();
 
         return view('public.index', [ 'page'=>'index', 'text'=>$text, 'categoryes'=>$categoryes ]);
     }
