@@ -27,10 +27,22 @@
             new_input.className = "form-inline";
             new_input.innerHTML =
                     '<input type="text" class="form-control text_form" name="name[]">' +
-                    '<input type="text" class="form-control text_form" name="email[]">' +
-                    '<input type="text" class="form-control text_form" name="org_ig[]">';
+                    '<select type="text" list="team_list" class="chosen-select form-control input-sm"name="org_ig[]">' +
+                    '@foreach($organizations as $organization)<option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
+                    '</select>' +
+                    '<input type="text" class="form-control text_form" name="email[]">';
             new_input.innerHTML = new_input.innerHTML + '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode)"></i>';
             document.getElementById('items').appendChild(new_input);
+            var config = {
+                '.chosen-select': {},
+                '.chosen-select-deselect': {allow_single_deselect: true},
+                '.chosen-select-no-single': {disable_search_threshold: 10},
+                '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
+                '.chosen-select-width': {width: "95%"}
+            }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
         }
         function del_input(obj) {
             document.getElementById('items').removeChild(obj)
@@ -64,7 +76,12 @@
                                 <div class="form-inline">
                                     <input type="text" class="form-control text_form" name="name[]">
                                     <input type="text" class="form-control text_form" name="email[]">
-                                    <input type="text" class="form-control text_form" name="org_ig[]">
+                                    <select type="text" list="team_list" class="chosen-select form-control input-sm"
+                                            name="org_ig[]">
+                                        @foreach($organizations as $organization)
+                                            <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
+                                        @endforeach
+                                    </select>
                                     <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
                                        onclick="del_input(this.parentNode)"></i>
 
@@ -79,7 +96,7 @@
                             </div>
                             <div class="top-margin">
                                 <label>Текст тез</label>
-                                <textarea class="form-control" rows="3">Easy (and free!) You should check out our premium features.</textarea>
+                                <textarea class="form-control" rows="3" name="text"></textarea>
                             </div>
 
                             <hr>
@@ -96,4 +113,25 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/chosen.jquery.js" type="text/javascript"></script>
+    <script src="/assets/js/jquery.maskedinput-1.2.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': {allow_single_deselect: true},
+            '.chosen-select-no-single': {disable_search_threshold: 10},
+            '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
+            '.chosen-select-width': {width: "95%"}
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $.mask.definitions['~'] = '[+-]';
+            $('#phone').mask('+9(999) 999-9999');
+        });
+    </script>
 @endsection

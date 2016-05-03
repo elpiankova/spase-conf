@@ -50,6 +50,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-6 text-center">
                         <div class="thumbnail">
                             <i class="fa fa-graduation-cap home-ico" aria-hidden="true"></i>
@@ -60,10 +61,17 @@
                                 світових
                                 ринках ракет-носіїв вітчизняного розроблення.</p>
                             <div class="well center-block" style="max-width:400px">
-                                <a href="home/conf" type="button" class="btn btn-info btn-lg btn-block"><i
-                                            class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                    {{trans('user.conf_button')}}
-                                </a>
+                                @if($conf == 1)
+                                    <a href="home/conf" type="button" class="btn btn-info btn-lg btn-block"><i
+                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        {{trans('user.conf_button')}}
+                                    </a>
+                                @else
+                                    <a type="button" class="btn btn-info btn-lg btn-block" disabled="disabled"><i
+                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        {{trans('user.conf_button_error')}}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -8,23 +8,18 @@
     namespace App\Http\Controllers;
 
 
-    use App\Archive;
     use App\City;
-    use App\Confabstract;
-    use App\Confdescription;
-    use App\Confinfo;
+    use App\Conferauthor;
+    use App\Conferequest;
     use App\Country;
-    use App\Index;
     use App\Spaceorganization;
     use App\User;
     use App\UserInfo;
     use App\Сategory;
     use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-    use Illuminate\Support\Facades\App;
     use Illuminate\Http\Request;
     use App\Http\Requests;
     use Illuminate\Support\Facades\Redirect;
-    use Symfony\Component\Console\Input\Input;
 
     class UserController extends Controller
     {
@@ -36,8 +31,18 @@
             $country      = Country::where('id', '=', $user->info->country_id)->first();
             $city         = City::where('id', '=', $user->info->city_id)->first();
             $organization = Spaceorganization::where('id', '=', $user->info->organization_id)->first();
+            $conf         = 1;
+            if (Conferequest::where('user_id', '=', $user->id)->first()) {
+                $conf = null;
+            }
 
-            return view('user.home', ['user' => $user, 'country' => $country, 'city' => $city, 'organization' => $organization]);
+            return view('user.home', [
+                'user'         => $user,
+                'country'      => $country,
+                'city'         => $city,
+                'organization' => $organization,
+                'conf'         => $conf,
+            ]);
         }
 
         public
@@ -56,9 +61,16 @@
         public
         function conf()
         {
-            $categoryes = Сategory::get();
+            $user = Sentinel::check();
+            if (Conferequest::where('user_id', '=', $user->id)->first()) {
+                return redirect('home');
+            }
+            $user          = Sentinel::check();
+            $user          = User::where('id', '=', $user->id)->first();
+            $categoryes    = Сategory::get();
+            $organizations = Spaceorganization::get();
 
-            return view('user.conf', ['categoryes' => $categoryes]);
+            return view('user.conf', ['categoryes' => $categoryes, 'user' => $user, 'organizations' => $organizations]);
         }
 
         public
@@ -126,6 +138,41 @@
         public
         function confProcess(Request $request)
         {
-            dd($request->all());
+            $this->validate($request, [
+                'title'      => 'required',
+                'text'       => 'required',
+                'name'       => 'required',
+                'email'      => 'required',
+                'org_ig'     => 'required',
+                'section_id' => 'integer',
+            ]);
+            $user = Sentinel::check();
+
+            $confrequests             = new Conferequest();
+            $confrequests->user_id    = $user->id;
+            $confrequests->section_id = $request->section_id;
+            $confrequests->title      = $request->title;
+            $confrequests->text       = $request->text;
+            $confrequests->save();
+
+            $org_ig = $request->org_ig;
+            $count  = count($org_ig) - 1;
+            for ($i = 0; $i <= $count; $i++) {
+
+                $name   = $request->name[$i];
+                $email  = $request->email[$i];
+                $org_ig = $request->org_ig[$i];
+
+                $conferauthor = new Conferauthor();
+//                Взяв user id щоб не зберігати щоб не брати з бд id заявки
+                $conferauthor->conferequests_id = $user->id;
+                $conferauthor->email            = $email;
+                $conferauthor->name             = $name;
+                $conferauthor->organization_id  = $org_ig;
+                $conferauthor->save();
+            }
+
+            return Redirect::to('home')
+                ->withSuccess('Зміни збережено');
         }
     }
