@@ -5,7 +5,7 @@
 @section('content')
     <header id="head" class="secondary"></header>
     <!-- Header -->
-    <header id="head">
+    <header id="head" style="background: #181015 url({{$text->photo}}) no-repeat;">
         <div class="container">
             <div class="row">
                 <h1 class="lead">{{$text->TextTrans('background_title')}}</h1>

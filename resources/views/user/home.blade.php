@@ -20,15 +20,15 @@
                             <table class="table text-left  table-hover">
                                 <tr>
                                     <td class="info">{{trans('user.organization')}}</td>
-                                    <td>{{$user->info->organization_id}}</td>
+                                    <td>{{$organization->TextTrans('title')}}</td>
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.country')}}</td>
-                                    <td>{{$user->info->country_id}}</td>
+                                    <td>{{$country->TextTrans('title')}}</td>
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.city')}}</td>
-                                    <td>{{$user->info->city_id}}</td>
+                                    <td>{{$city->TextTrans('title')}}</td>
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.phone')}}</td>

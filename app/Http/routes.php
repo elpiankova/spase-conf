@@ -45,6 +45,9 @@ Route::group(['middleware' => ['web']], function () {
         });
         print ('saniaboy@yandex.ru');
     });
+    Route::get('/phpinfo', function () {
+        phpinfo();
+    });
     // Вызов страницы регистрации пользователя
     Route::get('register', 'AuthController@register');
 // Пользователь заполнил форму регистрации и отправил
