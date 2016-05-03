@@ -33,42 +33,39 @@
                             </div>
                             <div class="top-margin">
                                 <label for="favorite_team">Ваша організація:</label>
-                                <select type="text" list="team_list" class="form-control" name="organization">
-                                    <option value="1" @if($user->info->organization_id == 1) selected @endif>ІКД
-                                    </option>
-                                    <option value="2" @if($user->info->organization_id == 2) selected @endif>ПТУ
-                                    </option>
-                                    <option value="3" @if($user->info->organization_id == 3) selected @endif>СССР
-                                    </option>
-                                    <option value="4" @if($user->info->organization_id == 4) selected @endif>ДК</option>
-                                    <!-- и т.д. -->
+                                <select type="text" list="team_list" class="chosen-select form-control"
+                                        name="organization">
+                                    @foreach($organizations as $organization)
+                                        <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="top-margin">
                                 <label for="favorite_team">Ваша країна:</label>
-                                <select type="text" list="team_list1" class="form-control" name="country">
-                                    <option value="1" @if($user->info->country_id == 1) selected @endif>Україна</option>
-                                    <option value="2" @if($user->info->country_id == 2) selected @endif>Росія</option>
-                                    <option value="3" @if($user->info->country_id == 3) selected @endif>Польща</option>
-                                    <option value="4" @if($user->info->country_id == 4) selected @endif>СССР</option>
-                                    <!-- и т.д. -->
+                                <select type="text" list="team_list1" class="form-control" name="country"
+                                        id="Country">
+                                    @foreach($countrys as $country)
+                                        <option value="{{$country->id}}"
+                                                @if($country->id == $user->info->country_id) selected @endif>{{$country->TextTrans('title')}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="top-margin">
                                 <label for="favorite_team">Ваше місто:</label>
-                                <select type="text" list="team_list2" class="form-control" name="city">
-                                    <option value="1" @if($user->info->city_id == 1) selected @endif>Київ</option>
-                                    <option value="2" @if($user->info->city_id == 2) selected @endif>Харків</option>
-                                    <option value="3" @if($user->info->city_id == 3) selected @endif>Львів</option>
-                                    <option value="4" @if($user->info->city_id == 4) selected @endif>Скадовськ</option>
-                                    <!-- и т.д. -->
+                                <select type="text" list="team_list2" class="form-control" name="city"
+                                        id="City">
+                                    @foreach($cityes as $city)
+                                        <option value="{{$city->id}}"
+                                                class="{{$city->countries_id}}"
+                                                @if($city->id == $user->info->city_id) selected @endif>{{$city->TextTrans('title')}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div class="top-margin">
-                                <label>Номер телефону в форматі 38098-111-1111</label>
+                                <label>Номер телефону</label>
                                 <input type="tel" class="form-control"
-                                       name="phone" value="{{$user->info->phone}}"/>
+                                       name="phone" id="phone" value="{{$user->info->phone}}"/>
                             </div>
                             <div class="top-margin">
                                 <label>Добавити фото</label>
@@ -90,4 +87,55 @@
             </div>
         </div>
     </div>
+    <script>
+        function dynamicSelect(id1, id2) {
+            if (document.getElementById && document.getElementsByTagName) {
+                var sel1 = document.getElementById(id1);
+                var sel2 = document.getElementById(id2);
+                var clone = sel2.cloneNode(true);
+                var clonedOptions = clone.getElementsByTagName("option");
+                refreshDynamicSelectOptions(sel1, sel2, clonedOptions);
+                sel1.onchange = function () {
+                    refreshDynamicSelectOptions(sel1, sel2, clonedOptions);
+                }
+            }
+        }
+        function refreshDynamicSelectOptions(sel1, sel2, clonedOptions) {
+            while (sel2.options.length) {
+                sel2.remove(0);
+            }
+            var pattern1 = /( |^)(select)( |$)/;
+            var pattern2 = new RegExp("( |^)(" + sel1.options[sel1.selectedIndex].value + ")( |$)");
+            for (var i = 0; i < clonedOptions.length; i++) {
+                if (clonedOptions[i].className.match(pattern1) ||
+                        clonedOptions[i].className.match(pattern2)) {
+                    sel2.appendChild(clonedOptions[i].cloneNode(true));
+                }
+            }
+        }
+        window.onload = function () {
+            dynamicSelect("Country", "City");
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/chosen.jquery.js" type="text/javascript"></script>
+    <script src="/assets/js/jquery.maskedinput-1.2.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': {allow_single_deselect: true},
+            '.chosen-select-no-single': {disable_search_threshold: 10},
+            '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
+            '.chosen-select-width': {width: "95%"}
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    </script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $.mask.definitions['~'] = '[+-]';
+            $('#phone').mask('+9(999) 999-9999');
+        });
+    </script>
 @endsection
