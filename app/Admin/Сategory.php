@@ -15,6 +15,8 @@
     })->createAndEdit(function () {
         $form = AdminForm::form();
         $form->items([
+
+            FormItem::text('place', 'Порядок відображення'),
             FormItem::columns()->columns([
                 [
                     FormItem::text('title_uk', 'Title Uk'),

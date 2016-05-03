@@ -37,7 +37,7 @@
                 <div class="row">
                     @foreach($categoryes as $category)
                         <div class="col-lg-3 text-center">
-                            <img class="img-rounded img-circle" src="assets/images/Shmutz1.jpg"
+                            <img class="img-rounded img-circle" src="{{$category->photo}}"
                                  alt="Generic placeholder image"
                                  width="140"
                                  height="140">
