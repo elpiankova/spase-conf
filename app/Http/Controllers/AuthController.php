@@ -128,6 +128,7 @@
             $this->validate($request, [
                 'first_name'       => 'required',
                 'last_name'        => 'required',
+                'gender'           => 'required',
                 'organization'     => 'integer',
                 'country'          => 'integer',
                 'city'             => 'integer',
@@ -166,6 +167,7 @@
                 $info->country_id      = $request->country;
                 $info->city_id         = $request->city;
                 $info->phone           = $request->phone;
+                $info->gender          = $request->gender;
                 $info->save();
 
                 return Redirect::to('login')

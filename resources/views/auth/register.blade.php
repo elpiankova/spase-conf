@@ -47,6 +47,21 @@
                                         <input type="text" class="form-control text_form" name="middle">
                                     </div>
                                     <div class="top-margin">
+                                        <label>Стать</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="1">
+                                                Чоловіча
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="2">
+                                                Жіноча
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="top-margin">
                                         <label>Дата народження</label>
                                         <input type="date" class="form-control" name="birth">
                                     </div>
