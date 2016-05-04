@@ -7,7 +7,7 @@
     <div class="container">
 
         <ol class="breadcrumb">
-            <li><a href="index.html">{{trans('index.main')}}</a></li>
+            <li><a href="/">{{trans('index.main')}}</a></li>
             <li class="active">{{trans('master.info')}}</li>
         </ol>
 

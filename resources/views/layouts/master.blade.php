@@ -30,7 +30,7 @@
                 {{--<a href="/archive">{{trans('index.archive')}}</a>--}}
                 {{--</li>--}}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
+                    <a href="#" class="dropdown-toggle lead" data-toggle="dropdown"> <b
                                 class="caret"></b> {{trans('index.16')}}</a>
                     <ul class="dropdown-menu">
                         <li>

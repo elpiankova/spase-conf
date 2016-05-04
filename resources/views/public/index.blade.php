@@ -13,6 +13,7 @@
                 </p>
                 <br>
                 <p><a class="btn btn-default btn-lg" role="button" href="/register">{{trans('index.register')}}</a>
+                    <a class="btn btn-primary btn-lg" role="button" href="/conference/info">{{trans('index.16')}}</a>
                 </p>
             </div>
         </div>
