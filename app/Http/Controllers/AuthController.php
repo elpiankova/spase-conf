@@ -148,7 +148,7 @@
                 $activation = Activation::create($sentuser);
                 $code       = $activation->code;
                 $sent       = Mail::send('mail.account_activate', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-                    $m->from('saniaboy@yandex.ru', 'LaravelSite');
+                    $m->from('mail@space-conf.ikd.kiev.ua', 'Space Conf');
                     $m->to($sentuser->email)->subject('Активация аккаунта');
                 });
                 if ($sent === 0) {
