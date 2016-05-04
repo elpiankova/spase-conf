@@ -23,7 +23,7 @@
                         <div class="col-sm-6">
 
                             <h2>{{$thesis->TextTrans('title')}}</h2>
-                            <h4>{{$thesis->TextTrans('text')}}</h4>
+                            <h4>{!! $thesis->TextTrans('text') !!}</h4>
 
                         </div>
                         <div class="col-sm-6">

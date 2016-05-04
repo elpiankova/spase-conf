@@ -8,65 +8,62 @@
             <div class="container">
 
                 <ol class="breadcrumb">
-                    <li><a href="/">Головна</a></li>
+                    <li><a href="/">{{trans('index.main')}}</a></li>
 
-                    <li><a href="/singin">Автризація</a></li>
+                    <li><a href="/singin">{{trans('master.login')}}</a></li>
 
-                    <li class="active">Реєстрація</li>
+                    <li class="active">{{trans('auth.register')}}</li>
                 </ol>
 
                 <div class="row">
 
                     <!-- Article main content -->
                     <article class="col-xs-12 maincontent">
-                        <header class="page-header">
-                            <h1 class="page-title">Реєстрація</h1>
-                        </header>
-
                         <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                            <header class="page-header text-center">
+                                <h1 class="page-title">{{trans('auth.register')}}</h1>
+                            </header>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <h3 class="thin text-center">Створення нового акаунта</h3>
-                                    <p class="text-center text-muted">Якщо ви уже реєструвались на цьому сайті перейдіть
-                                        на <a href="/login">Авторизацію</a> і зайдіть там не потрібно кожен раз
-                                        реєструватись. Навіщо вам тратити свій і наш дорогоцінний час для заповнення
-                                        акаунтів а якщо навіть забули пароль так відновіть а не реєструйтесь знову </p>
+                                    <p class="text-center text-muted">{!! trans('auth.reg_text') !!} </p>
                                     <hr>
                                     @include('errors.errmsg')
                                     {!! Form::open() !!}
                                     <div class="top-margin">
-                                        <label>Імя</label>
+                                        <label>{{trans('auth.name')}}</label>
                                         <input type="text" class="form-control text_form" name="first_name">
                                     </div>
                                     <div class="top-margin">
-                                        <label>Прізвище</label>
+                                        <label>{{trans('auth.last_name')}}</label>
                                         <input type="text" class="form-control text_form" name="last_name">
                                     </div>
+                                    @if(App::getLocale() != 'en')
+                                        <div class="top-margin">
+                                            <label>{{trans('auth.middle')}}</label>
+                                            <input type="text" class="form-control text_form" name="middle">
+                                        </div>
+                                    @endif
                                     <div class="top-margin">
-                                        <label>По батькові</label>
-                                        <input type="text" class="form-control text_form" name="middle">
-                                    </div>
-                                    <div class="top-margin">
-                                        <label>Стать</label>
+                                        <label>{{trans('auth.gender')}}</label>
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="gender" value="1">
-                                                Чоловіча
+                                                {{trans('auth.male')}}
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="gender" value="2">
-                                                Жіноча
+                                                {{trans('auth.female')}}
                                             </label>
                                         </div>
                                     </div>
                                     <div class="top-margin">
-                                        <label>Дата народження</label>
+                                        <label>{{trans('auth.birthday')}}</label>
                                         <input type="date" class="form-control" name="birth">
                                     </div>
                                     <div class="top-margin">
-                                        <label for="favorite_team">Ваша організація:</label>
+                                        <label for="favorite_team">{{trans('auth.organization')}}:</label>
                                         <select type="text" list="team_list" class="chosen-select form-control"
                                                 name="organization">
                                             @foreach($organizations as $organization)
@@ -75,7 +72,7 @@
                                         </select>
                                     </div>
                                     <div class="top-margin">
-                                        <label for="favorite_team">Ваша країна:</label>
+                                        <label for="favorite_team">{{trans('auth.country')}}:</label>
                                         <select type="text" list="team_list1" class="form-control" name="country"
                                                 id="Country">
                                             @foreach($countrys as $country)
@@ -84,7 +81,7 @@
                                         </select>
                                     </div>
                                     <div class="top-margin">
-                                        <label for="favorite_team">Ваше місто:</label>
+                                        <label for="favorite_team">{{trans('auth.city')}}:</label>
                                         <select type="text" list="team_list2" class="form-control" name="city"
                                                 id="City">
                                             @foreach($cityes as $city)
@@ -95,7 +92,7 @@
                                     </div>
 
                                     <div class="top-margin">
-                                        <label>Номер телефону</label>
+                                        <label>{{trans('auth.phone')}}</label>
                                         <input type="tel" class="form-control"
                                                name="phone" id="phone"/>
                                     </div>
@@ -106,17 +103,18 @@
 
                                     <div class="row top-margin">
                                         <div class="col-sm-6">
-                                            <label>Пароль</label>
+                                            <label>{{trans('auth.pass')}}</label>
                                             <input type="password" class="form-control" name="password">
                                         </div>
                                         <div class="col-sm-6">
-                                            <label>Повторіть пароль</label>
+                                            <label>{{trans('auth.pass_re')}}</label>
                                             <input type="password" class="form-control" name="password_confirm">
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="col-lg-12 ">
-                                        <button class="btn btn-action  center-block" type="submit">Зареєструватись
+                                        <button class="btn btn-action  center-block"
+                                                type="submit">{{trans('auth.register')}}
                                         </button>
                                     </div>
                                     {!! Form::close() !!}
@@ -177,7 +175,7 @@
     <script type="text/javascript">
         jQuery(function ($) {
             $.mask.definitions['~'] = '[+-]';
-            $('#phone').mask('+9(999) 999-9999');
+            $('#phone').mask('+99(999) 999-9999');
         });
     </script>
 @endsection
