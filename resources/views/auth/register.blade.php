@@ -65,7 +65,9 @@
                                     <div class="top-margin">
                                         <label for="favorite_team">{{trans('auth.organization')}}:</label>
                                         <select type="text" list="team_list" class="chosen-select form-control"
-                                                name="organization">
+                                                name="organization" data-placeholder="{{trans('auth.organization')}}...">
+
+                                            <option value=""></option>
                                             @foreach($organizations as $organization)
                                                 <option value="{{$organization->id}}">{{$organization->TextTrans('title')}}</option>
                                             @endforeach
