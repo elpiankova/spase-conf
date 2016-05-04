@@ -17,15 +17,15 @@ Admin::model('App\Confabstract')->title('Тези')->display(function() {
         FormItem::columns()->columns([
             [
                 FormItem::text('title_uk', 'Title Uk'),
-                FormItem::textarea('text_uk', 'Text Uk'),
+                FormItem::ckeditor('text_uk', 'Text Uk'),
             ],
             [
                 FormItem::text('title_ru', 'Title Ru'),
-                FormItem::textarea('text_ru', 'Text Ru'),
+                FormItem::ckeditor('text_ru', 'Text Ru'),
             ],
             [
                 FormItem::text('title_en', 'Title En'),
-                FormItem::textarea('text_en', 'Text En'),
+                FormItem::ckeditor('text_en', 'Text En'),
             ],
         ]),
         FormItem::columns()->columns([
