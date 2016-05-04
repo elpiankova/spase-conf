@@ -103,9 +103,11 @@
                     <h3 class="widget-title">{{trans('master.pages')}}</h3>
                     <div class="widget-body">
                         <p class="follow-me-icons">
-                            <a href="https://twitter.com/space_conf"><i class="fa fa-twitter fa-2"></i></a>
-                            <a href="https://github.com/MammutCris/space-conf"><i class="fa fa-github fa-2"></i></a>
-                            <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                            <a href="https://twitter.com/space_conf" target="_blank"><i class="fa fa-twitter fa-2"></i></a>
+                            <a href="https://github.com/MammutCris/space-conf" target="_blank"><i
+                                        class="fa fa-github fa-2"></i></a>
+                            <a href="https://www.facebook.com/ukrainianspaceconf" target="_blank"><i
+                                        class="fa fa-facebook fa-2"></i></a>
                         </p>
                     </div>
                 </div>

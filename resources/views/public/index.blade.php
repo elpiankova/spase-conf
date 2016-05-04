@@ -12,7 +12,7 @@
                 <p class="tagline">{{$text->TextTrans('background_text')}}
                 </p>
                 <br>
-                <p><a class="btn btn-default btn-lg" role="button" href="/signup">{{trans('index.register')}}</a>
+                <p><a class="btn btn-default btn-lg" role="button" href="/register">{{trans('index.register')}}</a>
                 </p>
             </div>
         </div>
