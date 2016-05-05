@@ -137,5 +137,9 @@
 <script src="/assets/js/template.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=&amp;sensor=false&amp;extension=.js"></script>
 <script src="/assets/js/google-map.js"></script>
+<script>
+    if ($(document).height() <= $(window).height())
+        $("footer#footer").addClass("navbar-fixed-bottom");
+</script>
 </body>
 </html>
