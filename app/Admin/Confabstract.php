@@ -31,8 +31,6 @@ Admin::model('App\Confabstract')->title('Тези')->display(function() {
         FormItem::columns()->columns([
             [
                 FormItem::image('photo', 'Photo'),
-            ],
-            [
                 FormItem::file('file', 'File'),
             ],
         ]),
