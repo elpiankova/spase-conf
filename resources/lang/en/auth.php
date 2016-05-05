@@ -15,7 +15,7 @@ return [
     'reg_text'  => 'Go to the My Account If you have already registered on this site over 
                                         the link <a href="/login">Sing in</a> (or <strong> Sing in</strong> in the top menu section). <br>The participants of the conference community who work in Ukrainian organization are necessary to fill all of the data of the Ukrainian language. <br>Here you create your account only, and in the your Personal Page you will be able to apply to participate in the current Conference.',
     'name'=>'Name',
-    'last_name'=>'Second name',
+    'last_name'=>'Last name',
     'middle'=>'Middle',
     'gender'=>'Gender',
     'female'=>'Female',

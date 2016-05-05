@@ -17,4 +17,5 @@ return [
   'admin'=>'Skorokhod Tetiana',
   'pages'=>'Our pages',
   'logout'=>'Logout',
+  'admin_panel'=>'Admin Panel',
 ];

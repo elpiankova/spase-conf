@@ -52,9 +52,14 @@
 
                 @if(Sentinel::guest())
                     <li><a class="btn" href="/login">{{trans('master.login')}}</a></li>
-                @else
+
+                @elseif(Sentinel::inRole('user'))
                     <li><a class="btn" href="/home">{{trans('master.home')}}</a></li>
+                    @if(Sentinel::inRole('admin'))
+                        <li><a class="btn" href="/admin">{{trans('master.admin_panel')}}</a></li>
+                    @endif
                 @endif
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -73,9 +78,11 @@
                 </li>
             </ul>
             @if(!Sentinel::guest())
+                @if(Sentinel::inRole('user'))
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="logout">{{trans('master.logout')}}</a></li>
                 </ul>
+                @endif
             @endif
         </div>
     </div>
