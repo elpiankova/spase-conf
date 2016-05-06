@@ -10,12 +10,16 @@ namespace App\Http\Controllers;
 
 
 use App\Archive;
+use App\Collcontact;
 use App\Confabstract;
 use App\Confdescription;
 use App\Confinfo;
+use Illuminate\Http\Request;
 use App\Index;
+use App\User;
 use App\Сategory;
-use Illuminate\Support\Facades\App;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Support\Facades\Redirect;
 
 class WelcomeController extends Controller
 {
@@ -37,7 +41,15 @@ class WelcomeController extends Controller
 
     public function contact()
     {
-        return view('public.contact');
+        $user = null;
+        if (!Sentinel::guest()) {
+            if (Sentinel::inRole('user')) {
+                $user = Sentinel::check();
+                $user = User::where('id', '=', $user->id)->first();
+            }
+        }
+
+        return view('public.contact', ['user' => $user]);
     }
 
     public function confInfo()
@@ -62,5 +74,25 @@ class WelcomeController extends Controller
     public function confCommittee()
     {
         return view('public.conference.committee');
+    }
+
+    public
+    function contactpost(Request $request)
+    {
+        $this->validate($request, [
+            'name'  => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'text'  => 'required',
+        ]);
+        $mail        = new Collcontact();
+        $mail->name  = $request->name;
+        $mail->email = $request->email;
+        $mail->phone = $request->phone;
+        $mail->text  = $request->text;
+        $mail->save();
+
+        return Redirect::to('contact')
+            ->withSuccess('Ваше повідомлення надіслано');
     }
 }

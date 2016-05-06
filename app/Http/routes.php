@@ -32,22 +32,12 @@ Route::group(['middleware' => ['web']], function () {
 //    Зробити функціонал в адмінці для включення і виключення архіву
 //    Route::get('/archive', 'WelcomeController@archive');
     Route::get('/contact', 'WelcomeController@contact');
+    Route::post('/contact', 'WelcomeController@contactpost');
 
     Route::get('/conference/info', 'WelcomeController@confInfo');
     Route::get('/conference/thesis', 'WelcomeController@confThesis');
     Route::get('/conference/place', 'WelcomeController@confPlace');
     Route::get('/conference/committee', 'WelcomeController@confCommittee');
-    Route::get('/mail', function () {
-        Mail::send('mail.1', ['key' => 'value'], function ($message) {
-            $message->from('mail@space-conf.ikd.kiev.ua', 'Laravel');
-
-            $message->to('saniaboy@yandex.ru', 'Джон Смит')->subject('Привет!');
-        });
-        print ('saniaboy@yandex.ru');
-    });
-    Route::get('/phpinfo', function () {
-        phpinfo();
-    });
     // Вызов страницы регистрации пользователя
     Route::get('register', 'AuthController@register');
 // Пользователь заполнил форму регистрации и отправил

@@ -27,7 +27,7 @@
 
                         </div>
                         <div class="col-sm-6">
-                            <img src="{{$thesis->photo}}" alt="..." class="img-thumbnail">
+                            <img src="/{{$thesis->photo}}" alt="{{$thesis->photo}}" class="img-thumbnail">
                             <a class="btn btn-success btn-lg btn-block text-center" href="{{$thesis->file}}">{{trans('conference.downloads')}}</a>
                         </div>
                     </div>

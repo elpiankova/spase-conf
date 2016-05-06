@@ -85,9 +85,7 @@
                 'phone'        => 'required',
             ]);
 
-//        $input = $request->all();
             $user = Sentinel::check();
-//dd($request);
             if ($request->file('photo') != null) {
 
                 if ($request->file('photo')
