@@ -485,32 +485,6 @@
         </tr>
         </tbody>
     </table>
-
-    <table class="layout layout--no-gutter"
-           style="border-collapse: collapse;table-layout: fixed;Margin-left: auto;Margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;background-position: 0px 0px;background-image: url(https://i1.createsend1.com/ei/i/B3/3C2/82D/062634/csfinal/bg_header1.jpg);background-repeat: repeat;"
-           align="center">
-        <tbody>
-        <tr>
-            <td class="column"
-                style="font-size: 14px;line-height: 21px;padding: 0;text-align: left;vertical-align: top;color: #808285;font-family: Ubuntu,sans-serif;"
-                width="600">
-
-                <div class="image" style="font-size: 12px;font-style: normal;font-weight: 400;" align="center">
-                    <img style="display: block;border: 0;max-width: 149px;" src="https://pbs.twimg.com/profile_images/727412880996483072/0ywwQo1y_400x400.jpg" alt="" width="149"
-                         height="148"/>
-                </div>
-
-                <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 20px;">
-                    <h1 style='Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;font-size: 26px;line-height: 34px;color: #58595b;font-family: "Open Sans",sans-serif;text-align: center;'><span
-                                style="color:#ffffff">16 УКРАЇНСЬКА КОНФЕРЕНЦІЯ З КОСМІЧНИХ ДОСЛІДЖЕНЬ</span>
-                    </h1>
-                </div>
-
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
     <table class="layout layout--no-gutter"
            style="border-collapse: collapse;table-layout: fixed;Margin-left: auto;Margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;"
            align="center" emb-background-style>
@@ -527,65 +501,14 @@
                 <div style="Margin-left: 20px;Margin-right: 20px;">
 
                     <h2 style='Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;font-size: 20px;line-height: 28px;color: #58595b;font-family: "Open Sans",sans-serif;text-align: center;'>
-                        Підтвердження реєстрації на сайт</h2>
-                    <p style="Margin-top: 16px;Margin-bottom: 0;">Шановний Олександре Андрійовичу ви зареєструвались на
-                        нашому сайті</p>
-                    <p style="Margin-top: 20px;Margin-bottom: 20px;">Якщо це ви реєструвались, то для підтвердження
-                        реєстрації перейдіть за <a href=""> посиланням</a>, якщо ви не реєструвались проігноруйте це
-                        повідомлення</p>
+                        Вам написали у розділі Зворотній звязок</h2>
+                    <p style="Margin-top: 16px;Margin-bottom: 0;">Ім'я - {{$request->name}}</p>
+                    <p style="Margin-top: 20px;Margin-bottom: 20px;">email - {{$request->email}}</p>
+                    <p style="Margin-top: 20px;Margin-bottom: 20px;">Телефон - {{$request->email}}</p>
+                    <p style="Margin-top: 20px;Margin-bottom: 20px;">
+                        {{$request->text}}
+                    </p>
                 </div>
-
-                <table class="layout layout--no-gutter"
-                       style="border-collapse: collapse;table-layout: fixed;Margin-left: auto;Margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;"
-                       align="center" emb-background-style>
-                    <tbody>
-                    <tr>
-                        <td class="column"
-                            style="font-size: 14px;line-height: 21px;padding: 0;text-align: left;vertical-align: top;color: #808285;font-family: Ubuntu,sans-serif;"
-                            width="300">
-
-                            <div style="Margin-left: 20px;Margin-right: 20px;">
-                                <div style="line-height:20px;font-size:1px">&nbsp;</div>
-                            </div>
-
-                            <div style="Margin-left: 20px;Margin-right: 20px;">
-                                <p style="Margin-top: 0;Margin-bottom: 20px;">Більш детальну інформацію, а також інформацію про
-                                    можливі зміни і формат Конференції Ви зможете знайти на сайті <a
-                                            style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #7d9eba;"
-                                            href="http://space-conf.ikd.kiev.ua">space-conf.ikd.kiev.ua</a></p>
-                            </div>
-
-                            <div style="Margin-left: 20px;Margin-right: 20px;">
-                                <div style="line-height:20px;font-size:1px">&nbsp;</div>
-                            </div>
-
-                        </td>
-                        <td class="column"
-                            style="font-size: 14px;line-height: 21px;padding-bottom: 10px;text-align: left;vertical-align: top;color: #808285;font-family: Ubuntu,sans-serif;"
-                            width="300">
-
-                            <div style="Margin-left: 20px;Margin-right: 20px;">
-                                <div style="line-height:20px;font-size:1px">&nbsp;</div>
-                            </div>
-
-                            <div style="Margin-left: 20px;Margin-right: 20px;">
-                                <blockquote
-                                        style="Margin-top: 20px;Margin-bottom: 0;Margin-left: 0;Margin-right: 0;padding-left: 14px;border-left: 4px solid #b5b5b5;">
-                                    <p style="Margin-top: 0px;Margin-bottom:0;">+38 044 526 15 83</p>
-                                    <p style="Margin-top: 0px;Margin-bottom: 0;">+38 063 451 82 70,</p>
-                                    <p style="Margin-top: 0px;Margin-bottom: 0;"><a
-                                                style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #7d9eba;Margin-top: 20px;"
-                                                href="mailto:ukrainianspaceconf@gmail.com">ukrainianspaceconf@gmail.com</a></p>
-                                </blockquote>
-                            </div>
-
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <badge>
-
-                </badge>
             </td>
         </tr>
         </tbody>

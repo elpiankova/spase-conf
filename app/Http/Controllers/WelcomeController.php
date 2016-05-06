@@ -14,11 +14,12 @@ use App\Collcontact;
 use App\Confabstract;
 use App\Confdescription;
 use App\Confinfo;
-use Illuminate\Http\Request;
 use App\Index;
 use App\User;
 use App\Сategory;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class WelcomeController extends Controller
@@ -91,7 +92,10 @@ class WelcomeController extends Controller
         $mail->phone = $request->phone;
         $mail->text  = $request->text;
         $mail->save();
-
+        Mail::send('mail.contact', ['name' => $request->name], function ($message) use ($request) {
+            $message->from('mail@space-conf.ikd.kiev.ua', 'Лист з сайту');
+            $message->to('saniaboy@yandex.ru', $request->name)->subject($request->email);
+        });
         return Redirect::to('contact')
             ->withSuccess('Ваше повідомлення надіслано');
     }
