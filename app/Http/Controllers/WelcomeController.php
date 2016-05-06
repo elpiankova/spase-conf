@@ -92,9 +92,9 @@ class WelcomeController extends Controller
         $mail->phone = $request->phone;
         $mail->text  = $request->text;
         $mail->save();
-        Mail::send('mail.contact', ['name' => $request->name], function ($message) use ($request) {
+        Mail::send('mail.contact', compact('request'), function ($message) use ($request) {
             $message->from('mail@space-conf.ikd.kiev.ua', 'Лист з сайту');
-            $message->to('saniaboy@yandex.ru', $request->name)->subject($request->email);
+            $message->to('ukrainianspaceconf@gmail.com', $request->name)->subject($request->email);
         });
         return Redirect::to('contact')
             ->withSuccess('Ваше повідомлення надіслано');
