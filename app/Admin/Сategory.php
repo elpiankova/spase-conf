@@ -4,7 +4,6 @@
         $display = AdminDisplay::datatables();
         $display->with();
         $display->filters([
-
         ]);
         $display->columns([
             Column::string('title_uk')->label('Title_uk'),

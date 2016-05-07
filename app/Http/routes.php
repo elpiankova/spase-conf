@@ -29,8 +29,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
     
     Route::get('/', 'WelcomeController@index');
-//    Зробити функціонал в адмінці для включення і виключення архіву
-//    Route::get('/archive', 'WelcomeController@archive');
+    Route::get('/archive', 'WelcomeController@archive');
     Route::get('/contact', 'WelcomeController@contact');
     Route::post('/contact', 'WelcomeController@contactpost');
 
