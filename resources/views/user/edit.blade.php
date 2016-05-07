@@ -13,35 +13,53 @@
                         <div class="well">
                             {!! Form::open(array('enctype' => 'multipart/form-data')) !!}
                             <div class="top-margin">
-                                <label>Імя</label>
+                                <label>{{trans('auth.name')}}</label>
                                 <input type="text" class="form-control text_form" name="first_name"
                                        value="{{$user->first_name}}">
                             </div>
                             <div class="top-margin">
-                                <label>Прізвище</label>
+                                <label>{{trans('auth.last_name')}}</label>
                                 <input type="text" class="form-control text_form" name="last_name"
                                        value="{{$user->last_name}}">
                             </div>
+                            @if(App::getLocale() != 'en')
                             <div class="top-margin">
-                                <label>По батькові</label>
+                                <label>{{trans('auth.middle')}}</label>
                                 <input type="text" class="form-control text_form" name="middle"
                                        value="{{$user->info->middle_name}}">
                             </div>
+                            @endif
                             <div class="top-margin">
-                                <label>Дата народження</label>
+                                <label>{{trans('auth.gender')}}</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="1">
+                                        {{trans('auth.male')}}
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="gender" value="2">
+                                        {{trans('auth.female')}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="top-margin">
+                                <label>{{trans('auth.birthday')}}</label>
                                 <input type="date" class="form-control" name="birth" value="{{$user->info->birth}}">
                             </div>
                             <div class="top-margin">
-                                <label for="favorite_team">Ваша організація:</label>
+                                <label for="favorite_team">{{trans('auth.organization')}}:</label>
                                 <select type="text" list="team_list" class="chosen-select form-control"
-                                        name="organization">
+                                        name="organization" data-placeholder="{{trans('auth.organization')}}...">
+                                    <option value=""></option>
                                     @foreach($organizations as $organization)
                                         <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="top-margin">
-                                <label for="favorite_team">Ваша країна:</label>
+                                <label for="favorite_team">{{trans('auth.country')}}:</label>
                                 <select type="text" list="team_list1" class="form-control" name="country"
                                         id="Country">
                                     @foreach($countrys as $country)
@@ -51,7 +69,7 @@
                                 </select>
                             </div>
                             <div class="top-margin">
-                                <label for="favorite_team">Ваше місто:</label>
+                                <label for="favorite_team">{{trans('auth.city')}}:</label>
                                 <select type="text" list="team_list2" class="form-control" name="city"
                                         id="City">
                                     @foreach($cityes as $city)
@@ -63,7 +81,7 @@
                             </div>
 
                             <div class="top-margin">
-                                <label>Номер телефону</label>
+                                <label>{{trans('auth.phone')}}</label>
                                 <input type="tel" class="form-control"
                                        name="phone" id="phone" value="{{$user->info->phone}}"/>
                             </div>
