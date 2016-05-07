@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Archive;
 use App\Collcontact;
 use App\Confabstract;
+use App\Confcommittee;
 use App\Confdescription;
 use App\Confinfo;
 use App\Index;
@@ -74,7 +75,9 @@ class WelcomeController extends Controller
 
     public function confCommittee()
     {
-        return view('public.conference.committee');
+        $commitets = Confcommittee::orderBy('place')->get();
+
+        return view('public.conference.committee', ['commitets' => $commitets]);
     }
 
     public

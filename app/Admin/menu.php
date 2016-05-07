@@ -15,7 +15,7 @@ Admin::menu()->label('Сайт')->icon('fa-desktop')->items(function ()
         Admin::menu(App\Confinfo::class)->label('Інформація')->icon('fa-graduation-cap');
         Admin::menu(App\Confabstract::class)->label('Тези')->icon('fa-user');
         Admin::menu(App\Confdescription::class)->label('Місце проведення')->icon('fa-user');
-        Admin::menu(App\User::class)->label('Комітет')->icon('fa-user');
+        Admin::menu(App\Confcommittee::class)->label('Комітет')->icon('fa-user');
     });
 });
 

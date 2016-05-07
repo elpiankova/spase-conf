@@ -26,23 +26,24 @@
             var new_input = document.createElement('div');
             new_input.className = "form-inline";
             new_input.innerHTML =
-                    '<input type="text" class="form-control text_form" name="name[]">' +
-                    '<select type="text" list="team_list" class="chosen-select form-control input-sm"name="org_ig[]">' +
-                    '@foreach($organizations as $organization)<option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
-                    '</select>' +
-                    '<input type="text" class="form-control text_form" name="email[]">';
-            new_input.innerHTML = new_input.innerHTML + '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode)"></i>';
+                    '<div class="row">' +
+                        '<div class="col-md-3">' +
+                            '<input type="text" class="form-control text_form" name="name[]">' +
+                        '</div>' +
+                        '<div class="col-md-3">' +
+                            '<select type="text" list="team_list" class="chosen-select form-control input-sm"name="org_ig[]">' +
+                                '@foreach($organizations as $organization)<option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
+                            '</select>' +
+                        '</div>' +
+                        '<div class="col-md-3">' +
+                            '<input type="text" class="form-control text_form" name="email[]">' +
+                        '</div>'+
+                        '<div class="col-md-3">' +
+                            '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode)"></i>' +
+                        '</div>' +
+                    '</div>';
             document.getElementById('items').appendChild(new_input);
-            var config = {
-                '.chosen-select': {},
-                '.chosen-select-deselect': {allow_single_deselect: true},
-                '.chosen-select-no-single': {disable_search_threshold: 10},
-                '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
-                '.chosen-select-width': {width: "95%"}
-            }
-            for (var selector in config) {
-                $(selector).chosen(config[selector]);
-            }
+            $('.form-inline').trigger("chosen:updated");
         }
         function del_input(obj) {
             document.getElementById('items').removeChild(obj)
@@ -68,23 +69,37 @@
                             </div>
                             <div class="top-margin">
                                 <label>Назва тез</label>
-                                <input type="text" class="form-control text_form" name="title">
+                                <input type="text" class="form-control text_form  conf_name" name="title">
                             </div>
 
                             <div class="top-margin" id="items">
-                                <label>Додаткові автори</label>
+                                <label>Автори</label>
                                 <div class="form-inline">
-                                    <input type="text" class="form-control text_form" name="name[]">
-                                    <input type="text" class="form-control text_form" name="email[]">
-                                    <select type="text" list="team_list" class="chosen-select form-control input-sm"
-                                            name="org_ig[]">
-                                        @foreach($organizations as $organization)
-                                            <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
-                                        @endforeach
-                                    </select>
-                                    <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
-                                       onclick="del_input(this.parentNode)"></i>
-
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control text_form name_autor" name="name[]"
+                                                   placeholder="Імя">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control text_form" name="email[]"
+                                                   placeholder="email">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select type="email" list="team_list"
+                                                    class="chosen-select form-control input-sm"
+                                                    name="org_ig[]"
+                                                    data-placeholder="{{trans('auth.organization')}}...">
+                                                <option value=""></option>
+                                                @foreach($organizations as $organization)
+                                                    <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
+                                               onclick="del_input(this.parentNode)"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -118,7 +133,7 @@
     <script src="/assets/js/jquery.maskedinput-1.2.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         var config = {
-            '.chosen-select': {},
+            '.chosen-select': {width: '100%'},
             '.chosen-select-deselect': {allow_single_deselect: true},
             '.chosen-select-no-single': {disable_search_threshold: 10},
             '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
@@ -131,7 +146,7 @@
     <script type="text/javascript">
         jQuery(function ($) {
             $.mask.definitions['~'] = '[+-]';
-            $('#phone').mask('+9(999) 999-9999');
+            $('.name_autor').mask('	a. a. a?aaaaaaaaaaaaaaaaa', {placeholder: " "});
         });
     </script>
 @endsection
