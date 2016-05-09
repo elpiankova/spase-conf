@@ -142,6 +142,7 @@
 <script src="/assets/js/headroom.min.js"></script>
 <script src="/assets/js/jQuery.headroom.min.js"></script>
 <script src="/assets/js/template.js"></script>
+<script src="/assets/js/script.js"></script>
 <script>
     if ($(document).height() <= $(window).height())
         $("footer#footer").addClass("navbar-fixed-bottom");

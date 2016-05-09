@@ -21,35 +21,6 @@
                 '//www.tinymce.com/css/codepen.min.css'
             ]
         });</script>
-    <script language="javascript">
-        function add_input(obj) {
-            var new_input = document.createElement('div');
-            new_input.className = "form-inline";
-            new_input.innerHTML =
-                    '<div class="row">' +
-                        '<div class="col-md-3">' +
-                            '<input type="text" class="form-control text_form" name="name[]">' +
-                        '</div>' +
-                        '<div class="col-md-3">' +
-                            '<select type="text" list="team_list" class="chosen-select form-control input-sm"name="org_ig[]">' +
-                                '@foreach($organizations as $organization)<option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
-                            '</select>' +
-                        '</div>' +
-                        '<div class="col-md-3">' +
-                            '<input type="text" class="form-control text_form" name="email[]">' +
-                        '</div>'+
-                        '<div class="col-md-3">' +
-                            '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode.parentNode.parentNode)"></i>' +
-                        '</div>' +
-                    '</div>';
-            document.getElementById('items').appendChild(new_input);
-            $('.form-inline').trigger("chosen:updated");
-        }
-        function del_input(obj) {
-            console.info(obj);
-            document.getElementById('items').removeChild(obj)
-        }
-    </script>
     <div class="jumbotron top-space">
         <div class="jumbotron2">
             <div class="container">
@@ -82,11 +53,7 @@ parentNode
                                                    placeholder="{{trans('auth.name')}}">
                                         </div>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control text_form" name="email[]"
-                                                   placeholder="email">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <select type="email" list="team_list"
+                                            <select list="team_list"
                                                     class="chosen-select form-control input-sm"
                                                     name="org_ig[]"
                                                     data-placeholder="{{trans('auth.organization')}}...">
@@ -95,6 +62,10 @@ parentNode
                                                     <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control text_form" name="email[]"
+                                                   placeholder="email">
                                         </div>
                                         <div class="col-md-3">
                                             <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
@@ -138,10 +109,12 @@ parentNode
             '.chosen-select-deselect': {allow_single_deselect: true},
             '.chosen-select-no-single': {disable_search_threshold: 10},
             '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
-            '.chosen-select-width': {width: "95%"}
-        }
+            '.chosen-select-width': {width: "100%"}
+        };
         for (var selector in config) {
             $(selector).chosen(config[selector]);
+
+            console.info(selector);
         }
     </script>
     <script type="text/javascript">
@@ -149,5 +122,39 @@ parentNode
             $.mask.definitions['~'] = '[+-]';
             $('.name_autor').mask('	a. a. a?aaaaaaaaaaaaaaaaa', {placeholder: " "});
         });
+    </script>
+    <script language="javascript">
+        var id_select = 0;
+        function add_input(obj) {
+            var new_input = document.createElement('div');
+            new_input.className = "form-inline";
+            new_input.innerHTML =
+                    '<br>' +
+                    '<div class="row">' +
+                    '<div class="col-md-3">' +
+                    '<input type="text" class="form-control text_form" name="name[]" placeholder="{{trans('auth.name')}}">' +
+
+                    '</div>' +
+                    '<div class="col-md-3">' +
+                    '<select list="team_list" class="chosen-select form-control input-sm" id="chosen-select_' + id_select + '" name="org_ig[]" data-placeholder="{{trans('auth.organization')}}...">' +
+                    '<option value=""></option>' +
+                    '@foreach($organizations as $organization)' +
+                    '<option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
+                    '</select>' +
+                    '</div>' +
+                    '<div class="col-md-3">' +
+                    '<input type="text" class="form-control text_form" name="email[]" placeholder="email">' +
+                    '</div>' +
+                    '<div class="col-md-3">' +
+                    '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode.parentNode.parentNode)"></i>' +
+                    '</div>' +
+                    '</div>';
+            document.getElementById('items').appendChild(new_input);
+            asas();
+        }
+        function del_input(obj) {
+            console.info(obj);
+            document.getElementById('items').removeChild(obj)
+        }
     </script>
 @endsection
