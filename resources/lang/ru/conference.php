@@ -6,5 +6,6 @@
      * Time: 23:52
      */
 return[
-  'downloads'=>'Cкачать тезисы'
+  'downloads'=>'Cкачать тезисы',
+  'photo'=>'Cкачать фото'
 ];

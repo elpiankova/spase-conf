@@ -6,5 +6,6 @@
      * Time: 23:52
      */
 return[
-  'downloads'=>'Download abstracts'
+  'downloads'=>'Download abstracts',
+  'photo'=>'Download photo'
 ];
