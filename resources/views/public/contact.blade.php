@@ -39,40 +39,40 @@
                 @else
                 <div class="row">
                     <div class="col-sm-4">
-                        <input class="form-control" name="name" type="text" placeholder="Імя" required>
+                        <input class="form-control" name="name" type="text" placeholder="{{trans('auth.name')}}" required>
                     </div>
                     <div class="col-sm-4">
                         <input class="form-control" name="email" type="email" placeholder="Email" required>
                     </div>
                     <div class="col-sm-4">
-                        <input class="form-control phone" name="phone" type="text" placeholder="Телефон" required>
+                        <input class="form-control phone" name="phone" type="text" placeholder="{{trans('auth.phone')}}" required>
                     </div>
                 </div>
                 @endif
             @else
                 <div class="row">
                     <div class="col-sm-4">
-                        <input class="form-control" name="name" type="text" placeholder="Імя" required>
+                        <input class="form-control" name="name" type="text" placeholder="{{trans('auth.name')}}" required>
                     </div>
                     <div class="col-sm-4">
                         <input class="form-control" name="email" type="email" placeholder="Email" required>
                     </div>
                     <div class="col-sm-4">
-                        <input class="form-control phone" name="phone" type="text" placeholder="Телефон" required>
+                        <input class="form-control phone" name="phone" type="text" placeholder="{{trans('auth.phone')}}" required>
                     </div>
                 </div>
             @endif
                 <br>
                 <div class="row">
                     <div class="col-sm-12">
-                        <textarea placeholder="Напишіть ваше повідомлення тут" class="form-control" rows="9" name="text"
+                        <textarea placeholder="{{trans('contact.textarea')}}" class="form-control" rows="9" name="text"
                                   required></textarea>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-sm-6">
-                        <input class="btn btn-action" type="submit" value="Відправити повідомлення">
+                        <input class="btn btn-action" type="submit" value="{{trans('contact.send')}}">
                     </div>
                 </div>
             {!! Form::close() !!}
@@ -80,17 +80,7 @@
         </article>
         <aside class="col-sm-3 sidebar sidebar-right">
             <div class="widget">
-                <h4>Адрес</h4>
-                <address>
-                    м.Київ<br>
-                    проспект Академіка Глушкова 40<br>
-                    корпус 4/1
-                </address>
-                <h4>Телефон:</h4>
-                <address>
-                    (044) 526-1583<br>
-                    (063) 451-8270
-                </address>
+                {!! trans('contact.address') !!}
             </div>
         </aside>
     </div>

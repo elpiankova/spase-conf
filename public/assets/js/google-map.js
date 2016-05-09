@@ -3,17 +3,19 @@ google.maps.event.addDomListener(window, 'load', init);
 var map;
 
 function init() {
-	var mapOptions = {
-		center: new google.maps.LatLng(50.36348113, 30.44579543),
+    var myLatLng = {lat: 50.362359, lng: 30.442751};
+
+    var mapOptions = {
+		center: new google.maps.LatLng(50.362359, 30.442751),
 		zoom: 17,
 		zoomControl: true,
 		zoomControlOptions: {
-			style: google.maps.ZoomControlStyle.SMALL,
+            style: google.maps.ZoomControlStyle.SMALL
 		},
 		disableDoubleClickZoom: true,
 		mapTypeControl: true,
 		mapTypeControlOptions: {
-			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
 		},
 		scaleControl: false,
 		scrollwheel: true,
@@ -96,16 +98,21 @@ function init() {
 			{ saturation: -97 }
 			]
 		}
-		],
-		
-	}
+        ]
+    };
 
 	var mapElement = document.getElementById('map');
 	var map = new google.maps.Map(mapElement, mapOptions);
 	var locations = [
 	
 	];
-
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        map: map,
+        title: 'Hello World!'
+    });
 	for (i = 0; i < locations.length; i++) {
 		marker = new google.maps.Marker({
 			icon: '',
