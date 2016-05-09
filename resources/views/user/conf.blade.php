@@ -52,7 +52,7 @@
     <div class="jumbotron top-space">
         <div class="jumbotron2">
             <div class="container">
-                <h2 class="text-center thin">Заявка на конференцію</h2>
+                <h2 class="text-center thin">{{trans('user.conf.title')}}</h2>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         @include('errors.errmsg')
@@ -60,7 +60,7 @@
                             {!! Form::open() !!}
                             <hr>
                             <div class="top-margin">
-                                <label for="favorite_team">Секція</label>
+                                <label for="favorite_team">{{trans('user.conf.section')}}</label>
                                 <select type="text" list="team_list1" class="form-control" name="section_id">
                                     @foreach($categoryes as $key=>$category)
                                         <option value="{{$key}}">{{$category->TextTrans('title')}}</option>
@@ -68,17 +68,17 @@
                                 </select>
                             </div>
                             <div class="top-margin">
-                                <label>Назва тез</label>
+                                <label>{{trans('user.conf.name')}}</label>
                                 <input type="text" class="form-control text_form  conf_name" name="title">
                             </div>
 
                             <div class="top-margin" id="items">
-                                <label>Автори</label>
+                                <label>{{trans('user.conf.authors')}}</label>
                                 <div class="form-inline">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <input type="text" class="form-control text_form name_autor" name="name[]"
-                                                   placeholder="Імя">
+                                                   placeholder="{{trans('auth.name')}}">
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control text_form" name="email[]"
@@ -106,17 +106,17 @@
                             <div class="text-center" id="inputi">
                                 <div role="button" class="btn btn-sm btn-success text-center"
                                      onclick="add_input()">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Добавити автора
+                                    <i class="fa fa-plus" aria-hidden="true"></i> {{trans('user.conf.add')}}
                                 </div>
                             </div>
                             <div class="top-margin">
-                                <label>Текст тез</label>
+                                <label>{{trans('user.conf.text')}}</label>
                                 <textarea class="form-control" rows="3" name="text"></textarea>
                             </div>
 
                             <hr>
                             <div class="col-lg-12 ">
-                                <button class="btn btn-action  center-block" type="submit">Зберегти
+                                <button class="btn btn-action  center-block" type="submit">{{trans('user.conf.save')}}
                                 </button>
                             </div>
                             <hr>
