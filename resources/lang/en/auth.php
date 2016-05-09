@@ -25,4 +25,5 @@ return [
     'country'=>'Country',
     'city'=>'City',
     'phone'=>'Phone number',
+    'mail'         => 'Dear colleagues, we apologize for the inconvenience, but during registration <strong>don\'t</strong> use mail sarvice <strong>mail.ru</strong> and <strong>ukr.net</strong> ',
 ];

@@ -26,6 +26,9 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <p class="text-center text-muted">{!! trans('auth.reg_text') !!} </p>
+                                    <div class="alert alert-info alert-block">
+                                        {!! trans('auth.mail') !!}
+                                    </div>
                                     <hr>
                                     @include('errors.errmsg')
                                     {!! Form::open() !!}
