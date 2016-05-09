@@ -39,13 +39,14 @@
                             '<input type="text" class="form-control text_form" name="email[]">' +
                         '</div>'+
                         '<div class="col-md-3">' +
-                            '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode)"></i>' +
+                            '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode.parentNode.parentNode)"></i>' +
                         '</div>' +
                     '</div>';
             document.getElementById('items').appendChild(new_input);
             $('.form-inline').trigger("chosen:updated");
         }
         function del_input(obj) {
+            console.info(obj);
             document.getElementById('items').removeChild(obj)
         }
     </script>
@@ -71,7 +72,7 @@
                                 <label>{{trans('user.conf.name')}}</label>
                                 <input type="text" class="form-control text_form  conf_name" name="title">
                             </div>
-
+parentNode
                             <div class="top-margin" id="items">
                                 <label>{{trans('user.conf.authors')}}</label>
                                 <div class="form-inline">
@@ -97,7 +98,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
-                                               onclick="del_input(this.parentNode)"></i>
+                                               onclick="del_input(this.parentNode.parentNode.parentNode)"></i>
                                         </div>
                                     </div>
                                 </div>
