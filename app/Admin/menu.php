@@ -8,14 +8,14 @@ Admin::menu()->label('Сайт')->icon('fa-desktop')->items(function ()
         Admin::menu(App\Сategory::class)->label('Категорії')->icon('fa-user');
     });
 
-    Admin::menu(App\Archive::class)->label('Архів')->icon('fa-key');
+    Admin::menu(App\Archive::class)->label('Архів')->icon('fa-archive');
 
     Admin::menu()->label('Конференція')->icon('fa-desktop')->items(function ()
     {
-        Admin::menu(App\Confinfo::class)->label('Інформація')->icon('fa-graduation-cap');
-        Admin::menu(App\Confabstract::class)->label('Тези')->icon('fa-user');
-        Admin::menu(App\Confdescription::class)->label('Місце проведення')->icon('fa-user');
-        Admin::menu(App\Confcommittee::class)->label('Комітет')->icon('fa-user');
+        Admin::menu(App\Confinfo::class)->label('Інформація')->icon('fa-info');
+        Admin::menu(App\Confabstract::class)->label('Тези')->icon('fa-graduation-cap');
+        Admin::menu(App\Confdescription::class)->label('Місце проведення')->icon('fa-map-marker');
+        Admin::menu(App\Confcommittee::class)->label('Комітет')->icon('fa-user-secret');
     });
 });
 

@@ -18,14 +18,14 @@
                         <img src="{{$archive->photo_thesis}}" alt="{{$archive->TextTrans('title')}}">
                         <br>
                         <p class="text-right"><a class="btn btn-success btn-lg btn-block"
-                                                 href="{{$archive->thesis}} download">Завантажити
+                                                 href="{{$archive->thesis}} " download>Завантажити
                                 тези</a></p>
                     </div>
                     <div class="col-sm-6">
                         <img src="{{$archive->photo_img}}" alt="{{$archive->TextTrans('title')}}">
                         <br>
                         <p class="text-right"><a class="btn btn-primary btn-lg btn-block"
-                                                 href="{{$archive->img}} download">Завантажити
+                                                 href="{{$archive->img}}" download>Завантажити
                                 фото</a></p>
                     </div>
                 </div>
