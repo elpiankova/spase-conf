@@ -28,7 +28,7 @@ Admin::menu()->label('Пользователи')->icon('fa-users')->items(functi
 
 Admin::menu()->label('Конференція')->icon('fa-users')->items(function ()
 {
-    Admin::menu(App\Permit::class)->label('Налаштування')->icon('fa-key');
+    Admin::menu(App\Conferequest::class)->label('Заявка')->icon('fa-key');
     Admin::menu(App\Role::class)->label('Роли')->icon('fa-graduation-cap');
     Admin::menu(App\User::class)->label('Юзеры')->icon('fa-user');
 });
