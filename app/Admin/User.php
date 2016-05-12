@@ -7,8 +7,10 @@ Admin::model('App\User')->title('Пользователи')->display(function() 
 
     ]);
     $display->columns([
-        Column::string('first_name')->label('First_name'),
+        Column::string('first_name')->label('Ім’я'),
+        Column::string('last_name')->label('Прізвище'),
         Column::string('email')->label('Email'),
+        Column::image('info->photo')->label('Фото'),
     ]);
 
     return $display;
