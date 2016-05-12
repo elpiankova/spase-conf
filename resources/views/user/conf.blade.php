@@ -134,7 +134,7 @@ parentNode
                     '<br>' +
                     '<div class="row">' +
                     '<div class="col-md-3">' +
-                    '<input type="text" class="form-control text_form" name="name[]" placeholder="{{trans('auth.name')}}">' +
+                    '<input type="text" class="form-control text_form name_autor" name="name[]" placeholder="{{trans('auth.name')}}">' +
 
                     '</div>' +
                     '<div class="col-md-3">' +
@@ -153,9 +153,9 @@ parentNode
                     '</div>';
             document.getElementById('items').appendChild(new_input);
             asas();
+            mask();
         }
         function del_input(obj) {
-            console.info(obj);
             document.getElementById('items').removeChild(obj)
         }
     </script>
