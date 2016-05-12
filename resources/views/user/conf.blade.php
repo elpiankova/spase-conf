@@ -127,6 +127,7 @@ parentNode
         var id_select = 0;
         function add_input(obj) {
             var new_input = document.createElement('div');
+            id_select = id_select + 1;
             new_input.className = "form-inline";
             new_input.innerHTML =
                     '<br>' +
