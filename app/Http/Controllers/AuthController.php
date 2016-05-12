@@ -147,14 +147,16 @@
             if ($sentuser = Sentinel::register($input)) {
                 $activation = Activation::create($sentuser);
                 $code       = $activation->code;
-                $sent       = Mail::send('mail.account_activate', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-                    $m->from('mail@space-conf.ikd.kiev.ua', 'Space Conf');
-                    $m->to($sentuser->email)->subject('Активация аккаунта');
-                });
-                if ($sent === 0) {
-                    return Redirect::to('register')
-                        ->withErrors('Ошибка отправки письма активации.');
-                }
+//                $sent       = Mail::send('mail.account_activate', compact('sentuser', 'code'), function ($m) use ($sentuser) {
+//                    $m->from('mail@space-conf.ikd.kiev.ua', 'Space Conf');
+//                    $m->to($sentuser->email)->subject('Активация аккаунта');
+//                });
+//                if ($sent === 0) {
+//                    return Redirect::to('register')
+//                        ->withErrors('Ошибка отправки письма активации.');
+//                }
+
+
 
                 $role = Sentinel::findRoleBySlug('user');
                 $role->users()->attach($sentuser);
@@ -170,9 +172,19 @@
                 $info->gender          = $request->gender;
                 $info->save();
 
+                $activeuser = Sentinel::findById($sentuser->id);
+
+                if (!Activation::complete($activeuser, $code)) {
+                    return Redirect::to("login")
+                        ->withErrors('Неверный или просроченный код активации.');
+                }
+
                 return Redirect::to('login')
-                    ->withSuccess('Ваш аккаунт создан. Проверьте Email для активации.')
-                    ->with('userId', $sentuser->getUserId());
+                    ->withSuccess('Аккаунт активирован.');
+
+//                return Redirect::to('login')
+//                    ->withSuccess('Ваш аккаунт создан. Проверьте Email для активации.')
+//                    ->with('userId', $sentuser->getUserId());
             }
 
             return Redirect::to('register')
