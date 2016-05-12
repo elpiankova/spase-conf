@@ -39,4 +39,4 @@ Admin::model('App\Confabstract')->title('Тези')->display(function() {
     ]);
 
     return $form;
-});
+})->delete(null);

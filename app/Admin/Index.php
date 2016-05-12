@@ -37,4 +37,4 @@ Admin::model('App\Index')->title('Головна')
         ]);
 
         return $form;
-    });
+    })->delete(null);
