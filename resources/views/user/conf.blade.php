@@ -120,6 +120,7 @@ parentNode
     <script type="text/javascript">
         jQuery(function ($) {
             $.mask.definitions['~'] = '[+-]';
+            $.mask.definitions['a'] = "[A-zА-я]";
             $('.name_autor').mask('	a. a. a?aaaaaaaaaaaaaaaaa', {placeholder: " "});
         });
     </script>
