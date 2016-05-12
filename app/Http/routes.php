@@ -65,6 +65,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('phpinfo', function(){
        phpinfo();
     });
+    Route::get('gitpull', function () {
+        system('git pull');
+    });
 });
 
 Route::group(['middleware' => ['web', 'authuser']], function () {
