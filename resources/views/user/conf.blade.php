@@ -12,7 +12,8 @@
                 "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                 "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
             ],
-
+            contextmenu: "paste link image inserttable | cell row column deletetable",
+            contextmenu_never_use_native: true,
             menubar: false,
             statusbar: false,
             toolbar1: "bold italic underline| alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | link unlinktable | subscript superscript | charmap image",
