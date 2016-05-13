@@ -6,8 +6,9 @@ Admin::menu()->label('Сайт')->icon('fa-desktop')->items(function ()
     {
         Admin::menu(App\Index::class)->label('Сторінка')->icon('fa-graduation-cap');
         Admin::menu(App\Сategory::class)->label('Категорії')->icon('fa-user');
-        Admin::menu(App\Spaceorganization::class)->label('Організації')->icon('fa-user');
-        Admin::menu(App\Country::class)->label('Країни')->icon('fa-user');
+        Admin::menu(App\Spaceorganization::class)->label('Організації')->icon('fa-university');
+        Admin::menu(App\Country::class)->label('Країни')->icon('fa-globe');
+        Admin::menu(App\City::class)->label('Міста')->icon('fa-map');
     });
 
     Admin::menu(App\Archive::class)->label('Архів')->icon('fa-archive');
