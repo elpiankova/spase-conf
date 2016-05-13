@@ -12,13 +12,13 @@
     use App\Conferauthor;
     use App\Conferequest;
     use App\Country;
+    use App\Http\Requests;
     use App\Spaceorganization;
     use App\User;
     use App\UserInfo;
     use App\Сategory;
     use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
     use Illuminate\Http\Request;
-    use App\Http\Requests;
     use Illuminate\Support\Facades\Redirect;
 
     class UserController extends Controller
@@ -144,6 +144,8 @@
                 'org_ig'     => 'required',
                 'section_id' => 'integer',
             ]);
+            $request->title = strtoupper($request->title);
+            
             $user = Sentinel::check();
 
             $confrequests             = new Conferequest();

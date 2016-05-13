@@ -44,7 +44,6 @@
                                 <label>{{trans('user.conf.name')}}</label>
                                 <input type="text" class="form-control text_form  conf_name" name="title">
                             </div>
-parentNode
                             <div class="top-margin" id="items">
                                 <label>{{trans('user.conf.authors')}}</label>
                                 <div class="form-inline">
