@@ -10,6 +10,7 @@ Admin::model('App\User')->title('Пользователи')->display(function() 
         Column::string('first_name')->label('Ім’я'),
         Column::string('last_name')->label('Прізвище'),
         Column::string('email')->label('Email'),
+        Column::string('last_login')->label('Останній вхід'),
         Column::image('info.photo')->label('Фото'),
     ]);
 
