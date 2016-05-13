@@ -22,6 +22,9 @@ Admin::model('App\User')->title('Пользователи')->display(function() 
         FormItem::timestamp('last_login', 'Last Login')->format('d.m.Y'),//->seconds(true),
         FormItem::text('first_name', 'First Name'),
         FormItem::text('last_name', 'Last Name'),
+        FormItem::select('countries_id', 'Країна')->model('App\Country')->display('title_uk'),
+        FormItem::select('city_id', 'Місто')->model('App\City')->display('title_uk'),
+        FormItem::select('organization_id', 'Організація')->model('App\Spaceorganization')->display('title_uk'),
         FormItem::multiselect('theroles', 'Роли')->model('App\Role')->display('name'),
     ]);
 
