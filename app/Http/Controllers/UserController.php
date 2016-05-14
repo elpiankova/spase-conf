@@ -32,7 +32,10 @@
             $city         = City::where('id', '=', $user->info->city_id)->first();
             $organization = Spaceorganization::where('id', '=', $user->info->organization_id)->first();
             $conf         = 1;
-            if (Conferequest::where('user_id', '=', $user->id)->first()) {
+            $count_conf   = Conferequest::where('user_id', '=', $user->id)->count();
+            if ($count_conf > 2
+                || Conferequest::where('user_id', '=', $user->id)->where('status', '=', '1')->count()
+            ) {
                 $conf = null;
             }
 
@@ -42,6 +45,7 @@
                 'city'         => $city,
                 'organization' => $organization,
                 'conf'         => $conf,
+                'count_conf'   => $count_conf,
             ]);
         }
 
@@ -174,5 +178,19 @@
 
             return Redirect::to('home')
                 ->withSuccess('Зміни збережено');
+        }
+
+        public
+        function confUserProcess()
+        {
+            $user = Sentinel::check();
+
+            $confrequests          = new Conferequest();
+            $confrequests->user_id = $user->id;
+            $confrequests->status  = 1;
+            if ($confrequests->save()) {
+                return Redirect::to('home')
+                    ->withSuccess('Ви зареєструвались як слухач');
+            }
         }
     }

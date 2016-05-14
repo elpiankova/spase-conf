@@ -76,8 +76,9 @@ Route::group(['middleware' => ['web', 'authuser']], function () {
 //    Редагування особистих даних
     Route::get('home/edit', 'UserController@edit');
     Route::post('home/edit', 'UserController@editProcess');
-
 //    Заявка на конференцію
     Route::get('home/conf', 'UserController@conf');
     Route::post('home/conf', 'UserController@confProcess');
+//    Заявка на конференцію як слухач
+    Route::get('home/conf_user', 'UserController@confUserProcess');
 });
