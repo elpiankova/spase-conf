@@ -54,27 +54,27 @@
                     <div class="col-lg-6 text-center">
                         <div class="thumbnail">
                             <i class="fa fa-graduation-cap home-ico" aria-hidden="true"></i>
-                            <h4>Подати заявку на участь у конференції</h4>
-                            <p>Вітчизняний досвід і досягнення в космічній сфері насамперед пов’язані з
-                                ракетно-космічною
-                                технікою. Космічний статус України визначається високим рівнем використання на
-                                світових
-                                ринках ракет-носіїв вітчизняного розроблення. {{2 - $count_conf}}</p>
+                            <h4>{{trans('user.home_conf.title')}}</h4>
+                            <p> {{trans('user.home_conf.text')}}</p>
+                            @if($count_conf  == 1)
                             <div class="alert alert-info alert-block">
-                                Ви можете податитаку кількість заявок: {{2 - $count_conf}}
+                                {{trans('user.home_conf.count')}}
                             </div>
+                            @endif
                             @include('errors.errmsg')
                             <div class="well center-block" style="max-width:400px">
                                 @if($conf == 1)
                                     <a href="home/conf" type="button" class="btn btn-primary btn-lg btn-block"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                class="fa fa-file-o" aria-hidden="true"></i>
                                         {{trans('user.conf_button')}}
                                     </a>
-                                    @if($count_conf = 0)
-                                    <a href="home/conf_user" type="button" class="btn btn-success btn-lg btn-block"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        {{trans('user.conf_button_user')}}
-                                    </a>
+                                    @if($count_conf == 0)
+                                        <button type="button" class="btn btn-success btn-lg btn-block"
+                                                data-toggle="modal"
+                                                data-target=".bs-example-modal-sm">
+                                            <i class="fa fa-street-view" aria-hidden="true"></i>
+                                            {{trans('user.conf_button_user')}}
+                                        </button>
                                     @endif
                                 @else
                                     <a type="button" class="btn btn-info btn-lg btn-block" disabled="disabled"><i
@@ -85,6 +85,31 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        {{trans('user.home_conf.user.title')}}</h4>
+                </div>
+                <div class="modal-body">
+                    {{trans('user.home_conf.user.text')}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i
+                                class="fa fa-times aria-hidden="true"></i>
+                        {{trans('user.home_conf.user.close')}}</button>
+                    <a href="home/conf_user" type="button" class="btn btn-success"><i
+                                class="fa fa-check" aria-hidden="true"></i>
+
+                        {{trans('user.home_conf.user.apply')}}
+                    </a>
                 </div>
             </div>
         </div>
