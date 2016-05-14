@@ -135,7 +135,7 @@
 
 
             return Redirect::to('home/edit')
-                ->withSuccess('Зміни збережено');
+                ->withSuccess(trans('master.error.edit_ok'));
 
         }
 
@@ -179,20 +179,25 @@
             }
 
             return Redirect::to('home')
-                ->withSuccess('Зміни збережено');
+                ->withSuccess(trans('master.error.conf_ok'));
         }
 
         public
         function confUserProcess()
         {
+
             $user = Sentinel::check();
+            if (Conferequest::where('user_id', '=', $user->id)->first()) {
+                return Redirect::to('home')
+                    ->withErrors(trans('master.error.conf_user_error'));
+            }
 
             $confrequests          = new Conferequest();
             $confrequests->user_id = $user->id;
             $confrequests->status  = 1;
             if ($confrequests->save()) {
                 return Redirect::to('home')
-                    ->withSuccess('Ви зареєструвались як слухач');
+                    ->withSuccess(trans('master.error.conf_user'));
             }
         }
     }

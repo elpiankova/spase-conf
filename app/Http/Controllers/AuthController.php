@@ -2,23 +2,22 @@
 
     namespace App\Http\Controllers;
 
+    use Activation;
     use App\City;
     use App\Country;
+    use App\Http\Requests;
     use App\Spaceorganization;
     use App\UserInfo;
     use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
     use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
-
-    use Illuminate\Http\Request;
-    use App\Http\Requests;
-    use Redirect;
-    use Sentinel;
-    use Activation;
-    use Reminder;
-    use Validator;
-    use Mail;
-    use Storage;
     use CurlHttp;
+    use Illuminate\Http\Request;
+    use Mail;
+    use Redirect;
+    use Reminder;
+    use Sentinel;
+    use Storage;
+    use Validator;
 
     class AuthController extends Controller
     {
@@ -81,32 +80,29 @@
                 if (Sentinel::authenticate($request->all(), $remember)) {
                     return Redirect::intended('/home');
                 }
-                $errors = 'Неправильный логин или пароль.';
-
                 return Redirect::back()
                     ->withInput()
-                    ->withErrors($errors);
+                    ->withErrors(trans('master.error.login'));
             }
             catch (NotActivatedException $e) {
                 $sentuser   = $e->getUser();
                 $activation = Activation::create($sentuser);
                 $code       = $activation->code;
                 $sent       = Mail::send('mail.account_activate', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-                    $m->from('saniaboy@yandex.ru', 'LaravelSite');
+                    $m->from('mail@space-conf.ikd.kiev.ua', 'LaravelSite');
                     $m->to($sentuser->email)->subject('Активация аккаунта');
                 });
 
                 if ($sent === 0) {
                     return Redirect::to('login')
-                        ->withErrors('Ошибка отправки письма активации.');
+                        ->withErrors(trans('master.error.send_mail'));
                 }
-                $errors = 'Ваш аккаунт не ативирован! Поищите в своем почтовом ящике письмо со ссылкой для активации (Вам отправлено повторное письмо). ';
 
-                return view('auth.login')->withErrors($errors);
+                return view('auth.login')->withErrors(trans('master.error.send_again'));
             }
             catch (ThrottlingException $e) {
                 $delay  = $e->getDelay();
-                $errors = "Ваш аккаунт блокирован на {$delay} секунд.";
+                $errors = trans('master.error.delay') . $delay . trans('master.error.sec');
             }
 
             return Redirect::back()
@@ -141,7 +137,7 @@
             $credentials = ['email' => $request->email];
             if ($user = Sentinel::findByCredentials($credentials)) {
                 return Redirect::to('register')
-                    ->withErrors('Такой Email уже зарегистрирован.');
+                    ->withErrors(trans('master.error.mail_in'));
             }
 
             if ($sentuser = Sentinel::register($input)) {
@@ -176,11 +172,11 @@
 
                 if (!Activation::complete($activeuser, $code)) {
                     return Redirect::to("login")
-                        ->withErrors('Неверный или просроченный код активации.');
+                        ->withErrors(trans('master.error.active_false'));
                 }
 
                 return Redirect::to('login')
-                    ->withSuccess('Аккаунт активирован.');
+                    ->withSuccess(trans('master.error.active_true'));
 
 //                return Redirect::to('login')
 //                    ->withSuccess('Ваш аккаунт создан. Проверьте Email для активации.')
@@ -189,7 +185,7 @@
 
             return Redirect::to('register')
                 ->withInput()
-                ->withErrors('Failed to register.');
+                ->withErrors(trans('master.error.reg_fail'));
         }
 
 
@@ -208,11 +204,11 @@
 
             if (!Activation::complete($sentuser, $code)) {
                 return Redirect::to("login")
-                    ->withErrors('Неверный или просроченный код активации.');
+                    ->withErrors(trans('master.error.active_false'));
             }
 
             return Redirect::to('login')
-                ->withSuccess('Аккаунт активирован.');
+                ->withSuccess(trans('master.error.active_true'));
         }
 
 
@@ -246,18 +242,18 @@
             if (!$sentuser) {
                 return Redirect::back()
                     ->withInput()
-                    ->withErrors('Пользователь с таким E-Mail в системе не найден.');
+                    ->withErrors(trans('master.error.login_mail'));
             }
             $reminder = Reminder::exists($sentuser) ?: Reminder::create($sentuser);
             $code     = $reminder->code;
 
             $sent = Mail::send('mail.account_reminder', compact('sentuser', 'code'), function ($m) use ($sentuser) {
-                $m->from('saniaboy@yandex.ru', 'LaravelSite');
-                $m->to($sentuser->email)->subject('Сброс пароля');
+                $m->from('mail@space-conf.ikd.kiev.ua', 'Password');
+                $m->to($sentuser->email)->subject(trans('master.error.pass'));
             });
             if ($sent === 0) {
                 return Redirect::to('reset')
-                    ->withErrors('Ошибка отправки email.');
+                    ->withErrors(trans('master.error.pass_mail'));
             }
 
             return Redirect::to('wait');
@@ -300,15 +296,15 @@
             if (!$user) {
                 return Redirect::back()
                     ->withInput()
-                    ->withErrors('Такого пользователя не существует.');
+                    ->withErrors(trans('master.error.reset_user'));
             }
             if (!Reminder::complete($user, $code, $request->password)) {
                 return Redirect::to('login')
-                    ->withErrors('Неверный или просроченный код сброса пароля.');
+                    ->withErrors(trans('master.error.reset_code'));
             }
 
             return Redirect::to('login')
-                ->withSuccess("Пароль сброшен.");
+                ->withSuccess(trans('master.error.pass_ok'));
         }
 
         /**

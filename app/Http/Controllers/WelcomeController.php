@@ -100,6 +100,6 @@ class WelcomeController extends Controller
             $message->to('ukrainianspaceconf@gmail.com', $request->name)->subject($request->email);
         });
         return Redirect::to('contact')
-            ->withSuccess('Ваше повідомлення надіслано');
+            ->withSuccess(trans('master.error.send'));
     }
 }
