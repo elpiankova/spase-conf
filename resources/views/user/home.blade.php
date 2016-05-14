@@ -60,9 +60,10 @@
                                 технікою. Космічний статус України визначається високим рівнем використання на
                                 світових
                                 ринках ракет-носіїв вітчизняного розроблення. {{2 - $count_conf}}</p>
-                            <div class="center-block" style="max-width:400px">
-                                <p class="bg-primary">Ви можете податитаку кількість заявок: {{2 - $count_conf}}</p>
+                            <div class="alert alert-info alert-block">
+                                Ви можете податитаку кількість заявок: {{2 - $count_conf}}
                             </div>
+                            @include('errors.errmsg')
                             <div class="well center-block" style="max-width:400px">
                                 @if($conf == 1)
                                     <a href="home/conf" type="button" class="btn btn-primary btn-lg btn-block"><i

@@ -33,7 +33,7 @@
             $organization = Spaceorganization::where('id', '=', $user->info->organization_id)->first();
             $conf         = 1;
             $count_conf   = Conferequest::where('user_id', '=', $user->id)->count();
-            if ($count_conf > 2
+            if ($count_conf >= 2
                 || Conferequest::where('user_id', '=', $user->id)->where('status', '=', '1')->count()
             ) {
                 $conf = null;
@@ -66,7 +66,9 @@
         function conf()
         {
             $user = Sentinel::check();
-            if (Conferequest::where('user_id', '=', $user->id)->first()) {
+            if (Conferequest::where('user_id', '=', $user->id)->count() >= 2
+                || Conferequest::where('user_id', '=', $user->id)->where('status', '=', '1')->count()
+            ) {
                 return redirect('home');
             }
             $user          = Sentinel::check();

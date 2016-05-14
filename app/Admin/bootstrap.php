@@ -11,3 +11,11 @@
  *
  */
 
+    FormItem::register('myItem', function ($instance) {
+        if ($instance->exists) {
+            return 'You are editing existing entity.';
+        } else {
+            return 'You are creating new entity.';
+        }
+    });
+
