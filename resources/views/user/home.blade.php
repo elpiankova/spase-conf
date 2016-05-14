@@ -59,17 +59,22 @@
                                 ракетно-космічною
                                 технікою. Космічний статус України визначається високим рівнем використання на
                                 світових
-                                ринках ракет-носіїв вітчизняного розроблення.</p>
+                                ринках ракет-носіїв вітчизняного розроблення. {{2 - $count_conf}}</p>
+                            <div class="center-block" style="max-width:400px">
+                                <p class="bg-primary">Ви можете податитаку кількість заявок: {{2 - $count_conf}}</p>
+                            </div>
                             <div class="well center-block" style="max-width:400px">
                                 @if($conf == 1)
                                     <a href="home/conf" type="button" class="btn btn-primary btn-lg btn-block"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         {{trans('user.conf_button')}}
                                     </a>
+                                    @if($count_conf = 0)
                                     <a href="home/conf_user" type="button" class="btn btn-success btn-lg btn-block"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         {{trans('user.conf_button_user')}}
                                     </a>
+                                    @endif
                                 @else
                                     <a type="button" class="btn btn-info btn-lg btn-block" disabled="disabled"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
