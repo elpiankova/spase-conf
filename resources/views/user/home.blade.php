@@ -62,9 +62,13 @@
                                 ринках ракет-носіїв вітчизняного розроблення.</p>
                             <div class="well center-block" style="max-width:400px">
                                 @if($conf == 1)
-                                    <a href="home/conf" type="button" class="btn btn-info btn-lg btn-block"><i
+                                    <a href="home/conf" type="button" class="btn btn-primary btn-lg btn-block"><i
                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         {{trans('user.conf_button')}}
+                                    </a>
+                                    <a href="home/conf_user" type="button" class="btn btn-success btn-lg btn-block"><i
+                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        {{trans('user.conf_button_user')}}
                                     </a>
                                 @else
                                     <a type="button" class="btn btn-info btn-lg btn-block" disabled="disabled"><i

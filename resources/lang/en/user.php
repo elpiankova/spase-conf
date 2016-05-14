@@ -13,7 +13,8 @@
         'phone'             => 'Phone number',
         'edit_button'       => 'Edit personal info',
         'edit2_button'      => 'Edit account',
-        'conf_button'       => 'Sign up for conference',
+        'conf_button'       => 'Register report',
+        'conf_button_user'  => 'Sign up for as a listener',
         'conf_button_error' => 'You have applied',
         'conf'              => [
             'title'   => 'Application for the Conference',
