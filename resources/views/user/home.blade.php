@@ -44,9 +44,9 @@
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     {{trans('user.edit_button')}}
                                 </a>
-                                <button type="button" class="btn btn-primary btn-lg btn-block">
-                                    {{trans('user.edit2_button')}}
-                                </button>
+                                {{--<button type="button" class="btn btn-primary btn-lg btn-block">--}}
+                                    {{--{{trans('user.edit2_button')}}--}}
+                                {{--</button>--}}
                             </div>
                         </div>
                     </div>
