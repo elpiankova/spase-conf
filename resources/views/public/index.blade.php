@@ -36,7 +36,7 @@
                 </ol>
                 <h2 class="text-center thin">{{$text->TextTrans('heading')}}</h2>
                 <div class="row">
-                    @foreach($categoryes as $category)
+                    @foreach($categoryes as $key=>$category)
                         <div class="col-lg-3 text-center">
                             <img class="img-rounded img-circle" src="{{$category->photo}}"
                                  alt="Generic placeholder image"
@@ -45,6 +45,10 @@
                             <h4>{{$category->TextTrans('title')}}</h4>
                             <p>{{$category->TextTrans('text')}}</p>
                         </div>
+                        @if(($key+1)%4 == 0)
+                </div>
+                <div class="row">
+                    @endif
                     @endforeach
                 </div>
             </div>
