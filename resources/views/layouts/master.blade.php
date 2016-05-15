@@ -16,13 +16,26 @@
 
 </head>
 <body>
-<div class="navbar navbar-inverse headroom  @if(isset($page)) navbar-fixed-top @endif">
+<nav class="navbar navbar-inverse headroom  @if(isset($page)) navbar-fixed-top @endif">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="/assets/images/logo.png" alt=""></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse" id="navigationbar">
+
             <ul class="nav navbar-nav">
+                <li>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">
+                            <img src="/assets/images/logo.png" alt="">
+                        </a>
+                    </div>
+                </li>
                 <li>
                     <a href="/">{{trans('index.main')}}</a>
                 </li>
@@ -86,7 +99,7 @@
             @endif
         </div>
     </div>
-</div>
+</nav>
 
 @yield('content')
 <footer id="footer" class="top-space">
