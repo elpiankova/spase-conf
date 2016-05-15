@@ -94,11 +94,18 @@
                                        name="photo"/>
                             </div>
                             <hr>
-                            <div class="col-lg-12 ">
-                                <button class="btn btn-action  center-block" type="submit">Зберегти
-                                </button>
+                            <div class="row">
+                                <div class="col-lg-6 ">
+                                    <a href="/home" type="button" class="btn btn-default" data-dismiss="modal"><i
+                                                class="fa fa-times aria-hidden=" true"></i>
+                                        {{trans('user.home_conf.user.close')}}</a>
+                                </div>
+
+                                <div class="col-lg-6 ">
+                                    <button class="btn btn-action center-block" type="submit">{{trans('user.conf.save')}}
+                                    </button>
+                                </div>
                             </div>
-                            <hr>
                             <hr>
                             {!! Form::close() !!}
                         </div>

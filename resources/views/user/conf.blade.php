@@ -87,11 +87,17 @@
                             </div>
 
                             <hr>
-                            <div class="col-lg-12 ">
-                                <button class="btn btn-action  center-block" type="submit">{{trans('user.conf.save')}}
-                                </button>
+                            <div class="row ">
+                                <div class="col-md-6 center-block">
+                                    <a href="/home" class="btn btn-default">
+                                        {{trans('user.home_conf.user.close')}}</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-action center-block"
+                                            type="submit">{{trans('user.conf.save')}}
+                                    </button>
+                                </div>
                             </div>
-                            <hr>
                             <hr>
                             {!! Form::close() !!}
                         </div>
