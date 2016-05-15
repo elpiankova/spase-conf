@@ -33,13 +33,15 @@
                                 <label>{{trans('auth.gender')}}</label>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="gender" value="1">
+                                        <input type="radio" name="gender" value="1"
+                                               @if($user->info->gender == 1) checked @endif>
                                         {{trans('auth.male')}}
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="gender" value="2">
+                                        <input type="radio" name="gender" value="2"
+                                               @if($user->info->gender == 2) checked @endif>
                                         {{trans('auth.female')}}
                                     </label>
                                 </div>
@@ -52,9 +54,9 @@
                                 <label for="favorite_team">{{trans('auth.organization')}}:</label>
                                 <select type="text" list="team_list" class="chosen-select form-control"
                                         name="organization" data-placeholder="{{trans('auth.organization')}}...">
-                                    <option value=""></option>
+                                        <option value=""></option>
                                     @foreach($organizations as $organization)
-                                        <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
+                                        <option value="{{$organization->id}}" @if($organization->id == $user->info->organization_id) selected @endif>{{$organization->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -64,7 +66,7 @@
                                         id="Country">
                                     @foreach($countrys as $country)
                                         <option value="{{$country->id}}"
-                                                @if($country->id == $user->info->country_id) selected @endif>{{$country->TextTrans('title')}}</option>
+                                                @if($country->id == $user->info->country_id) selected="selected" @endif>{{$country->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>

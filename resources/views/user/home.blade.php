@@ -20,7 +20,7 @@
                             <table class="table text-left  table-hover">
                                 <tr>
                                     <td class="info">{{trans('user.organization')}}</td>
-                                    <td>{{$organization->TextTrans('title')}}</td>
+                                    <td>@if($organization != null){{$organization->TextTrans('title')}}@endif</td>
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.country')}}</td>

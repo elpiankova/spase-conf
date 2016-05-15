@@ -109,11 +109,14 @@
                     $name        = "photo$user->id." . explode("/", $request->file('photo')
                             ->getMimeType())[1];
                     $photoNameDB = "/photo/$name";
-                    $edit        = UserInfo::where('user_id', '=', $user->id)->first();
-                    $edit->photo = $photoNameDB;
-                    $edit->save();
-                    $request->file('photo')
-                        ->move("photo/", $name);
+                    if ($request->file('photo') != null) {
+                        $edit        = UserInfo::where('user_id', '=', $user->id)->first();
+                        $edit->photo = $photoNameDB;
+                        $edit->save();
+                        $request->file('photo')
+                            ->move("photo/", $name);
+                    }
+
 
                 }
             }
