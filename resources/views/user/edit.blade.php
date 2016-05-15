@@ -155,7 +155,7 @@
     <script type="text/javascript">
         jQuery(function ($) {
             $.mask.definitions['~'] = '[+-]';
-            $('#phone').mask('+9(999) 999-9999');
+            $('#phone').mask('+99(999) 999-9999');
         });
     </script>
 @endsection
