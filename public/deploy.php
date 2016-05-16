@@ -15,6 +15,7 @@
         'git submodule sync',
         'git submodule update',
         'git submodule status',
+        'php artisan migrate',
     ];
 
     // exec commands
