@@ -31,9 +31,11 @@
             <ul class="nav navbar-nav">
                 <li>
                     <div class="navbar-header">
+                        @if(!isset($page))
                         <a class="navbar-brand" href="/">
                             <img src="/assets/images/logo.png" alt="">
                         </a>
+                        @endif
                     </div>
                 </li>
                 <li>
@@ -157,8 +159,10 @@
 <script src="/assets/js/template.js"></script>
 <script src="/assets/js/script.js"></script>
 <script>
+    if (document.readyState === "complete") {
     if ($(document).height() <= $(window).height())
         $("footer#footer").addClass("navbar-fixed-bottom");
+    }
 </script>
 </body>
 </html>

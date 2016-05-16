@@ -5,16 +5,22 @@
 @section('content')
     <header id="head" class="secondary"></header>
     <!-- Header -->
-    <header id="head" style="background: #181015 url({{$text->photo}}) no-repeat;">
+    <header id="head" style="background: #181015 url({{$text->photo}}) no-repeat; padding-top: 0px;">
         <div class="container">
+            <div class="row">
+                <div class="col-md-offset-4 col-sm-offset-4 col-sm-4 col-xs-4 col-xs-offset-4 col-md-4">
+                    <img src="/assets/images/logo.gif" class="img-responsive img-circle">
+                </div>
+            </div>
             <div class="row">
                 <h1 class="lead">{{$text->TextTrans('background_title')}}</h1>
                 <p class="tagline">{{$text->TextTrans('background_text')}}
                 </p>
                 <br>
-                <p><a class="btn btn-default btn-lg" role="button" href="/register">{{trans('index.register')}}</a>
+                <p><a class="btn btn-success btn-lg" role="button" href="/register">{{trans('index.register')}}</a>
                     <a class="btn btn-primary btn-lg" role="button" href="/conference/info">{{trans('index.16')}}</a>
                 </p>
+            </div>
             </div>
         </div>
     </header>
