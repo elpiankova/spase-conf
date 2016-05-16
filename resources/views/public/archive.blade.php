@@ -18,6 +18,7 @@
                         <img src="{{$archive->photo_thesis}}" alt="{{$archive->TextTrans('title')}}">
                         <br>
                         <p class="text-right"><a class="btn btn-success btn-lg btn-block"
+                                                 @if($archive->thesis ==null)disabled="disabled" @endif
                                                  href="{{$archive->thesis}} "
                                                  download>{{trans('conference.downloads')}}</a></p>
                     </div>
@@ -25,6 +26,7 @@
                         <img src="{{$archive->photo_img}}" alt="{{$archive->TextTrans('title')}}">
                         <br>
                         <p class="text-right"><a class="btn btn-primary btn-lg btn-block"
+                                                 @if($archive->img ==null)disabled="disabled" @endif
                                                  href="{{$archive->img}}" download>{{trans('conference.photo')}}</a></p>
                     </div>
                 </div>
