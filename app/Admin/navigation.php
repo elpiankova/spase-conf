@@ -70,11 +70,9 @@
                             'icon'  => 'fa fa-map',
                             'url'   => route('admin.information'),
                         ],
-                        [
-                            'title' => 'Країни',
-                            'icon'  => 'fa fa-globe',
-                            'url'   => route('admin.information'),
-                        ],
+                        (new Page(\App\Country::class))
+                            ->setIcon('fa fa-globe')
+                            ->setPriority(0),
                         (new Page(\App\Spaceorganization::class))
                             ->setIcon('fa fa-university')
                             ->setPriority(0),
