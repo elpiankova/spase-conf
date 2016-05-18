@@ -75,19 +75,12 @@
                             'icon'  => 'fa fa-globe',
                             'url'   => route('admin.information'),
                         ],
-                        [
-                            'title' => 'Організації',
-                            'icon'  => 'fa fa-university',
-                            'url'   => route('admin.information'),
-                        ],
+                        (new Page(\App\Spaceorganization::class))
+                            ->setIcon('fa fa-university')
+                            ->setPriority(0),
                         (new Page(\App\Сategory::class))
                             ->setIcon('fa fa-tasks')
                             ->setPriority(0),
-                        [
-                            'title' => 'Категорії',
-                            'icon'  => 'fa fa-tasks',
-                            'url'   => route('admin.information'),
-                        ],
                         (new Page(\App\Index::class))
                             ->setIcon('fa fa-television')
                             ->setPriority(0),
