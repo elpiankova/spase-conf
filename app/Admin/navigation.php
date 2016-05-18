@@ -1,5 +1,6 @@
 <?php
 
+    use SleepingOwl\Admin\Navigation\Page;
 
     return [
 
@@ -84,11 +85,9 @@
                             'icon'  => 'fa fa-tasks',
                             'url'   => route('admin.information'),
                         ],
-                        [
-                            'title' => 'Сторінка',
-                            'icon'  => 'fa fa-television',
-                            'url'   => route('admin.information'),
-                        ],
+                        (new Page(\App\Index::class))
+                            ->setIcon('fa fa-television')
+                            ->setPriority(0),
                     ],
                 ],
             ],
