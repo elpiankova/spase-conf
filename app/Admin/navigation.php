@@ -80,6 +80,9 @@
                             'icon'  => 'fa fa-university',
                             'url'   => route('admin.information'),
                         ],
+                        (new Page(\App\Сategory::class))
+                            ->setIcon('fa fa-tasks')
+                            ->setPriority(0),
                         [
                             'title' => 'Категорії',
                             'icon'  => 'fa fa-tasks',
