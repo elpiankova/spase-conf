@@ -4,18 +4,12 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-        {
-            "url": "https://github.com/MammutCris/admin.git",
-            "type": "git"
-        }
-    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "cartalyst/sentinel": "2.0.x-dev",
-        "sleeping-owl/admin": "dev-fixSentinelfix52",
-        "laravelcollective/html": "5.2.x-dev"
+        "laravelcollective/html": "5.2.x-dev",
+        "laravelrus/sleepingowl": "4.*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
