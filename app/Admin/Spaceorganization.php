@@ -1,5 +1,5 @@
 <?php
-
+    use App\Country;
     use App\Spaceorganization;
     use SleepingOwl\Admin\Model\ModelConfiguration;
 
@@ -8,11 +8,23 @@
 
         // Display
         $model->onDisplay(function () {
-            return AdminDisplay::table()->setApply(function ($query) {
-                $query->orderBy('updated_at', 'desc');
-            })->setColumns([
+            $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-primary');
+            $display->setColumnFilters([
+                AdminColumnFilter::text()->setPlaceholder('Назва'),
+                AdminColumnFilter::select()->setPlaceholder('Країна')->setModel(new Country)->setDisplay('title_uk'),
+            ]);
+
+            $display->with('country');
+            $display->setFilters([
+                AdminDisplayFilter::related('countries_id')->setModel(Country::class),
+            ]);
+            $display->setOrder([[1, 'asc']]);
+            $display->setColumns([
                 AdminColumn::link('title_uk')->setLabel('Назва'),
-            ])->paginate();
+                AdminColumn::text('country.title_uk')->append(AdminColumn::filter('countries_id'))->setLabel('Країни'),
+            ]);
+
+            return $display;
         });
 
         // Create And Edit

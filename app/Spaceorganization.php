@@ -9,6 +9,11 @@
     {
         protected $table = 'spaceorganizations';
 
+        public function country()
+        {
+            return $this->belongsTo(Country::class, 'countries_id');
+        }
+
         public function TextTrans($text)
         {
             $locale=App::getLocale();
