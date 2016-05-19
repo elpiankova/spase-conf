@@ -13,7 +13,7 @@
         ]);
         $display->columns([
 
-            Column::string('user.first_name')->label('І\’мя'),
+            Column::string('user.first_name')->label('І’мя'),
             Column::string('user.last_name')->label('Прізвище'),
             Column::string('title')->label('Заголовок'),
         ]);
