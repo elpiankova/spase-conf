@@ -34,16 +34,14 @@
                     'title' => 'Конференція',
                     'icon'  => 'fa fa-graduation-cap',
                     'pages' => [
-                        [
-                            'title' => 'Комітет',
-                            'icon'  => 'fa fa-user-secret',
-                            'url'   => route('admin.information'),
-                        ],
-                        [
-                            'title' => 'Місце проведення',
-                            'icon'  => 'fa fa-location-arrow',
-                            'url'   => route('admin.information'),
-                        ],
+
+                        (new Page(\App\Confcommittee::class))
+                            ->setIcon('fa fa-user-secret')
+                            ->setPriority(0),
+
+                        (new Page(\App\Confdescription::class))
+                            ->setIcon('fa fa-location-arrow')
+                            ->setPriority(0),
 
                         (new Page(\App\Confabstract::class))
                             ->setIcon('fa fa-sticky-note')
