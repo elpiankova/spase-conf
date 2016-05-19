@@ -56,7 +56,7 @@
                             <i class="fa fa-graduation-cap home-ico" aria-hidden="true"></i>
                             <h4>{{trans('user.home_conf.title')}}</h4>
                             <p> {{trans('user.home_conf.text')}}</p>
-                            @if($count_conf  == 1)
+                            @if($count_conf  == 1 and $conf == 1)
                             <div class="alert alert-info alert-block">
                                 {{trans('user.home_conf.count')}}
                             </div>

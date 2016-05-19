@@ -15,7 +15,7 @@ return[
     'edit2_button'      => 'Редагувати аккаунт',
     'conf_button'       => 'Подати доповідь',
     'conf_button_user'  => 'Подати заявку як слухач',
-    'conf_button_error' => 'Ви вже подали дві доповіді',
+    'conf_button_error' => 'Ви вже подали заявку',
     'conf'              => [
         'title'   => 'Заявка на конференцію',
         'section' => 'Секція',
