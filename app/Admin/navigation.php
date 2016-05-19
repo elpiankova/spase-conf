@@ -56,6 +56,9 @@
                         ],
                     ]
                 ],
+                (new Page(\App\Archive::class))
+                    ->setIcon('fa fa-map')
+                    ->setPriority(0),
                 [
                     'title' => 'Архів',
                     'icon'  => 'fa fa-archive',
