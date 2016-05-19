@@ -126,7 +126,7 @@
     <script type="text/javascript">
         jQuery(function ($) {
             $.mask.definitions['~'] = '[+-]';
-            $.mask.definitions['a'] = "[A-zА-я]";
+            $.mask.definitions['a'] = "[A-z,А-я,а-я,іїєґ,А-ЯІЇЄҐ]";
             $('.name_autor').mask('	a. a. a?aaaaaaaaaaaaaaaaa', {placeholder: " "});
         });
     </script>
