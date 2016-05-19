@@ -44,20 +44,14 @@
                             'icon'  => 'fa fa-location-arrow',
                             'url'   => route('admin.information'),
                         ],
-                        [
-                            'title' => 'Тези',
-                            'icon'  => 'fa fa-sticky-note',
-                            'url'   => route('admin.information'),
-                        ],
+
+                        (new Page(\App\Confabstract::class))
+                            ->setIcon('fa fa-sticky-note')
+                            ->setPriority(0),
 
                         (new Page(\App\Confinfo::class))
                             ->setIcon('fa fa-info')
                             ->setPriority(0),
-                        [
-                            'title' => 'Інформація',
-                            'icon'  => 'fa fa-info',
-                            'url'   => route('admin.information'),
-                        ],
                     ]
                 ],
                 (new Page(\App\Archive::class))
