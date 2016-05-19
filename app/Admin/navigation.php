@@ -65,11 +65,9 @@
                     'title' => 'Головна',
                     'icon'  => 'fa fa-laptop',
                     'pages' => [
-                        [
-                            'title' => 'Міста',
-                            'icon'  => 'fa fa-map',
-                            'url'   => route('admin.information'),
-                        ],
+                        (new Page(\App\City::class))
+                            ->setIcon('fa fa-map')
+                            ->setPriority(0),
                         (new Page(\App\Country::class))
                             ->setIcon('fa fa-globe')
                             ->setPriority(0),
