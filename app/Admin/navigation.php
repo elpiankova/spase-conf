@@ -21,11 +21,9 @@
                 ],
             ],
         ],
-        [
-            'title' => 'Користувачі',
-            'icon'  => 'fa fa-users',
-            'url'   => route('admin.information'),
-        ],
+        (new Page(\App\UserInfo::class))
+            ->setIcon('fa fa-users')
+            ->setPriority(0),
         [
             'title' => 'Сайт',
             'icon'  => 'fa fa-desktop',
