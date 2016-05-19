@@ -14,7 +14,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "cartalyst/sentinel": "2.0.x-dev",
-        "sleeping-owl/admin": "dev-fixSentinelfix52",
+        "sleeping-owl/admin": "dev-master",
         "laravelcollective/html": "5.2.x-dev"
     },
     "require-dev": {
