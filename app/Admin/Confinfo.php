@@ -21,15 +21,15 @@
                 AdminFormElement::text('place', 'Порядок відображення'),
                 AdminFormElement::columns()->addColumn(function () {
                     return [
-                        AdminFormElement::textarea('text_uk', 'Text Uk'),
+                        AdminFormElement::ckeditor('text_uk', 'Text Uk'),
                     ];
                 })->addColumn(function () {
                     return [
-                        AdminFormElement::textarea('text_uk', 'Text Uk'),
+                        AdminFormElement::ckeditor('text_uk', 'Text Uk'),
                     ];
                 })->addColumn(function () {
                     return [
-                        AdminFormElement::textarea('text_uk', 'Text Uk'),
+                        AdminFormElement::ckeditor('text_uk', 'Text Uk'),
                     ];
                 })
             );
