@@ -49,6 +49,10 @@
                             'icon'  => 'fa fa-sticky-note',
                             'url'   => route('admin.information'),
                         ],
+
+                        (new Page(\App\Confinfo::class))
+                            ->setIcon('fa fa-info')
+                            ->setPriority(0),
                         [
                             'title' => 'Інформація',
                             'icon'  => 'fa fa-info',
@@ -57,13 +61,8 @@
                     ]
                 ],
                 (new Page(\App\Archive::class))
-                    ->setIcon('fa fa-map')
-                    ->setPriority(0),
-                [
-                    'title' => 'Архів',
-                    'icon'  => 'fa fa-archive',
-                    'url'   => route('admin.information'),
-                ],
+                    ->setIcon('fa fa-archive')
+                    ->setPriority(1),
                 [
                     'title' => 'Головна',
                     'icon'  => 'fa fa-laptop',
