@@ -14,11 +14,9 @@
                     'icon'  => 'fa fa-upload',
                     'url'   => route('admin.information'),
                 ],
-                [
-                    'title' => 'Заявки',
-                    'icon'  => 'fa fa-file-archive-o',
-                    'url'   => route('admin.information'),
-                ],
+                (new Page(\App\Conferequest::class))
+                    ->setIcon('fa fa-users')
+                    ->setPriority(0),
             ],
         ],
         (new Page(\App\UserInfo::class))
