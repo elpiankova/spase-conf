@@ -9,7 +9,7 @@
             <li><a href="/">{{trans('index.main')}}</a></li>
             <li class="active">{{trans('index.archive')}}</li>
         </ol>
-        <h1 class="thin">{{trans('index.archive')}}</h1>
+        <h1 class="thin text-center">{{trans('index.archive')}}</h1>
         @foreach($archives as $archive)
             <div class="jumbotron jumbotron-archive top-space">
                 <h2>{{$archive->TextTrans('title')}}</h2>
