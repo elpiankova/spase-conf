@@ -15,7 +15,7 @@
                 <h2>{{$archive->TextTrans('title')}}</h2>
                 <div class="row">
                     <div class="col-sm-6">
-                        <img src="{{$archive->photo_thesis}}" alt="{{$archive->TextTrans('title')}}">
+                        <img src="{{$archive->photo_thesis}}" class="img-rounded center-block archive-img" alt="{{$archive->TextTrans('title')}}">
                         <br>
                         <p class="text-right"><a class="btn btn-success btn-lg btn-block"
                                                  @if($archive->thesis ==null)disabled="disabled" @endif
@@ -23,7 +23,7 @@
                                                  download>{{trans('conference.downloads')}}</a></p>
                     </div>
                     <div class="col-sm-6">
-                        <img src="{{$archive->photo_img}}" alt="{{$archive->TextTrans('title')}}">
+                        <img src="{{$archive->photo_img}}" class="img-rounded center-block archive-img" alt="{{$archive->TextTrans('title')}}">
                         <br>
                         <p class="text-right"><a class="btn btn-primary btn-lg btn-block"
                                                  @if($archive->img ==null)disabled="disabled" @endif
