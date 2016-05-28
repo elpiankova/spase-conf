@@ -24,7 +24,7 @@ class AdminPanel
     {
         if ($user = Sentinel::getUser())
         {
-            if ($user->inRole('user'))
+            if ($user->inRole('admin'))
             {
                 return $next($request);
             } else
