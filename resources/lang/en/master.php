@@ -11,7 +11,7 @@ return [
     'place'       => 'Location',
     'committee'   => 'Commettee',
     'contact'     => 'Feedback',
-    'login'       => 'Sing in',
+    'login'       => 'Sign in',
     'home'        => 'My profile',
     'contacts'    => 'Contact us',
     'admin'       => 'Skorokhod Tetiana',
