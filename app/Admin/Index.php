@@ -5,6 +5,8 @@
 
     AdminSection::registerModel(Index::class, function (ModelConfiguration $model) {
         $model->setTitle('Головна');
+        $model->disableCreating();
+        $model->disableDeleting();
 
         // Display
         $model->onDisplay(function () {
