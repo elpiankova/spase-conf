@@ -7,7 +7,7 @@
     use App\Country;
     use App\Http\Requests;
     use App\Spaceorganization;
-    use App\UserInfo;
+    use App\User;
     use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
     use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
     use CurlHttp;
@@ -157,8 +157,7 @@
                 $role = Sentinel::findRoleBySlug('user');
                 $role->users()->attach($sentuser);
 
-                $info                  = new UserInfo();
-                $info->user_id         = $sentuser->id;
+                $info                  = User::where('id', '=', $sentuser->id)->first();
                 $info->middle_name     = $request->middle;
                 $info->birth           = $request->birth;
                 $info->organization_id = $request->organization;
