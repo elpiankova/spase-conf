@@ -8,7 +8,7 @@
                     <div class="inner">
                         <h3>{{$user}}</h3>
 
-                        <p>Зареєстрованих користувачів</p>
+                        <p>Зареєстрованих користувачів </p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -59,44 +59,14 @@
                 <!-- Map box -->
                 <div class="box box-solid bg-light-blue-gradient">
                     <div class="box-header">
-                        <!-- tools box -->
-                        <div class="pull-right box-tools">
-                            <button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range">
-                                <i class="fa fa-calendar"></i></button>
-                            <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                                <i class="fa fa-minus"></i></button>
-                        </div>
-                        <!-- /. tools -->
-
                         <i class="fa fa-map-marker"></i>
 
                         <h3 class="box-title">
-                            Visitors
+                            Країни
                         </h3>
                     </div>
                     <div class="box-body">
                         <div id="world-map" style="height: 250px; width: 100%;"></div>
-                    </div>
-                    <!-- /.box-body-->
-                    <div class="box-footer no-border">
-                        <div class="row">
-                            <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                <div id="sparkline-1"></div>
-                                <div class="knob-label">Visitors</div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                                <div id="sparkline-2"></div>
-                                <div class="knob-label">Online</div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-xs-4 text-center">
-                                <div id="sparkline-3"></div>
-                                <div class="knob-label">Exists</div>
-                            </div>
-                            <!-- ./col -->
-                        </div>
-                        <!-- /.row -->
                     </div>
                 </div>
                 <!-- /.box -->
@@ -104,7 +74,6 @@
             <!-- right col -->
         </div>
         <!-- /.row (main row) -->
-
     </section>
     <!-- jQuery 2.2.0 -->
     <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
@@ -133,5 +102,32 @@
     <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <!-- Slimscroll -->
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script>
+        //jvectormap data
+        var visitorsData = {!! $user_map !!};
+        var area = new Morris.Area({
+            element: 'revenue-chart',
+            resize: true,
+            data: [
+                {"y": "2016 Q0", "item1": 0},
+                {"y": "2016 Q1", "item1": 1},
+                {"y": "2016 Q2", "item1": 2},
+                {"y": "2016 Q3", "item1": 8},
+                {"y": "2016 Q4", "item1": 12},
+                {"y": "2016 Q5", "item1": 13},
+                {"y": "2016 Q6", "item1": 14},
+                {"y": "2016 Q7", "item1": 20},
+                {"y": "2016 Q8", "item1": 21},
+                {"y": "2016 Q9", "item1": 22}
+            ],
+            {{--data: [@foreach($user_graf as $user_g){!! $user_g !!} , @endforeach],--}}
+            xkey: 'y',
+            ykeys: ['item1'],
+            labels: ['Item 1'],
+            lineColors: ['#3c8dbc'],
+            hideHover: 'auto'
+        });
+        console.info(visitorsData)
+    </script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="assets/js/dashboard.js"></script>
