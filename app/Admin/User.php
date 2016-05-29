@@ -1,15 +1,15 @@
 <?php
 
     use App\Country;
-    use App\UserInfo;
+    use App\User;
     use SleepingOwl\Admin\Model\ModelConfiguration;
 
-    AdminSection::registerModel(UserInfo::class, function (ModelConfiguration $model) {
+    AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
         $model->setTitle('Користувачі');
         // Display
         $model->onDisplay(function () {
             $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-primary');
-            $display->with('country', 'spaceorganization', 'user', 'city');
+            $display->with('country', 'spaceorganization', 'city');
             $display->setFilters([
                 AdminDisplayFilter::related('country_id')->setModel(Country::class),
             ]);
@@ -17,9 +17,9 @@
             $display->setColumns([
                 AdminColumn::image('photo')->setLabel('Фото')
                     ->setWidth('100px'),
-                AdminColumn::link('user.first_name')->setLabel('Ім’я')
+                AdminColumn::link('first_name')->setLabel('Ім’я')
                     ->setWidth('200px'),
-                AdminColumn::text('user.last_name')->setLabel('Прізвище')
+                AdminColumn::text('last_name')->setLabel('Прізвище')
                     ->setWidth('200px'),
                 AdminColumn::text('middle_name')->setLabel('По-батькові')
                     ->setWidth('200px'),
@@ -35,7 +35,7 @@
         // Create And Edit
         $model->onCreateAndEdit(function() {
             $form = AdminForm::form()->setItems([
-                AdminFormElement::text('user.first_name', 'Ім\’я'),
+                AdminFormElement::text('first_name', 'Ім\’я'),
             ]);
 
             $form->getButtons()

@@ -2,7 +2,7 @@
 
     namespace App;
 
-    use \Cartalyst\Sentinel\Users\EloquentUser;
+    use Cartalyst\Sentinel\Users\EloquentUser;
 
     class User extends EloquentUser
     {
@@ -51,5 +51,23 @@
         function info()
         {
             return $this->hasOne('App\UserInfo');
+        }
+
+        public
+        function country()
+        {
+            return $this->belongsTo(Country::class, 'country_id');
+        }
+
+        public
+        function city()
+        {
+            return $this->belongsTo(City::class, 'city_id');
+        }
+
+        public
+        function spaceorganization()
+        {
+            return $this->belongsTo(Spaceorganization::class, 'organization_id');
         }
     }

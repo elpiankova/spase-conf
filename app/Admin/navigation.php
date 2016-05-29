@@ -19,7 +19,7 @@
                     ->setPriority(0),
             ],
         ],
-        (new Page(\App\UserInfo::class))
+        (new Page(\App\User::class))
             ->setIcon('fa fa-users')
             ->setPriority(0),
         [
