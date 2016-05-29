@@ -15,6 +15,7 @@
         // Create And Edit
         $model->onCreateAndEdit(function () {
             $form = AdminForm::form()->setItems([
+                AdminFormElement::text('code', 'Код країни'),
                 AdminFormElement::text('title_uk', 'Заголовок Uk'),
                 AdminFormElement::text('title_ru', 'Заголовок Ru'),
                 AdminFormElement::text('title_en', 'Заголовок En'),
