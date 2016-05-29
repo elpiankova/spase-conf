@@ -12,7 +12,7 @@
 			$countres     = App\Country::get();
 			$user_map     = [];
 			foreach ($countres as $countre) {
-				$user         = App\UserInfo::where('country_id', '=', $countre->id)->count();
+				$user         = App\User::where('country_id', '=', $countre->id)->count();
 				if($user > 0){
 					$user_map[$countre->code] = $user;
 				}
