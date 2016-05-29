@@ -26,7 +26,7 @@
                             <div class="top-margin">
                                 <label>{{trans('auth.middle')}}</label>
                                 <input type="text" class="form-control text_form" name="middle"
-                                       value="{{$user->info->middle_name}}">
+                                       value="{{$user->middle_name}}">
                             </div>
                             @endif
                             <div class="top-margin">
@@ -34,21 +34,21 @@
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="gender" value="1"
-                                               @if($user->info->gender == 1) checked @endif>
+                                               @if($user->gender == 1) checked @endif>
                                         {{trans('auth.male')}}
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="gender" value="2"
-                                               @if($user->info->gender == 2) checked @endif>
+                                               @if($user->gender == 2) checked @endif>
                                         {{trans('auth.female')}}
                                     </label>
                                 </div>
                             </div>
                             <div class="top-margin">
                                 <label>{{trans('auth.birthday')}}</label>
-                                <input type="date" class="form-control" name="birth" value="{{$user->info->birth}}">
+                                <input type="date" class="form-control" name="birth" value="{{$user->birth}}">
                             </div>
                             <div class="top-margin">
                                 <label for="favorite_team">{{trans('auth.organization')}}:</label>
@@ -56,7 +56,7 @@
                                         name="organization" data-placeholder="{{trans('auth.organization')}}...">
                                         <option value=""></option>
                                     @foreach($organizations as $organization)
-                                        <option value="{{$organization->id}}" @if($organization->id == $user->info->organization_id) selected @endif>{{$organization->TextTrans('title')}}</option>
+                                        <option value="{{$organization->id}}" @if($organization->id == $user->organization_id) selected @endif>{{$organization->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -66,7 +66,7 @@
                                         id="Country">
                                     @foreach($countrys as $country)
                                         <option value="{{$country->id}}"
-                                                @if($country->id == $user->info->country_id) selected="selected" @endif>{{$country->TextTrans('title')}}</option>
+                                                @if($country->id == $user->country_id) selected="selected" @endif>{{$country->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -77,7 +77,7 @@
                                     @foreach($cityes as $city)
                                         <option value="{{$city->id}}"
                                                 class="{{$city->countries_id}}"
-                                                @if($city->id == $user->info->city_id) selected @endif>{{$city->TextTrans('title')}}</option>
+                                                @if($city->id == $user->city_id) selected @endif>{{$city->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -85,7 +85,7 @@
                             <div class="top-margin">
                                 <label>{{trans('auth.phone')}}</label>
                                 <input type="tel" class="form-control"
-                                       name="phone" id="phone" value="{{$user->info->phone}}"/>
+                                       name="phone" id="phone" value="{{$user->phone}}"/>
                             </div>
                             <div class="top-margin">
                                 <label>Добавити фото</label>

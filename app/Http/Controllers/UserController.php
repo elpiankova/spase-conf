@@ -15,7 +15,6 @@
     use App\Http\Requests;
     use App\Spaceorganization;
     use App\User;
-    use App\UserInfo;
     use App\Сategory;
     use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
     use Illuminate\Http\Request;
@@ -110,7 +109,7 @@
                             ->getMimeType())[1];
                     $photoNameDB = "/photo/$name";
                     if ($request->file('photo') != null) {
-                        $edit        = UserInfo::where('user_id', '=', $user->id)->first();
+                        $edit        = User::where('id', '=', $user->id)->first();
                         $edit->photo = $photoNameDB;
                         $edit->save();
                         $request->file('photo')
@@ -121,13 +120,9 @@
                 }
             }
 
-            $edit             = User::where('id', '=', $user->id)->first();
-            $edit->first_name = $request->first_name;
-            $edit->last_name  = $request->last_name;
-            $edit->save();
-
-
-            $edit                  = UserInfo::where('user_id', '=', $user->id)->first();
+            $edit                  = User::where('id', '=', $user->id)->first();
+            $edit->first_name      = $request->first_name;
+            $edit->last_name       = $request->last_name;
             $edit->middle_name     = $request->middle;
             $edit->birth           = $request->birth;
             $edit->organization_id = $request->organization;
@@ -135,7 +130,6 @@
             $edit->city_id         = $request->city;
             $edit->phone           = $request->phone;
             $edit->save();
-
 
             return Redirect::to('home/edit')
                 ->withSuccess(trans('master.error.edit_ok'));
