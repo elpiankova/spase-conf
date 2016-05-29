@@ -82,3 +82,6 @@ Route::group(['middleware' => ['web', 'authuser']], function () {
 //    Заявка на конференцію як слухач
     Route::get('home/conf_user', 'UserController@confUserProcess');
 });
+    Route::group(['middleware' => ['web', 'isadmin']], function () {
+        Route::get('migrate', 'AdminController@migrate');
+    });

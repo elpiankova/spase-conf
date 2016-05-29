@@ -2,8 +2,9 @@
 
     namespace App\Http\Controllers;
 
-    use App\Http\Requests;
     use AdminSection;
+    use App\User;
+    use App\Http\Requests;
 
     class AdminController extends Controller
     {
@@ -12,5 +13,12 @@
         {
             $content = 'ok';
             return view('auth.login');
+        }
+
+        public
+        function migrate()
+        {
+            $user = User::get();
+            dd($user);
         }
     }
