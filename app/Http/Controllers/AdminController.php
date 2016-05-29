@@ -3,12 +3,14 @@
     namespace App\Http\Controllers;
 
     use App\Http\Requests;
+    use AdminSection;
 
     class AdminController extends Controller
     {
         public
-        function confDowloads()
+        function index()
         {
-            return 'ok';
+            $content = 'ok';
+            return view('auth.login');
         }
     }
