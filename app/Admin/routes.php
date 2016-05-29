@@ -13,7 +13,9 @@
 			$user_map     = [];
 			foreach ($countres as $countre) {
 				$user         = App\UserInfo::where('country_id', '=', $countre->id)->count();
-				$user_map[$countre->code] = $user;
+				if($user > 0){
+					$user_map[$countre->code] = $user;
+				}
 			}
 //			dd($user_map);
 			$user_map = json_encode($user_map);
