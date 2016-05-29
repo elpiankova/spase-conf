@@ -28,9 +28,9 @@
         {
             $user         = Sentinel::check();
             $user         = User::where('id', '=', $user->id)->first();
-            $country      = Country::where('id', '=', $user->info->country_id)->first();
-            $city         = City::where('id', '=', $user->info->city_id)->first();
-            $organization = Spaceorganization::where('id', '=', $user->info->organization_id)->first();
+            $country      = Country::where('id', '=', $user->country_id)->first();
+            $city         = City::where('id', '=', $user->city_id)->first();
+            $organization = Spaceorganization::where('id', '=', $user->organization_id)->first();
             $conf         = 1;
             $count_conf   = Conferequest::where('user_id', '=', $user->id)->count();
             if ($count_conf >= 2

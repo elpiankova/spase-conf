@@ -15,8 +15,8 @@
                             <div>
                                 <i class="fa fa-user home-ico" aria-hidden="true"></i>
                             </div>
-                            <img src="{{$user->info->photo}}" alt="..." class="img-thumbnail" width="50%" height="50%">
-                            <h3>{{$user->last_name}} {{$user->first_name}} {{$user->info->middle_name}}</h3>
+                            <img src="{{$user->photo}}" alt="..." class="img-thumbnail" width="50%" height="50%">
+                            <h3>{{$user->last_name}} {{$user->first_name}} {{$user->middle_name}}</h3>
                             <table class="table text-left  table-hover">
                                 <tr>
                                     <td class="info">{{trans('user.organization')}}</td>
@@ -32,7 +32,7 @@
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.phone')}}</td>
-                                    <td>{{$user->info->phone}}</td>
+                                    <td>{{$user->phone}}</td>
                                 </tr>
                                 <tr>
                                     <td class="warning">e-mail</td>
