@@ -17,12 +17,16 @@
             $display->setColumns([
                 AdminColumn::image('photo')->setLabel('Фото')
                     ->setWidth('100px'),
-                AdminColumn::link('first_name')->setLabel('Ім’я')
-                    ->setWidth('200px'),
-                AdminColumn::text('last_name')->setLabel('Прізвище')
-                    ->setWidth('200px'),
+                AdminColumn::link('last_name')->setLabel('Прізвище')
+                    ->setWidth('100px'),
+                AdminColumn::text('first_name')->setLabel('Ім’я')
+                    ->setWidth('100px'),
                 AdminColumn::text('middle_name')->setLabel('По-батькові')
-                    ->setWidth('200px'),
+                    ->setWidth('100px'),
+                AdminColumn::text('email')->setLabel('email')
+                    ->setWidth('100px'),
+                AdminColumn::text('phone')->setLabel('Телефон')
+                    ->setWidth('100px'),
                 AdminColumn::text('country.title_uk')
                     ->setLabel('Країна')
                     ->append(AdminColumn::filter('country_id')),
@@ -34,8 +38,33 @@
         });
         // Create And Edit
         $model->onCreateAndEdit(function() {
+            $form = AdminForm::panel();
+
             $form = AdminForm::form()->setItems([
-                AdminFormElement::text('first_name', 'Ім\’я'),
+                AdminFormElement::columns()
+                    ->addColumn(function () {
+                        return [
+                            AdminFormElement::text('email', 'email'),
+                            AdminFormElement::text('last_name', 'Прізвище'),
+                            AdminFormElement::select('country_id', 'Країна')->setModelForOptions('App\Country')->setDisplay('title_uk'),
+                        ];
+                    })->addColumn(function () {
+                        return [
+                            AdminFormElement::date('birth', 'Дата народження'),
+                            AdminFormElement::text('first_name', 'Ім’я'),
+                            AdminFormElement::select('city_id', 'Місто')->setModelForOptions('App\City')->setDisplay('title_uk'),
+                        ];
+                    })->addColumn(function () {
+                        return [
+                            AdminFormElement::text('phone', 'Телефон'),
+                            AdminFormElement::text('middle_name', 'По-батькові'),
+                            AdminFormElement::select('organization_id', 'Організація')->setModelForOptions('App\Spaceorganization')->setDisplay('title_uk'),
+                        ];
+                    })->addColumn(function () {
+                        return [
+                            AdminFormElement::image('photo', 'Фото'),
+                        ];
+                    }),
             ]);
 
             $form->getButtons()
