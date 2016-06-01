@@ -24,11 +24,11 @@
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.country')}}</td>
-                                    <td>{{$country->TextTrans('title')}}</td>
+                                    <td>@if($country != null) {{$country->TextTrans('title')}}@endif</td>
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.city')}}</td>
-                                    <td>{{$city->TextTrans('title')}}</td>
+                                    <td>@if($city != null) {{$city->TextTrans('title')}} @endif</td>
                                 </tr>
                                 <tr>
                                     <td class="info">{{trans('user.phone')}}</td>

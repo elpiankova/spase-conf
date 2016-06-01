@@ -36,7 +36,7 @@
                                 <label for="favorite_team">{{trans('user.conf.section')}}</label>
                                 <select type="text" list="team_list1" class="form-control" name="section_id">
                                     @foreach($categoryes as $key=>$category)
-                                        <option value="{{$key}}">{{$category->TextTrans('title')}}</option>
+                                        <option value="{{$category->id}}">{{$category->TextTrans('title')}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -59,7 +59,7 @@
                                                     data-placeholder="{{trans('auth.organization')}}...">
                                                 <option value=""></option>
                                                 @foreach($organizations as $organization)
-                                                    <option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>
+                                                    <option value="{{$organization->id}}" @if($organization->id == $user->info->organization_id) selected @endif>{{$organization->TextTrans('title')}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
