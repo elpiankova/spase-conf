@@ -84,4 +84,6 @@ Route::group(['middleware' => ['web', 'authuser']], function () {
 });
     Route::group(['middleware' => ['web', 'isadmin']], function () {
         Route::get('migrate', 'AdminController@migrate');
+        Route::get('config_author', 'AdminController@author');
+        Route::get('config_section', 'AdminController@section');
     });

@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use AdminSection;
+    use App\Conferequest;
     use App\Http\Requests;
     use App\User;
     use App\UserInfo;
@@ -37,5 +38,22 @@
                 Log::info($user->id, ['context' => $log]);
 
             }
+        }
+
+        public
+        function author()
+        {
+
+        }
+
+        public
+        function section()
+        {
+            $sections = Conferequest::where('status', 0)->get();
+            foreach ($sections as $section) {
+                $section->section_id = $section->section_id + 1;
+                $section->save();
+            }
+            return redirect('home');
         }
     }
