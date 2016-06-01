@@ -8,7 +8,7 @@
 	Route::get('', [
 		'as' => 'admin.dashboard', function () {
 			$user_count   = App\User::count();
-			$reqest_count = App\Conferequest::where('status', '!=', '1')->count();
+			$reqest_count = App\Conferequest::where('status', 0)->count();
 			$countres     = App\Country::get();
 			$user_map     = [];
 			foreach ($countres as $countre) {
