@@ -59,7 +59,7 @@
                                                     data-placeholder="{{trans('auth.organization')}}...">
                                                 <option value=""></option>
                                                 @foreach($organizations as $organization)
-                                                    <option value="{{$organization->id}}" @if($organization->id == $user->info->organization_id) selected @endif>{{$organization->TextTrans('title')}}</option>
+                                                    <option value="{{$organization->id}}" @if($organization->id == $user->organization_id) selected @endif>{{$organization->TextTrans('title')}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -147,7 +147,7 @@
                     '<select list="team_list" class="chosen-select form-control input-sm" id="chosen-select_' + id_select + '" name="org_ig[]" data-placeholder="{{trans('auth.organization')}}...">' +
                     '<option value=""></option>' +
                     '@foreach($organizations as $organization)' +
-                    '<option value="{{$organization->id}} @if($organization->id == $user->info->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
+                    '<option value="{{$organization->id}} @if($organization->id == $user->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
                     '</select>' +
                     '</div>' +
                     '<div class="col-md-3">' +

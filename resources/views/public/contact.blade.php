@@ -33,7 +33,7 @@
                             <input type="hidden" name="email" value="{{$user->email}}">
                         </div>
                         <div class="col-sm-4">
-                            <input type="hidden" name="phone" value="{{$user->info->phone}}">
+                            <input type="hidden" name="phone" value="{{$user->phone}}">
                         </div>
                     </div>
                 @else
