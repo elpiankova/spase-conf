@@ -157,18 +157,15 @@
             $confrequests->title      = $request->title;
             $confrequests->text       = $request->text;
             $confrequests->save();
-
             $org_ig = $request->org_ig;
             $count  = count($org_ig) - 1;
             for ($i = 0; $i <= $count; $i++) {
-
                 $name   = $request->name[$i];
                 $email  = $request->email[$i];
                 $org_ig = $request->org_ig[$i];
 
                 $conferauthor = new Conferauthor();
-//                Взяв user id щоб не зберігати щоб не брати з бд id заявки
-                $conferauthor->conferequests_id = $user->id;
+                $conferauthor->conferequests_id = $confrequests->id;
                 $conferauthor->email            = $email;
                 $conferauthor->name             = $name;
                 $conferauthor->organization_id  = $org_ig;
