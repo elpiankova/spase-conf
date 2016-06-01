@@ -11,7 +11,7 @@ class Conferequest extends Model
 
     public function author()
     {
-        return $this->hasMany('App\Conferauthor', 'conferequests_id', 'user_id');
+        return $this->hasMany('App\Conferauthor', 'conferequests_id');
     }
 
     public

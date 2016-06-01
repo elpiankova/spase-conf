@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use AdminSection;
+    use App\Conferauthor;
     use App\Conferequest;
     use App\Http\Requests;
     use App\User;
@@ -43,7 +44,16 @@
         public
         function author()
         {
+            $autors = Conferauthor::get();
+            foreach ($autors as $autor) {
+                $reqests = Conferequest::where('user_id', $autor->conferequests_id)->get();
+                foreach ($reqests as $reqest) {
+                    $autor->conferequests_id = $reqest->id;
+                    $autor->save();
+                }
+            }
 
+            return redirect('home');
         }
 
         public
