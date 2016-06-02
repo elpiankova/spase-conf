@@ -197,3 +197,7 @@ select.form-control + .chosen-container-multi .chosen-results li.result-selected
 .archive-img{
     max-height: 300px;
 }
+
+.space {
+    margin-bottom: 5px;
+}

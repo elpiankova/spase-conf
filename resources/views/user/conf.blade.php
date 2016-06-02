@@ -47,12 +47,18 @@
                             <div class="top-margin" id="items">
                                 <label>{{trans('user.conf.authors')}}</label>
                                 <div class="form-inline">
+                                    <div class="row space">
+                                        <div class="col-md-offset-5 col-lg-2">
+                                            <i class="fa fa-times fa-6 btn btn-danger" aria-hidden="true"
+                                               onclick="del_input(this.parentNode.parentNode.parentNode)"></i>
+                                        </div>
+                                    </div>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-lg-3">
                                             <input type="text" class="form-control text_form name_autor" name="name[]"
                                                    placeholder="{{trans('auth.name')}}">
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-lg-6">
                                             <select list="team_list"
                                                     class="chosen-select form-control input-sm"
                                                     name="org_ig[]"
@@ -63,13 +69,9 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-lg-3">
                                             <input type="text" class="form-control text_form" name="email[]"
                                                    placeholder="email">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"
-                                               onclick="del_input(this.parentNode.parentNode.parentNode)"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -138,23 +140,24 @@
             new_input.className = "form-inline";
             new_input.innerHTML =
                     '<br>' +
-                    '<div class="row">' +
-                    '<div class="col-md-3">' +
-                    '<input type="text" class="form-control text_form name_autor" name="name[]" placeholder="{{trans('auth.name')}}">' +
-
+                    '<div class="row space">'+
+                    '<div class="col-md-offset-5 col-lg-2">'+
+                    '<i class="fa fa-times fa-6 btn btn-danger" aria-hidden="true" onclick="del_input(this.parentNode.parentNode.parentNode)"></i>'+
+                    '</div>'+
                     '</div>' +
-                    '<div class="col-md-3">' +
+                    '<div class="row">' +
+                    '<div class="col-lg-3">' +
+                    '<input type="text" class="form-control text_form name_autor" name="name[]" placeholder="{{trans('auth.name')}}">' +
+                    '</div>' +
+                    '<div class="col-lg-6">' +
                     '<select list="team_list" class="chosen-select form-control input-sm" id="chosen-select_' + id_select + '" name="org_ig[]" data-placeholder="{{trans('auth.organization')}}...">' +
                     '<option value=""></option>' +
                     '@foreach($organizations as $organization)' +
                     '<option value="{{$organization->id}} @if($organization->id == $user->organization_id) selected @endif">{{$organization->TextTrans('title')}}</option>@endforeach' +
                     '</select>' +
                     '</div>' +
-                    '<div class="col-md-3">' +
+                    '<div class="col-lg-3">' +
                     '<input type="text" class="form-control text_form" name="email[]" placeholder="email">' +
-                    '</div>' +
-                    '<div class="col-md-3">' +
-                    '<i class="fa fa-times fa-6  btn btn-danger" aria-hidden="true"  onclick="del_input(this.parentNode.parentNode.parentNode)"></i>' +
                     '</div>' +
                     '</div>';
             document.getElementById('items').appendChild(new_input);
