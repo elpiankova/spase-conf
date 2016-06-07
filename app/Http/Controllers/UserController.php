@@ -79,6 +79,15 @@
         }
 
         public
+        function email()
+        {
+            $user = Sentinel::check();
+            $user = User::where('id', '=', $user->id)->first();
+
+            return view('user.email', ['user' => $user]);
+        }
+
+        public
         function editProcess(Request $request)
         {
             $this->validate($request, [
@@ -193,5 +202,19 @@
                 return Redirect::to('home')
                     ->withSuccess(trans('master.error.conf_user'));
             }
+        }
+
+        public
+        function emailProcess(Request $request)
+        {
+            $this->validate($request, [
+                'email' => 'email',
+            ]);
+            $user = Sentinel::check();
+            $edit = User::where('id', '=', $user->id)->first();
+            $edit->email = $request->email;
+            $edit->save();
+            return Redirect::to('home/email')
+                ->withSuccess(trans('master.error.edit_ok'));
         }
     }

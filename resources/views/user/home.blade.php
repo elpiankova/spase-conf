@@ -7,7 +7,7 @@
         <div class="jumbotron2">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6"><h2 class="text-center thin">{{trans('user.home_title')}}</h2></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12"><h2 class="text-center thin">{{trans('user.home_title')}}</h2></div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -17,25 +17,25 @@
                             </div>
                             <img src="{{$user->photo}}" alt="..." class="img-thumbnail" width="50%" height="50%">
                             <h3>{{$user->last_name}} {{$user->first_name}} {{$user->middle_name}}</h3>
-                            <table class="table text-left  table-hover">
+                            <table class="table text-left table-bordered">
                                 <tr>
-                                    <td class="info">{{trans('user.organization')}}</td>
+                                    <td>{{trans('user.organization')}}</td>
                                     <td>@if($organization != null){{$organization->TextTrans('title')}}@endif</td>
                                 </tr>
                                 <tr>
-                                    <td class="info">{{trans('user.country')}}</td>
+                                    <td>{{trans('user.country')}}</td>
                                     <td>@if($country != null) {{$country->TextTrans('title')}}@endif</td>
                                 </tr>
                                 <tr>
-                                    <td class="info">{{trans('user.city')}}</td>
+                                    <td>{{trans('user.city')}}</td>
                                     <td>@if($city != null) {{$city->TextTrans('title')}} @endif</td>
                                 </tr>
                                 <tr>
-                                    <td class="info">{{trans('user.phone')}}</td>
+                                    <td>{{trans('user.phone')}}</td>
                                     <td>{{$user->phone}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="warning">e-mail</td>
+                                    <td>e-mail</td>
                                     <td>{{$user->email}}</td>
                                 </tr>
                             </table>
@@ -44,9 +44,15 @@
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     {{trans('user.edit_button')}}
                                 </a>
-                                {{--<button type="button" class="btn btn-primary btn-lg btn-block">--}}
-                                    {{--{{trans('user.edit2_button')}}--}}
-                                {{--</button>--}}
+                                    <a href="home/email" type="button" class="btn btn-warning btn-lg btn-block">
+                                        <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                                        {{trans('user.edit_pass')}}
+                                    </a>
+                                    <a href="home/email" type="button" class="btn btn-success btn-lg btn-block">
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                        {{trans('user.edit_email')}}
+                                    </a>
+
                             </div>
                         </div>
                     </div>
