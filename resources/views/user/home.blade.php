@@ -44,7 +44,7 @@
                                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     {{trans('user.edit_button')}}
                                 </a>
-                                    <a href="home/email" type="button" class="btn btn-warning btn-lg btn-block">
+                                    <a href="home/pass" type="button" class="btn btn-warning btn-lg btn-block">
                                         <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
                                         {{trans('user.edit_pass')}}
                                     </a>

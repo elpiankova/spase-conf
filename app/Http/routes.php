@@ -76,9 +76,12 @@ Route::group(['middleware' => ['web', 'authuser']], function () {
 //    Редагування особистих даних
     Route::get('home/edit', 'UserController@edit');
     Route::post('home/edit', 'UserController@editProcess');
-//    Редагування акаунту
+//    Редагування email
     Route::get('home/email', 'UserController@email');
     Route::post('home/email', 'UserController@emailProcess');
+//    Редагування паролю
+    Route::get('home/pass', 'UserController@pass');
+    Route::post('home/pass', 'UserController@passProcess');
 //    Заявка на конференцію
     Route::get('home/conf', 'UserController@conf');
     Route::post('home/conf', 'UserController@confProcess');

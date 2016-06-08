@@ -18,6 +18,7 @@
     use App\Сategory;
     use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Input;
     use Illuminate\Support\Facades\Redirect;
 
     class UserController extends Controller
@@ -85,6 +86,12 @@
             $user = User::where('id', '=', $user->id)->first();
 
             return view('user.email', ['user' => $user]);
+        }
+
+        public
+        function pass()
+        {
+            return view('user.pass');
         }
 
         public
@@ -214,7 +221,58 @@
             $edit = User::where('id', '=', $user->id)->first();
             $edit->email = $request->email;
             $edit->save();
+
             return Redirect::to('home/email')
                 ->withSuccess(trans('master.error.edit_ok'));
         }
+
+        public
+        function passProcess(Request $request)
+        {
+            $hasher = Sentinel::getHasher();
+
+            $oldPassword  = Input::get('old_password');
+            $password     = Input::get('password');
+            $passwordConf = Input::get('password_confirmation');
+
+            $user = Sentinel::getUser();
+
+            if (!$hasher->check($oldPassword, $user->password)) {
+                return Redirect::to('home/pass')
+                    ->withErrors(bcrypt($request->active_password));
+            } elseif ($password != $passwordConf) {
+                return Redirect::to('home/pass')
+                    ->withErrors('Паролі не співпадають');
+            }
+
+            Sentinel::update($user, ['password' => $password]);
+
+            return Redirect::to('home/pass')
+                ->withSuccess(trans('master.error.edit_ok'));
+
+        }
+
+//            $this->validate($request, [
+//                'active_password' => 'required',
+//                'password'        => 'required',
+//                'return'          => 'required',
+//            ]);
+//            $user = Sentinel::check();
+//            $edit = User::where('id', '=', $user->id)->first();
+//            if ($edit->password === bcrypt($request->active_password)) {
+//                if ($request->password === $request->return) {
+//                    $edit->password = bcrypt($request->password);
+//                    $edit->save();
+//
+//    return Redirect::to('home/pass')
+//        ->withSuccess(trans('master.error.edit_ok'));
+//                }
+//
+//                return Redirect::to('home/pass')
+//                    ->withErrors('Паролі не співпадають');
+//            }
+//
+//            return Redirect::to('home/pass')
+//                ->withErrors(bcrypt($request->active_password));
+//        }
     }
