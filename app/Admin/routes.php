@@ -33,7 +33,7 @@
 			return AdminSection::view($content, 'Інформація');
 		},
 	]);
-Route::get('information', ['as' => 'admin.information', function () {
+	Route::get('information', ['as' => 'admin.information', function () {
 	$content = 'Define your information here.';
 	return AdminSection::view($content, 'Information');
 }
@@ -44,3 +44,4 @@ Route::get('information', ['as' => 'admin.information', function () {
 
 			return AdminSection::view($content, 'Information');
 }]);
+	Route::get('/all_request', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@request']);

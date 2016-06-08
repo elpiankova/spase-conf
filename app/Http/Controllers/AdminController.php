@@ -9,14 +9,24 @@
     use App\User;
     use App\UserInfo;
     use Illuminate\Support\Facades\Log;
+    use SleepingOwl\Admin\Http\Controllers\AdminController as SleepingOwl;
 
-    class AdminController extends Controller
+    class AdminController extends SleepingOwl
     {
         public
         function index()
         {
             $content = 'ok';
-            return view('auth.login');
+
+            return $this->renderContent(view('auth.login'));
+        }
+
+        public
+        function request()
+        {
+            $content = 'ok';
+
+            return $this->renderContent($content);
         }
 
         public
