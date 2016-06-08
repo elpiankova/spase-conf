@@ -6,18 +6,18 @@
     <div class="jumbotron top-space">
         <div class="jumbotron2">
             <div class="container">
-                <h2 class="text-center thin">Змінити email</h2>
+                <h2 class="text-center thin">{{trans('user.email.title')}}</h2>
                 <div class="row">
                     <div class="col-lg-6 col-lg-offset-3">
                         @include('errors.errmsg')
                         <div class="well">
                             {!! Form::open(array('enctype' => 'multipart/form-data')) !!}
-                            <div class="top-margin">
-                                <label>Ваш пароль</label>
+                            <div class="form-group">
+                                <label>{{trans('user.email.password')}}</label>
                                 <input type="password" class="form-control text_form" name="password">
                             </div>
-                            <div class="top-margin">
-                                <label>email</label>
+                            <div class="form-group">
+                                <label>{{trans('user.email.email')}}</label>
                                 <input type="text" class="form-control text_form" name="email"
                                        value="{{$user->email}}">
                             </div>
@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-lg-6 ">
                                     <a href="/home" type="button" class="btn btn-default" data-dismiss="modal"><i
-                                                class="fa fa-times aria-hidden=" true"></i>
+                                                class="fa fa-times" aria-hidden="true"></i>
                                         {{trans('user.home_conf.user.close')}}</a>
                                 </div>
 

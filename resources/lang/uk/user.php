@@ -12,7 +12,8 @@ return[
     'city'              => 'Місто',
     'phone'             => 'Номер телефону',
     'edit_button'       => 'Редагувати особисті дані',
-    'edit2_button'      => 'Редагувати аккаунт',
+    'edit_email'        => 'Змінити email',
+    'edit_pass'         => 'Змінити пароль',
     'conf_button'       => 'Подати доповідь',
     'conf_button_user'  => 'Подати заявку як слухач',
     'conf_button_error' => 'Ви вже подали заявку',
@@ -35,5 +36,16 @@ return[
             'close' => 'Відмінити',
             'apply' => 'Підтвердити',
         ],
+    ],
+    'pass'=>[
+        'title'=>'Змінити пароль',
+        'old_password'=>'Ваш старий пароль',
+        'password'=>'Новий пароль',
+        'password_confirmation'=>'Підтвердження паролю',
+    ],
+    'email' => [
+        'title'    => 'Змінити email',
+        'email'    => 'Новий email',
+        'password' => 'Ваш пароль',
     ],
 ];

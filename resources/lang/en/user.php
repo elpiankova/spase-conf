@@ -12,7 +12,8 @@
         'city'              => 'City',
         'phone'             => 'Phone number',
         'edit_button'       => 'Edit personal info',
-        'edit2_button'      => 'Edit account',
+        'edit_email'        => 'Change email',
+        'edit_pass'         => 'Change password',
         'conf_button'       => 'Register report',
         'conf_button_user'  => 'Sign up as a listener',
         'conf_button_error' => 'You have applied',
@@ -35,5 +36,16 @@
                 'close' => 'Cancel',
                 'apply' => 'Apply',
             ],
+        ],
+        'pass'              => [
+            'title'                 => 'Change password',
+            'old_password'          => 'Your old password',
+            'password'              => 'New password',
+            'password_confirmation' => 'Confirm password',
+        ],
+        'email'             => [
+            'title'    => 'Change email',
+            'email'    => 'New email',
+            'password' => 'Your password',
         ],
     ];
