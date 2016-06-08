@@ -8,4 +8,7 @@
             , {{$author->name}}
         @endforeach
     </p>
+    <p class="text-center">
+        {{$content->emailUser($content->user_id)}}
+    </p>
 @endforeach

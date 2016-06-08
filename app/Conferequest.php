@@ -32,6 +32,14 @@ class Conferequest extends Model
         }
         return 'Немає користувача';
     }
+    public
+    function emailUser($id)
+    {
+        if ($user = User::where('id', $id)->first()) {
+            return $user->email;
+        }
+        return 'Немає користувача';
+    }
 
     public
     function user_info()
