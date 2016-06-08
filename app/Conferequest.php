@@ -19,6 +19,20 @@ class Conferequest extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public
+    function reqestUser($id)
+    {
+        if ($user = User::where('id', $id)->first()) {
+            $first_name = mb_substr(mb_strtoupper($user->first_name), 0, 1,'utf-8');
+            $middle_name = mb_substr(mb_strtoupper($user->middle_name), 0, 1,'utf-8');
+            $last_name = ucfirst($user->middle_name);
+            $name = $first_name.'. '.$middle_name.'. '.$last_name;
+            return $name;
+        }
+        return 'Немає користувача';
+    }
+
     public
     function user_info()
     {

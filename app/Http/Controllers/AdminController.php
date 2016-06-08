@@ -24,9 +24,18 @@
         public
         function request()
         {
-            $content = 'ok';
+            $contents = Conferequest::where('status', '!=', '1')->get();
+//            foreach ($contents as $content) {
+//                print($content->id);
+//                print('->');
+//                print($content->author);
+//                print('->');
+//                print($content->title);
+//                print(' |<br>');
+//            }
+//            dd();
 
-            return $this->renderContent($content);
+            return $this->renderContent(view('admin.request', ['contents' => $contents]));
         }
 
         public
