@@ -8,6 +8,7 @@
     use App\Http\Requests;
     use App\User;
     use App\UserInfo;
+    use App\Сategory;
     use Illuminate\Support\Facades\Log;
     use SleepingOwl\Admin\Http\Controllers\AdminController as SleepingOwl;
 
@@ -24,18 +25,10 @@
         public
         function request()
         {
-            $contents = Conferequest::where('status', '!=', '1')->get();
-//            foreach ($contents as $content) {
-//                print($content->id);
-//                print('->');
-//                print($content->author);
-//                print('->');
-//                print($content->title);
-//                print(' |<br>');
-//            }
-//            dd();
+            $contents   = Conferequest::where('status', '!=', '1')->get();
+            $categories = Сategory::get();
 
-            return $this->renderContent(view('admin.request', ['contents' => $contents]));
+            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories]));
         }
 
         public
