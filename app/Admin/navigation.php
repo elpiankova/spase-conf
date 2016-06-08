@@ -9,11 +9,11 @@
             'title' => 'Конференція',
             'icon'  => 'fa fa-graduation-cap',
             'pages' => [
-                [
-                    'title' => 'Завантажити заявки',
-                    'icon'  => 'fa fa-upload',
-                    'url'   => route('admin.information'),
-                ],
+                (new Page())
+                    ->setIcon('fa fa-binoculars')
+                    ->setPriority(0)
+                    ->setTitle('Відбір заявок')
+                    ->setUrl('admin/download'),
                 (new Page(\App\Conferequest::class))
                     ->setIcon('fa fa-users')
                     ->setPriority(0),

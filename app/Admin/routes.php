@@ -44,4 +44,4 @@
 
 			return AdminSection::view($content, 'Information');
 }]);
-	Route::get('/all_request', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@request']);
+	Route::get('download', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@request']);
