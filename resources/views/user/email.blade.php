@@ -13,6 +13,10 @@
                         <div class="well">
                             {!! Form::open(array('enctype' => 'multipart/form-data')) !!}
                             <div class="top-margin">
+                                <label>Ваш пароль</label>
+                                <input type="password" class="form-control text_form" name="password">
+                            </div>
+                            <div class="top-margin">
                                 <label>email</label>
                                 <input type="text" class="form-control text_form" name="email"
                                        value="{{$user->email}}">
