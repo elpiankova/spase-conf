@@ -214,13 +214,20 @@
         public
         function emailProcess(Request $request)
         {
-            $this->validate($request, [
-                'email' => 'email',
-            ]);
-            $user = Sentinel::check();
-            $edit = User::where('id', '=', $user->id)->first();
-            $edit->email = $request->email;
-            $edit->save();
+
+            $hasher = Sentinel::getHasher();
+
+            $email  = Input::get('email');
+            $password     = Input::get('password');
+
+            $user = Sentinel::getUser();
+
+            if (!$hasher->check($password, $user->password)) {
+                return Redirect::to('home/email')
+                    ->withErrors(bcrypt($request->active_password));
+            }
+
+            Sentinel::update($user, ['email' => $email]);
 
             return Redirect::to('home/email')
                 ->withSuccess(trans('master.error.edit_ok'));
@@ -251,28 +258,4 @@
                 ->withSuccess(trans('master.error.edit_ok'));
 
         }
-
-//            $this->validate($request, [
-//                'active_password' => 'required',
-//                'password'        => 'required',
-//                'return'          => 'required',
-//            ]);
-//            $user = Sentinel::check();
-//            $edit = User::where('id', '=', $user->id)->first();
-//            if ($edit->password === bcrypt($request->active_password)) {
-//                if ($request->password === $request->return) {
-//                    $edit->password = bcrypt($request->password);
-//                    $edit->save();
-//
-//    return Redirect::to('home/pass')
-//        ->withSuccess(trans('master.error.edit_ok'));
-//                }
-//
-//                return Redirect::to('home/pass')
-//                    ->withErrors('Паролі не співпадають');
-//            }
-//
-//            return Redirect::to('home/pass')
-//                ->withErrors(bcrypt($request->active_password));
-//        }
     }
