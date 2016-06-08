@@ -40,5 +40,8 @@ return [
         'conf_user_error' => 'You have already submitted a report',
         'send'            => 'Your message is sent',
         'error'           => 'Please check the form filling',
+        'old_pass_error'  => 'Incorrect old password',
+        'pass_conf_error' => 'Passwords do not match',
+        'pass_email_error' => 'Incorrect password',
     ],
 ];

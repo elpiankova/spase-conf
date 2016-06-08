@@ -224,7 +224,7 @@
 
             if (!$hasher->check($password, $user->password)) {
                 return Redirect::to('home/email')
-                    ->withErrors(bcrypt($request->active_password));
+                    ->withErrors(trans('master.error.pass_email_error'));
             }
 
             Sentinel::update($user, ['email' => $email]);
@@ -246,10 +246,10 @@
 
             if (!$hasher->check($oldPassword, $user->password)) {
                 return Redirect::to('home/pass')
-                    ->withErrors(bcrypt($request->active_password));
+                    ->withErrors(trans('master.error.old_pass_error'));
             } elseif ($password != $passwordConf) {
                 return Redirect::to('home/pass')
-                    ->withErrors('Паролі не співпадають');
+                    ->withErrors(trans('master.error.pass_conf_error'));
             }
 
             Sentinel::update($user, ['password' => $password]);
