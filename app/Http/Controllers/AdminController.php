@@ -27,7 +27,7 @@
         function request()
         {
             $contents   = Conferequest::where('status', '!=', '1')->get();
-            $categories = Сategory::get();
+            $categories = Сategory::orderBy('place')->get();
 
             return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => null]));
         }
@@ -43,7 +43,7 @@
                 $contents = Conferequest::where('status', '!=', '1')->where('section_id', $category)->get();
             }
 
-            $categories = Сategory::get();
+            $categories = Сategory::orderBy('place')->get();
 
             return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => $category]));
         }
