@@ -2,7 +2,7 @@
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-7 col-xs-7">
+            <div class="col-lg-4 col-xs-4">
                 <!-- small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-5 col-xs-5">
+            <div class="col-lg-4 col-xs-4">
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
@@ -29,6 +29,21 @@
                         <i class="ion ion-stats-bars"></i>
                     </div>
                     <a href="admin/conferequests" class="small-box-footer">Детальніше <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-4">
+                <!-- small box -->
+                <div class="small-box bg-blue">
+                    <div class="inner">
+                        <h3>{{$reqest}}</h3>
+
+                        <p>Заявок на конференцію</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="admin/download" class="small-box-footer">Вибрати заявку <i class="fa fa-binoculars"></i></a>
                 </div>
             </div>
             <!-- ./col -->
