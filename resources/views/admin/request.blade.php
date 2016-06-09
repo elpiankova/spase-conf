@@ -24,7 +24,7 @@
     <row>
         <div class="col-md-10 col-md-offset-1">
             <p>
-            <h3 class="text-center">{{$content->title}}</h3>
+            <h3 class="text-center">{{mb_strtoupper($content->title)}}</h3>
             </p>
             <p class="text-center">
                 <u>{{$content->reqestUser($content->user_id)}}</u>
