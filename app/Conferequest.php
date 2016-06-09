@@ -26,7 +26,7 @@ class Conferequest extends Model
         if ($user = User::where('id', $id)->first()) {
             $first_name = mb_substr(mb_strtoupper($user->first_name), 0, 1,'utf-8');
             $middle_name = mb_substr(mb_strtoupper($user->middle_name), 0, 1,'utf-8');
-            $last_name = ucfirst($user->middle_name);
+            $last_name = ucfirst($user->last_name);
             $name = $first_name.'. '.$middle_name.'. '.$last_name;
             return $name;
         }
