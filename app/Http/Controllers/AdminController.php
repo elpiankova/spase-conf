@@ -9,6 +9,7 @@
     use App\User;
     use App\UserInfo;
     use App\Сategory;
+    use Illuminate\Support\Facades\Input;
     use Illuminate\Support\Facades\Log;
     use SleepingOwl\Admin\Http\Controllers\AdminController as SleepingOwl;
 
@@ -31,6 +32,21 @@
             return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories]));
         }
 
+        public
+        function requestPost()
+        {
+            $category = Input::get('organization');
+
+            if ($category == 'all') {
+                $contents = Conferequest::where('status', '!=', '1')->get();
+            } else {
+                $contents = Conferequest::where('status', '!=', '1')->where('section_id', $category)->get();
+            }
+
+            $categories = Сategory::get();
+
+            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => $category]));
+        }
         public
         function migrate()
         {

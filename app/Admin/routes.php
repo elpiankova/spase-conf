@@ -45,3 +45,4 @@
 			return AdminSection::view($content, 'Information');
 }]);
 	Route::get('download', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@request']);
+	Route::post('download', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@requestPost']);

@@ -1,18 +1,19 @@
 <row>
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
-            <div class="panel-heading">Вибір секції - <b>Не працює</b> </div>
+            <div class="panel-heading">Вибір секції</div>
             <div class="panel-body">
+                {{ Form::open(array('url' => '/admin/download')) }}
                 <div class="form-group">
-                    {{Form::open(array('action' => 'AdminController@request'))}}
                     <select class="form-control" name="organization">
                         <option value="all">Усі</option>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->title_uk}}</option>
+                            <option value="{{$category->id}}"
+                                    @if($category->id == $id_category) selected @endif>{{$category->title_uk}}</option>
                         @endforeach
                     </select>
                 </div>
-                <button type="button" class="btn btn-success" type="submit">Відфільтрувати</button>
+                <button class="btn btn-success" type="submit">Відфільтрувати</button>
                 {{Form::close()}}
             </div>
         </div>
