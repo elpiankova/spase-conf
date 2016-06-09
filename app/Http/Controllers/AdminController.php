@@ -28,24 +28,24 @@
         {
             $contents   = Conferequest::where('status', '!=', '1')->get();
             $categories = Сategory::orderBy('place')->get();
+            $select     = ['title' => true, 'author' => true, 'email' => true, 'text' => true, 'organization' => 'all'];
 
-            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => null]));
+            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => $select]));
         }
 
         public
         function requestPost()
         {
-            $category = Input::get('organization');
-
-            if ($category == 'all') {
+            $all = Input::all();
+            if ($all['organization'] == 'all') {
                 $contents = Conferequest::where('status', '!=', '1')->get();
             } else {
-                $contents = Conferequest::where('status', '!=', '1')->where('section_id', $category)->get();
+                $contents = Conferequest::where('status', '!=', '1')->where('section_id', $all['organization'])->get();
             }
 
             $categories = Сategory::orderBy('place')->get();
 
-            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => $category]));
+            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => $all]));
         }
         public
         function migrate()
