@@ -29,7 +29,7 @@
             $contents   = Conferequest::where('status', '!=', '1')->get();
             $categories = Сategory::get();
 
-            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories]));
+            return $this->renderContent(view('admin.request', ['contents' => $contents, 'categories' => $categories, 'id_category' => null]));
         }
 
         public
