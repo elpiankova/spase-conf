@@ -71,10 +71,9 @@
             @if(array_key_exists('author', $id_category))
             <p class="text-center">
                 <u>{{$content->reqestUser($content->user_id)}}</u>
-                @foreach($content->author as $author)
-                    , {{$author->name}}
-                @endforeach
             </p>
+
+            <p class="text-center">{{$content->requestAuthors()}}</p>
             @endif
             @if(array_key_exists('email', $id_category))
             <p class="text-center">

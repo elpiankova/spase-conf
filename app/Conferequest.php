@@ -9,9 +9,20 @@ class Conferequest extends Model
     protected $table = 'conferequests';
 
 
-    public function author()
+    public function authors()
     {
         return $this->hasMany('App\Conferauthor', 'conferequests_id');
+    }
+
+    public
+    function requestAuthors()
+    {
+        $authors =[];
+
+        foreach ($this->authors as $author){
+            $authors[] = $author->requestName();
+        }
+        return implode(', ', $authors);
     }
 
     public
@@ -27,7 +38,7 @@ class Conferequest extends Model
             $first_name = mb_substr(mb_strtoupper($user->first_name), 0, 1,'utf-8');
             $middle_name = mb_substr(mb_strtoupper($user->middle_name), 0, 1,'utf-8');
             $last_name = ucfirst($user->last_name);
-            $name = $first_name.'. '.$middle_name.'. '.$last_name;
+            $name = $first_name.'.'.$middle_name.'. '.$last_name;
             return $name;
         }
         return 'Немає користувача';
