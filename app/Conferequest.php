@@ -18,11 +18,51 @@ class Conferequest extends Model
     function requestAuthors()
     {
         $authors =[];
+        $organization_has_authors =[];
 
         foreach ($this->authors as $author){
-            $authors[] = $author->requestName();
+            $organization_has_authors[$author->organization_id][] = $author->id;
+            $authors[$author->id] = $author->requestName();
         }
-        return implode(', ', $authors);
+
+        if ($authors and $organization_has_authors) {
+            if (count($organization_has_authors) > 1) {
+                $result = '';
+                $organization_counter = 1;
+                foreach ($organization_has_authors as $authors_list){
+                    foreach ($authors as $author_id=>$author_name){
+                        if (in_array($author_id, $authors_list)) {
+                            $result .= $author_name.' '.$organization_counter.' ';
+                        }
+                    }
+                    $organization_counter += 1;
+                }
+            } else {
+                $result = implode(', ', $authors);
+            }
+            return $result;
+        }
+    }
+
+    public
+    function requestOrganizations()
+    {
+        $organizations =[];
+
+        foreach ($this->authors as $author){
+            $organizations[$author->organization_id] = $author->requestOrganization();
+        }
+        if(count($organizations)>1){
+            $result = '';
+            $organization_counter = 1;
+            foreach ($organizations as $organization){
+                $result .= $organization_counter.' '.$organization.'<br />';
+                $organization_counter += 1;
+            }
+        } else {
+            $result = implode('<br />', $organizations);
+        }
+        return $result;
     }
 
     public
@@ -32,7 +72,7 @@ class Conferequest extends Model
     }
 
     public
-    function reqestUser($id)
+    function requestUser($id)
     {
         if ($user = User::where('id', $id)->first()) {
             $first_name = mb_substr(mb_strtoupper($user->first_name), 0, 1,'utf-8');
@@ -49,7 +89,7 @@ class Conferequest extends Model
         if ($user = User::where('id', $id)->first()) {
             return $user->email;
         }
-        return 'Немає користувача';
+        return 'Немає email';
     }
 
     public

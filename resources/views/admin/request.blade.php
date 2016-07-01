@@ -32,10 +32,10 @@
                             Автори
                         </label>
                     </div>
-                    <div class="checkbox disabled">
+                    <div class="checkbox">
                         <label>
-                            <input type="checkbox" disabled>
-                            Інститути - <b>Не працює</b>
+                            <input type="checkbox" name="institution" checked>
+                            Інститути
                         </label>
                     </div>
                     <div class="checkbox">
@@ -70,11 +70,18 @@
             @endif
             @if(array_key_exists('author', $id_category))
             <p class="text-center">
-                <u>{{$content->reqestUser($content->user_id)}}</u>
+                <u>{{$content->requestUser($content->user_id)}}</u>
             </p>
 
             <p class="text-center">{{$content->requestAuthors()}}</p>
             @endif
+
+            @if(array_key_exists('author', $id_category))
+                    <p>
+                        {!! $content->requestOrganizations() !!}
+                    </p>
+            @endif
+
             @if(array_key_exists('email', $id_category))
             <p class="text-center">
                 {{$content->emailUser($content->user_id)}}
