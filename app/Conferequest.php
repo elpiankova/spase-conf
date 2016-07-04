@@ -14,55 +14,59 @@ class Conferequest extends Model
         return $this->hasMany('App\Conferauthor', 'conferequests_id');
     }
 
+
     public
-    function requestAuthors()
+    function requestAuthorsOrganizations()
     {
         $authors =[];
         $organization_has_authors =[];
+        $organizations = [];
 
         foreach ($this->authors as $author){
             $organization_has_authors[$author->organization_id][] = $author->id;
             $authors[$author->id] = $author->requestName();
+            $organizations_temp[$author->id] = $author->requestOrganization();
         }
 
         if ($authors and $organization_has_authors) {
-            if (count($organization_has_authors) > 1) {
-                $result = '';
-                $organization_counter = 1;
-                foreach ($organization_has_authors as $authors_list){
-                    foreach ($authors as $author_id=>$author_name){
-                        if (in_array($author_id, $authors_list)) {
-                            $result .= $author_name.' '.$organization_counter.' ';
+            if (count($organization_has_authors) == 1){
+
+                return array($authors, array_unique($organizations_temp));
+            }
+            elseif (count($organization_has_authors) > 1) {
+                $organization_numbers = [];
+                $organization_number = 1;
+
+                foreach ($authors as $author_id => $author_name){
+                    foreach ($organization_has_authors as $organization_id=>$author_list){
+                        if(in_array($author_id, $author_list)){
+                            if(!in_array($organization_id, array_keys($organization_numbers))){
+                                $organization_numbers[$organization_id] = $organization_number;
+                                $organizations[] = $organization_number.' '.$organizations_temp[$author_id];
+                                $organization_number ++;
+                            }
+                            $authors[$author_id] .= ' '.$organization_numbers[$organization_id];
                         }
                     }
-                    $organization_counter += 1;
                 }
-            } else {
-                $result = implode(', ', $authors);
-            }
-            return $result;
+                return array($authors, $organizations);
+            } //else return array([],[]);
         }
     }
 
     public
-    function requestOrganizations()
-    {
-        $organizations =[];
+    function formattedAuthors(){
+        $authors = $this->requestAuthorsOrganizations()[0];
+        if($authors)
+            return implode(', ', $authors);
+    }
 
-        foreach ($this->authors as $author){
-            $organizations[$author->organization_id] = $author->requestOrganization();
-        }
-        if(count($organizations)>1){
-            $result = '';
-            $organization_counter = 1;
-            foreach ($organizations as $organization){
-                $result .= $organization_counter.' '.$organization.'<br />';
-                $organization_counter += 1;
-            }
-        } else {
-            $result = implode('<br />', $organizations);
-        }
-        return $result;
+    public
+    function formattedOrganizations()
+    {
+        $organizations = $this->requestAuthorsOrganizations()[1];
+        if($organizations)
+            return implode('<br />', $organizations);
     }
 
     public

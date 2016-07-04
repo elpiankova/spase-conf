@@ -73,12 +73,12 @@
                 <u>{{$content->requestUser($content->user_id)}}</u>
             </p>
 
-            <p class="text-center">{{$content->requestAuthors()}}</p>
+            <p class="text-center">{{$content->formattedAuthors()}}</p>
             @endif
 
             @if(array_key_exists('author', $id_category))
                     <p>
-                        {!! $content->requestOrganizations() !!}
+                        {!! $content->formattedOrganizations() !!}
                     </p>
             @endif
 
