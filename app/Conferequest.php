@@ -45,7 +45,7 @@ class Conferequest extends Model
                                 $organizations[] = $organization_number.' '.$organizations_temp[$author_id];
                                 $organization_number ++;
                             }
-                            $authors[$author_id] .= ' '.$organization_numbers[$organization_id];
+                            $authors[$author_id] .= $organization_numbers[$organization_id];
                         }
                     }
                 }
