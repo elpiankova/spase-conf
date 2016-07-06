@@ -9,7 +9,7 @@
         // Display
         $model->onDisplay(function () {
             $display = AdminDisplay::datatables()->setHtmlAttribute('class', 'table-primary');
-            $display->with('user', 'user_info','author','section');
+            $display->with('user', 'user_info','authors','section');
 
             $display->setColumns([
                 AdminColumn::link('user.first_name')->setLabel('Ім’я')
@@ -22,7 +22,7 @@
                     ->setLabel('Секція'),
                 AdminColumn::text('title')
                     ->setLabel('Заголовок'),
-                AdminColumn::lists('author.name')
+                AdminColumn::lists('authors.name')
                     ->setLabel('Автори'),
             ]);
             return $display;
