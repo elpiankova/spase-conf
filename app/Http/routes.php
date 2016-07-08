@@ -83,8 +83,10 @@
 		Route::get('home/pass', 'UserController@pass');
 		Route::post('home/pass', 'UserController@passProcess');
 //    Заявка на конференцію
-		Route::get('home/conf', 'UserController@conf');
-		Route::post('home/conf', 'UserController@confProcess');
+		Route::group(['middleware' => ['conf_control']], function () {
+			Route::get('home/conf', 'UserController@conf');
+			Route::post('home/conf', 'UserController@confProcess');
+		});
 //    Заявка на конференцію як слухач
 		Route::get('home/conf_user', 'UserController@confUserProcess');
 	});
