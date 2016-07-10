@@ -95,4 +95,5 @@
 		Route::get('config_author', 'AdminController@author');
 		Route::get('config_section', 'AdminController@section');
 		Route::get('clear_organisation', 'AdminController@clear_organisation');
+		Route::get('user_email', 'AdminController@user_email');
 	});

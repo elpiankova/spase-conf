@@ -114,4 +114,12 @@
 				}
 			}
 		}
+
+		public function user_email()
+		{
+			$users = User::all();
+			foreach ($users as $user) {
+				print $user->email . '<br>';
+			}
+		}
 	}
