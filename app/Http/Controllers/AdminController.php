@@ -157,6 +157,6 @@
 			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'ODText');
 			$objWriter->save($file_name);
 
-			return $this->renderContent(view('admin.table.users',['file_name'=>$file_name]));
+			return $this->renderContent(view('admin.table.users', ['file_name' => $file_name, 'users' => $users]));
 		}
 	}

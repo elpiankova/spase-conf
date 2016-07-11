@@ -14,4 +14,32 @@
     </div>
 
 </div>
-<!-- /.row -->
+<table class="table-primary table table-striped datatables dataTable no-footer">
+    <thead>
+    <tr>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>По-батькові</th>
+        <th>email</th>
+        <th>Телефон</th>
+        <th>Країна</th>
+        <th>Місто</th>
+        <th>Організація</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach($users as $user)
+        <tr>
+            <th>{{$user->first_name}}</th>
+            <th>{{$user->middle_name}}</th>
+            <th>{{$user->last_name}}</th>
+            <th>{{$user->email}}</th>
+            <th>{{$user->phone}}</th>
+            <th>{{$user->usercountry($user->country_id)}}</th>
+            <th>{{$user->usercity($user->city_id)}}</th>
+            <th>{{$user->userorganization($user->organization_id)}}</th>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
