@@ -7,6 +7,7 @@
  */
 namespace App\Http\Middleware;
 
+use ClassPreloader\Config;
 use Closure;
 use Redirect;
 use Request;
