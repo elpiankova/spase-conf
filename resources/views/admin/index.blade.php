@@ -35,7 +35,9 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <p>Завантажити Word файли</p>
+                    <h3>Word</h3>
+
+                    <p>Завантажити doc файли</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
