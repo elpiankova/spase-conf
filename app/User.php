@@ -68,6 +68,30 @@
         public
         function spaceorganization()
         {
-            return $this->belongsTo(Spaceorganization::class, 'organization_id');
+            if ($spaceorganization = $this->belongsTo(Spaceorganization::class, 'organization_id')){
+                return $spaceorganization;
+            }
+            return 'Немає організації';
+        }
+        public function userorganization($id){
+            if ($organization = Spaceorganization::where('id', $id)->first()) {
+                $name = ucfirst($organization->title_uk);
+                return $name;
+            }
+            return 'Немає організації';
+        }
+        public function usercountry($id){
+            if ($organization = Country::where('id', $id)->first()) {
+                $name = ucfirst($organization->title_uk);
+                return $name;
+            }
+            return 'Немає країни';
+        }
+        public function usercity($id){
+            if ($organization = City::where('id', $id)->first()) {
+                $name = ucfirst($organization->title_uk);
+                return $name;
+            }
+            return 'Немає міста';
         }
     }

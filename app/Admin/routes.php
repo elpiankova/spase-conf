@@ -46,3 +46,6 @@
 }]);
 	Route::get('download', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@request']);
 	Route::post('download', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@requestPost']);
+	
+	
+	Route::get('table/user', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\AdminController@tableUser']);

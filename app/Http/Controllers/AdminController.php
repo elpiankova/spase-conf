@@ -122,4 +122,52 @@
 				print $user->email . '<br>';
 			}
 		}
+
+		public function tableUser()
+		{
+			$users = User::all();
+			$userInfo = null;
+			foreach ($users as $user) {
+				$userInfo .=
+					'<tr>' .
+					'<th>' . $user->first_name . '</th>' .
+					'<th>' . $user->middle_name . '</th>' .
+					'<th>' . $user->last_name . '</th>' .
+					'<th>' . $user->email . '</th>' .
+					'<th>' . $user->country->title_uk . '</th>' .
+					'<th>' . $user->userorganization($user->organization_id) . '</th>' .
+					'</tr>';
+			}
+//			dd();
+			$phpWord = new \PhpOffice\PhpWord\PhpWord();
+			$phpWord->setDefaultFontSize(8);
+			$phpWord->setDefaultFontName('Times New Roman');
+
+			$section = $phpWord->addSection();
+			$table = $section->addTable();
+			$table->addRow();
+			$table->addCell(1000)->addText('Ім\'я');
+			$table->addCell(1000)->addText('Прізвище');
+			$table->addCell(1000)->addText('По-батькові');
+			$table->addCell(1000)->addText('email');
+			$table->addCell(1000)->addText('Телефон');
+			$table->addCell(1000)->addText('Країна');
+			$table->addCell(1000)->addText('Місто');
+			$table->addCell(2000)->addText('Організація');
+			foreach ($users as $user) {
+				$table->addRow();
+				$table->addCell(1000)->addText(($user->first_name));
+				$table->addCell(1000)->addText(($user->middle_name));
+				$table->addCell(1000)->addText(($user->last_name));
+				$table->addCell(1000)->addText(($user->email));
+				$table->addCell(1000)->addText(($user->phone));
+				$table->addCell(1000)->addText($user->usercountry($user->country_id));
+				$table->addCell(1000)->addText($user->usercity($user->city_id));
+				$table->addCell(2000)->addText($user->userorganization($user->organization_id));
+			}
+			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+			$objWriter->save('Site_User.doc');
+
+			return $this->renderContent(view('admin.table.users'));
+		}
 	}
