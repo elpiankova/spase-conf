@@ -8,7 +8,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use League\Flysystem\Config;
+use Illuminate\Support\Facades\Config;
 use Redirect;
 use Request;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
