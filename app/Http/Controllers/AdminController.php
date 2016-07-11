@@ -126,19 +126,8 @@
 		public function tableUser()
 		{
 			$users = User::all();
-			$userInfo = null;
-			foreach ($users as $user) {
-				$userInfo .=
-					'<tr>' .
-					'<th>' . $user->first_name . '</th>' .
-					'<th>' . $user->middle_name . '</th>' .
-					'<th>' . $user->last_name . '</th>' .
-					'<th>' . $user->email . '</th>' .
-					'<th>' . $user->country->title_uk . '</th>' .
-					'<th>' . $user->userorganization($user->organization_id) . '</th>' .
-					'</tr>';
-			}
-//			dd();
+
+			$file_name = 'Site_User.odt';
 			$phpWord = new \PhpOffice\PhpWord\PhpWord();
 			$phpWord->setDefaultFontSize(8);
 			$phpWord->setDefaultFontName('Times New Roman');
@@ -165,8 +154,8 @@
 				$table->addCell(1000)->addText($user->usercity($user->city_id));
 				$table->addCell(2000)->addText($user->userorganization($user->organization_id));
 			}
-			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-			$objWriter->save('Site_User.docs');
+			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'ODText');
+			$objWriter->save($file_name);
 
 			return $this->renderContent(view('admin.table.users'));
 		}
