@@ -26,6 +26,7 @@ class AdminPanel
         {
             if ($user->inRole('admin'))
             {
+                Config::set('app.debug', true);
                 return $next($request);
             } else
                 return Redirect::back();
