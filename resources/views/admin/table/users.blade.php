@@ -9,7 +9,7 @@
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="/Site_User.doc" class="small-box-footer" download>Завантажити <i class="fa fa-download fa-5"></i></a>
+            <a href="/{{$file_name}}" class="small-box-footer" download>Завантажити <i class="fa fa-download fa-5"></i></a>
         </div>
     </div>
 
