@@ -166,7 +166,7 @@
 				$table->addCell(2000)->addText($user->userorganization($user->organization_id));
 			}
 			$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-			$objWriter->save('Site_User.doc');
+			$objWriter->save('Site_User.docs');
 
 			return $this->renderContent(view('admin.table.users'));
 		}
