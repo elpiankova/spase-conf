@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/chosen.css">
-
+    <meta name="google-site-verification" content="6BTceHoPVXGNUzhZNwM0K4WpvinJIr6xMNGwAfvwVG4" />
 </head>
 <body>
 <nav class="navbar navbar-inverse headroom  @if(isset($page)) navbar-fixed-top @endif">
